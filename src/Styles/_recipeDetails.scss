@@ -1,0 +1,46 @@
+.RecipeDetails-container { 
+  h2 {   
+    color: #7c3839f8;
+    font-weight: bold;
+  }
+  h3 {
+    color: #2c201e;
+    font-size: 1.3rem;  
+  }
+
+  .RecipeDetails-iconLinks-container {
+    width: 100%;
+    background-color: rgba(233, 208, 158, 0.2);
+    overflow: auto;
+    .iconLinks {   
+      width: 15%;
+      text-align: center;
+      padding: 10px 0;
+      transition: all 0.3s ease;
+      color: white;
+    }
+  }    
+  .RecipeDetails-haveIngredient-container {
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+ 
+  
+ 
+  
+ 

@@ -1,0 +1,88 @@
+//$primaryColor: #ec7705
+@import "recipeDetails";
+@import "haveIngredient";
+
+/* 
+#ef8535 orange
+#c43c1e red
+#f9f7dc pale yellow
+#cd6301 brown orange
+#ffcb65 yellow orange
+#763c00 brown
+*/
+
+body {   
+    font-family: 'Montserrat', sans-serif;    
+     
+}
+input {   
+    font-family: 'Montserrat', sans-serif;  
+    color: #763c00;         
+    text-align: left; 
+    font-size: 1rem;
+    outline: none;            
+    padding: 5px;              
+    border: 1px solid rgb(135,85,34,0.3);
+    border-radius: 10px;
+    background-color: rgb(252, 248, 248);                 
+}
+::placeholder {
+    color: rgb(155,133,128,0.6);
+    font-size: 16;
+    text-align: center;
+}
+input:hover {
+    background-color: #f7f0e8;            
+}
+.iconButton {        
+    font-size: 1.4rem;          
+    border: none;
+    background-color: transparent;                     
+    outline: none; 
+    padding: 4px;  
+    
+    .trash {
+        color: #c43c1e;  
+    }
+    .trash:hover {
+        color: #ff1616;
+    }
+    .edit {
+        color: #bd9479;
+    }
+    .edit:hover {
+        color: #e4b99d;
+    }
+    .save {
+        color: #4f7285;
+    }
+    .save:hover {
+        color: #618fa8;
+    }
+    .add {
+        color: #764b36;
+        font-size: 1rem;
+    }
+    .add:hover {
+        color: #a36d52;
+    }
+    
+}
+.home {
+    color: rgb(134, 107, 95);
+}
+.home:hover {
+    color: rgb(185, 155, 142);
+}
+.trash {
+    color: #c43c1e;  
+}
+.trash:hover {
+    color: #ff1616;
+}
+.link {
+    text-decoration: none;
+}
+.link:hover {
+    color: red;
+}
