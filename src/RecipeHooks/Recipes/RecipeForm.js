@@ -5,6 +5,7 @@ import UseInput from "./Inputs/UseInput"
 import IngredientForm from "./Ingredients/IngredientForm"
 import Ingredients from "./Ingredients/Ingredients"
 
+
 /* "name" AND "add" ARE PROPS FROM THE "recipeList" COMPONENT - "name" PASSES IN RECIPE TITLE 
 FROM SEARCH INPUT. "add" IS FUNCTION TO PASS USER DATA BACK TO "recipeList" AND UPDATE "recipes" 
 DATA. THE "recipeForm" FUNCTION DISPLAYS INPUTS THAT TAKE IN USER DATA TO CREATE A NEW RECIPE THAT 
@@ -75,7 +76,8 @@ function RecipeForm({name, add, toggleHome}) {
               reset({title: "", directions: ""});
             }              
         }}> 
-            <div>{/* TEXT EIDTOR COMPONENT */}
+           <div>
+            {/* TEXT EIDTOR COMPONENT */}
               <CodeEditor
                 value={directions}
                 language="js"

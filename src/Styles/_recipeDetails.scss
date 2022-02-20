@@ -1,4 +1,5 @@
 .RecipeDetails-container { 
+  white-space: pre-line;
   h2 {   
     color: #7c3839f8;
     font-weight: bold;
@@ -6,6 +7,12 @@
   h3 {
     color: #2c201e;
     font-size: 1.3rem;  
+  }
+  #directions {
+    text-align: justify;
+    width: 500px;
+    margin: auto;
+    color: #2c201e;
   }
 
   .RecipeDetails-iconLinks-container {
@@ -24,6 +31,7 @@
     display: flex;
     justify-content: center;
   }
+ 
 
 
 
