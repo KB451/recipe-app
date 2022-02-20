@@ -17,14 +17,14 @@ function RecipeDetails({ id, title, ingredients, directions, update, removeRecip
   if (isEdit) {
     //DISPLAYS FORM TO EDIT RECIPE
     displayRecipeDetails = (
-      <EditRecipe
-      recipeId={id}
-      name={title}
-      ingredients={ingredients}
-      instructions={directions}
-      editMode={toggleEdit}
-      saveUpdate={update}
-      />
+        <EditRecipe
+        recipeId={id}
+        name={title}
+        ingredients={ingredients}
+        instructions={directions}
+        editMode={toggleEdit}
+        saveUpdate={update}
+        />  
     )
   } else {
     //DISPLAYS DETAILS OF RECIPE

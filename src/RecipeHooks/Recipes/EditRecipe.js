@@ -33,7 +33,7 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
     setNewItems(updatedItem)
   }   
   return (
-    <div className="App"> 
+    <div className="App EditRecipe-container"> 
         {/* INITAL VALUE IS FROM "Recipe" COMPONENT. USER INPUT CHANGES RECIPE TITLE */}   
         <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
         
@@ -63,7 +63,7 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
             editMode(true)
         }}>   
             {/* THE INITAL VALUE IS FROM "Recipe" COMPONENT. TEXT EDITOR COMPONENT UPDATES USER DIRECTIONS */}             
-            <div>
+            <div className="textEditor">
               <CodeEditor
                 value={updatedDirections}
                 language="js"
@@ -71,9 +71,10 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
                 onChange={(evn) => setUpdatedDirections(evn.target.value)}
                 padding={15}
                 style={{
-                  fontSize: 12,
-                  backgroundColor: "#f5f5f5",
-                  fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                  borderRadius: 10,
+                  fontSize: 14,
+                  backgroundColor: 'rgb(252, 248, 248)',
+                  fontFamily: 'Montserrat,sans-serif',
                 }}
               />
             </div>
