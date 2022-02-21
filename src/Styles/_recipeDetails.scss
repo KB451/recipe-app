@@ -1,52 +1,59 @@
+/* STYLES PARENT DIV FOR "EditRecipe" COMPONENT - CONTAINER FOR WHEN IN EDIT MODE */
+.RecipeDetails-EditRecipe-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTAINER FOR WHEN RECIPE DETAILS ARE DISPLAYED */
 .RecipeDetails-container { 
+  /* RECOGNIZES LINE BREAKS INSIDE TEXT EDITOR */
   white-space: pre-line;
+  /* STYLES INGREDIENTS AND DIRECTIONS HEADERS */
   h2 {   
     color: #7c3839f8;
     font-weight: bold;
   }
   h3 {
     color: #2c201e;
-    font-size: 1.3rem;  
-    margin-bottom: 0;
+    font-size: 1.3rem;      
   }
+  /* STYLES TEXT EDITOR AND DATA WITHIN */
   #directions {
-    text-align: justify;
+    text-align: justify;   
+    /* CODE TO KEEP LONG WORDS WITHIN DIV WIDTH */
     inline-size: 155px;
     overflow-wrap: break-word;
+    /* ### */
     width: 500px;
     margin: auto;
     color: #2c201e;
-    margin-top: 15px;
+    margin-top: 15px;    
   }
-
+  /* STYLES CONTAINER WRAPPING ICON LINKS AT TOP OF PAGE */
   .RecipeDetails-iconLinks-container {
     width: 100%;
     background-color: rgba(233, 208, 158, 0.2);
     overflow: auto;
+    /* STYLES INDIVIDUAL LINKS WITHIN CONTAINER */
     .iconLinks {   
       width: 15%;
       text-align: center;
       padding: 10px 0;
       transition: all 0.3s ease;
       color: white;
+      .trash {
+        color: #c43c1e;  
+      }
+      .trash:hover {
+          color: #ff1616;
+      }
     }
   }    
+  /* STYLES PARENT DIV FOR "HaveIngredient" COMPONENT */
   .RecipeDetails-haveIngredient-container {
     display: flex;
     justify-content: center;
   }
- 
-
-
-
-
-
-
-
-
-
-
-
 }
 
 

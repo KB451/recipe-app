@@ -1,0 +1,29 @@
+/* STYLES FORM WHEN INGREDIENT IS IN EDIT MODE */
+.Ingredients-displayEditModeContainer {
+    form {
+        input {
+            margin-right: 5px;
+        }
+        .save {
+            font-size: 1em;
+        }
+    }
+}
+
+/* STYLES INGREDIENTS DISPLAYED */
+.Ingredients-displayContainer {
+    display: flex;
+    justify-content: flex-end;   
+    gap: 5px;
+    margin-right: 185px;  
+    font-size: 1em;
+    color: #2c201e;
+    /* STYLES ICONS FOR EDITING AND DELETING INGREDIENTS */
+    .edit {
+        margin-left: 3px;
+    }
+    .trash {
+        font-size: 0.9em;
+        margin-left: 2px;
+    }
+}

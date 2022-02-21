@@ -14,7 +14,7 @@ function Ingredients({id, quantity, item, remove, edit}) {
   if (isEdit) {
     //DISPLAYS FORM TO EDIT INGREDIENT
     displayIngredients = (
-      <div className="App">
+      <div className="Ingredients-displayEditModeContainer">
         <form onSubmit={(e) => {
           e.preventDefault();
           //CALL TO PROP FUNCTION "edit" AND PASSES EDITED INGREDIENT TO INGREDIENTS ARRAY
@@ -32,7 +32,7 @@ function Ingredients({id, quantity, item, remove, edit}) {
   } else {
     //DISPLAYS INGREDIENTS
     displayIngredients = (
-      <div className="App">       
+      <div className="Ingredients-displayContainer">       
         <span>{quantity} {item}</span>
         {/* CALLS FUNCTION TO TOGGLE STATE SO EDIT FORM DISPLAYS WHEN CLICKED  */}
         <button className="iconButton" onClick={() => setIsEdit()}><i className="fas fa-pencil-alt edit"/></button>             

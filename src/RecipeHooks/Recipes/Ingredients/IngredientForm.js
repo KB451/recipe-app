@@ -6,7 +6,7 @@ function IngredientForm({ addToRecipe }) {
     //INPUT UPDATES USERS DATA FOR QUANTITY AND ITEM 
     const [ingredient, setIngredient, reset] = UseInput({quantity: "", item: ""})
   return (
-    <div className="App">
+    <div className="IngredientForm-container">        
         <form onSubmit={e => {
             e.preventDefault();
             //CALL TO PROP FUNCTION "addToRecipe" THAT ADDS ITEM TO INGREDIENTS ARRAY

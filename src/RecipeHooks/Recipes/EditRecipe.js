@@ -33,15 +33,18 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
     setNewItems(updatedItem)
   }   
   return (
-    <div className="App EditRecipe-container"> 
+    <div className="EditRecipe-container"> 
         {/* INITAL VALUE IS FROM "Recipe" COMPONENT. USER INPUT CHANGES RECIPE TITLE */}   
-        <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
-        
-        <h3>Ingredients:</h3>
+        <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>       
+       
+        <h3 id="ingredients-title">Ingredients:</h3>
+
+        {/* DISPLAYS USER INPUTS TO ADD INGREDIENTS */}
         <IngredientForm 
         // PASSES FUNCTION "addIngredients" TO INGREDIENTS FORM SO USER INPUT CAN BE ADDED TO INGREDIENTS ARRAY ("items")
         addToRecipe={addIngredients}
         />
+           
         {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
         SO USER INPUT CAN UPDATE INGREDIENTS ARRAY ("items") */}
         {items.map(i => (
@@ -52,7 +55,7 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
             item={i.item}
             remove={removeIngredients}
             edit={editIngredients}
-            />
+            />                
         ))}
 
         <h3>Directions:</h3>
@@ -80,7 +83,7 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
                 }}
               />
             </div>
-            <button className="iconButton"><i className="fas fa-save save"/></button>
+            <button>save</button>
         </form>       
     </div>
   );

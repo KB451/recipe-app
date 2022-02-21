@@ -1,15 +1,27 @@
+/* STYLES ELEMENTS WITHIN PARENT CONTAINER */
 .EditRecipe-container {
     h3 {
         color: #2c201e;
         font-size: 1.3rem;  
+        margin-bottom: 15px;           
+    }  
+    #ingredients-title {
+       margin-bottom: 0;
+     } 
+    form {
+        /* CONTAINER FOR "CodeEditor" COMPONENT FROM "react-textarea-code-editor" */
+        .textEditor {
+            color:#2c201e;
+            width: 500px;
+            margin: auto;
+            border: 1px solid rgb(135,85,34,0.3);
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 20px;
+        }
     }
-    .textEditor {
-        color:#2c201e;
-        width: 500px;
-        margin: auto;
-        border: 1px solid rgb(135,85,34,0.3);
-        border-radius: 10px;
-    }
+    
 }
         
   

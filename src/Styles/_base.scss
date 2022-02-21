@@ -1,23 +1,15 @@
-//$primaryColor: #ec7705
 @import "recipeDetails";
 @import "haveIngredient";
 @import "recipeForm";
 @import "editRecipe";
 @import "ingredientForm";
-
-/* 
-#ef8535 orange
-#c43c1e red
-#f9f7dc pale yellow
-#cd6301 brown orange
-#ffcb65 yellow orange
-#763c00 brown
-*/
+@import "ingredients";
 
 body {   
     font-family: 'Montserrat', sans-serif;    
      
 }
+/* STYLING FOR ALL INPUTS THROUGHOUT RECIPE APP */
 input {   
     font-family: 'Montserrat', sans-serif;  
     color: #763c00;         
@@ -27,62 +19,66 @@ input {
     padding: 5px;              
     border: 1px solid rgb(135,85,34,0.3);
     border-radius: 10px;
-    background-color: rgb(252, 248, 248);                 
+    background-color: rgb(252, 248, 248);   
+    /* STYLES INPUT PLACEHOLDERS */  
+    ::placeholder {
+        color: rgb(155,133,128,0.6);
+        font-size: 16;
+        text-align: center;
+    }  
+    /* CHANGES BACKGROUND COLOR OF INPUT WHEN HOVERED OVER */ 
+    input:hover {
+        background-color: #f7f0e8;            
+    }         
 }
-::placeholder {
-    color: rgb(155,133,128,0.6);
-    font-size: 16;
-    text-align: center;
-}
-input:hover {
-    background-color: #f7f0e8;            
-}
+
+/* STYLING FOR ALL ICONS AND BUTTON WRAPPERS FOR ICONS THROUGHOUT RECIPE APP */
 .iconButton {        
     font-size: 1.4rem;          
     border: none;
     background-color: transparent;                     
     outline: none; 
-    padding: 4px;  
-    
+    padding: 4px; 
+    /* ICON TO DELETE ITEMS */    
     .trash {
         color: #c43c1e;  
     }
     .trash:hover {
         color: #ff1616;
     }
+    /* ICON TO EDIT ITEMS */
     .edit {
         color: #bd9479;
     }
     .edit:hover {
         color: #e4b99d;
-    }
+    } 
+    /* ICON TO SAVE ITEMS */
     .save {
         color: #4f7285;
     }
     .save:hover {
         color: #618fa8;
-    }
+    }   
+    /* ICON TO ADD ITEMS */
     .add {
         color: #764b36;
         font-size: 1rem;
     }
     .add:hover {
         color: #a36d52;
-    }
-    
+    }    
 }
+
+/* ICON WRAPPED IN LINK THAT TAKES USER TO HOMEPAGE */
 .home {
     color: rgb(134, 107, 95);
 }
 .home:hover {
     color: rgb(185, 155, 142);
 }
-.trash {
-    color: #c43c1e;  
-}
-.trash:hover {
-    color: #ff1616;
-}
+
+/* STYLES LINKS THROUGHOUT RECIPE APP */
 .link {
     text-decoration: none;
 }

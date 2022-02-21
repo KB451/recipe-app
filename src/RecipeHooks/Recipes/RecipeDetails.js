@@ -17,19 +17,21 @@ function RecipeDetails({ id, title, ingredients, directions, update, removeRecip
   if (isEdit) {
     //DISPLAYS FORM TO EDIT RECIPE
     displayRecipeDetails = (
-        <EditRecipe
-        recipeId={id}
-        name={title}
-        ingredients={ingredients}
-        instructions={directions}
-        editMode={toggleEdit}
-        saveUpdate={update}
-        />  
+        <div className="RecipeDetails-EditRecipe-container">
+          <EditRecipe
+          recipeId={id}
+          name={title}
+          ingredients={ingredients}
+          instructions={directions}
+          editMode={toggleEdit}
+          saveUpdate={update}
+          /> 
+        </div>        
     )
   } else {
     //DISPLAYS DETAILS OF RECIPE
     displayRecipeDetails = (
-      <div className="App RecipeDetails-container">    
+      <div className="RecipeDetails-container">    
           <div className="RecipeDetails-iconLinks-container">      
               {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT */}
               <Link className="iconLinks" to="/"><i className="fas fa-home iconButton home"/></Link>
@@ -55,13 +57,12 @@ function RecipeDetails({ id, title, ingredients, directions, update, removeRecip
           />
         </div>        
     
-      <h3>Directions:</h3>     
-      <p id="directions">{directions.length > 0 ? directions : "no directions have been added"} </p>         
-      {/* CHECKS IF "directions" IS EMPTY */}
+        <h3>Directions:</h3>   
+         {/* CHECKS IF "directions" IS EMPTY */}  
+        <p id="directions">{directions.length > 0 ? directions : "no directions have been added"} </p>         
     </div>
     )
-  }
-  
+  }  
   return displayRecipeDetails;
 }
 
