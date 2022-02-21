@@ -55,6 +55,7 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
             />
         ))}
 
+        <h3>Directions:</h3>
         <form onSubmit={e => {
             e.preventDefault();
             //FUNCTION PASSED AS A PROP FROM "RecipeDetails" THAT UPDATES "recipes" DATA WITH USER CHANGES
@@ -70,9 +71,10 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
                 placeholder="directions"
                 onChange={(evn) => setUpdatedDirections(evn.target.value)}
                 padding={15}
-                style={{
-                  borderRadius: 10,
+                style={{                  
                   fontSize: 14,
+                  color: "#2c201e",
+                  borderRadius: 10,
                   backgroundColor: 'rgb(252, 248, 248)',
                   fontFamily: 'Montserrat,sans-serif',
                 }}

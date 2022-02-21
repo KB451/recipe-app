@@ -11,6 +11,8 @@
   }
   #directions {
     text-align: justify;
+    inline-size: 155px;
+    overflow-wrap: break-word;
     width: 500px;
     margin: auto;
     color: #2c201e;
