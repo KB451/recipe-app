@@ -47,17 +47,39 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
     } else {
         //DISPLAYS ITEM
         displayItem = (
-            <div>  
+            <div className="ShoppingItems-displayItemsContainer">  
                 {/* TRACKS EACH USER CHECKBOX INPUT WHEN CHECKED TRUE OR FALSE */}
-                <input type="checkbox" checked={isChecked[index].acquiredItem} onChange={() => haveItems(isChecked[index].id)}></input>              
+                <div className="col1">
+                <label>
+                <input type="checkbox" checked={isChecked[index].acquiredItem} onChange={() => haveItems(isChecked[index].id)}></input>                      
+                <span></span>
+                </label>
+
                 {/* IF USER ADDS INGREDIENTS FROM A RECIPE, THIS LINK WILL TAKE USER BACK TO THAT RECIPE */}
                 <Link className="link" to={`/recipe/${recipeId}`}>{recipeName}</Link>
-                <span>{quantity} {item}</span>
+           
+
+            
+                <span>{quantity}</span>                
+             
+
+                <span>{item}</span>
+                </div>
+               
+            
+              
+                
+                
                 {/* CALLS FUNCTION THAT TOGGLES TO DISPLAY THE EDIT FORM */}
+                <div className="col2">
                 <button className="iconButton" onClick={setIsEdit}><i className="fas fa-pencil-alt edit"/></button>
                 {/* IF USER CLICKS BUTTON, PROP FUNCTION "remove" IS CALLED AND DELETED AN ITEM FROM LIST */}
                 <button className="iconButton" onClick={() => remove(id)}><i className="fas fa-trash-alt trash"/></button>
-            </div>
+          
+                </div>
+               
+             
+                  </div>
         )
     }
     return displayItem;

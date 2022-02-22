@@ -53,8 +53,8 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     const removeAllItems = () => setItems([])
     
     return (
-        <div className="App">
-            <h3>Shopping List</h3>
+        <div className="ShoppingList-container">
+            <h2>Shopping List</h2>
             {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT WHEN CLICKED */}
             <Link to="/"><i className="fas fa-home iconButton home"/></Link>
 
@@ -65,11 +65,11 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
             />
 
             {/* CALLS FUNCTION THAT REMOVES ALL ITEMS WHEN USER CLICKS */}
-            <button onClick={removeAllItems}>delete all</button>
+            <button id="delete-all-btn" onClick={removeAllItems}>delete all</button>
 
             {/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
             {items.filter(i => i.item.toLowerCase().includes(searchList.toLowerCase())).map((i, index) => (
-                <div key={i.id}>                    
+                <div className="ShoppingList-ShoppingItems-container" key={i.id}>                    
                     <ShoppingItems 
                     key={i.id}
                     id={i.id}

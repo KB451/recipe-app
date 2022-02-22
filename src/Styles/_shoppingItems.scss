@@ -1,0 +1,79 @@
+.ShoppingItems-displayItemsContainer {
+    /* ALIGNS INGREDIENTS TO LEFT */
+    display: grid;
+   
+   
+  
+    grid-gap: 5px;
+    .col1 {
+        grid-column: 1/2;
+        text-align: left;
+             
+    }
+
+    .col2 {
+        display: flex;
+        display: flex-end;
+        grid-column: 2/4;
+       
+       
+    }
+
+   
+   
+    /* CODE TO STYLE CHECKBOXES */ 
+  
+        
+       
+  
+    label > input[type="checkbox"] {
+        display: none;
+    }
+    label > input[type="checkbox"] + *::before {
+        content: "";
+        display: inline-block;        
+        vertical-align: bottom;
+        width: 1em;
+        height: 1em;
+        margin-right: 0.3rem;
+        border-radius: 10%;
+        border-style: solid;
+        border-width: 0.1em;
+        border-color: #866038;
+    }
+    label > input[type="checkbox"]:checked + * {
+        color:#2c201e;
+    }
+    label > input[type="checkbox"]:checked + *::before {
+        content: "✓";
+        color: #19131d; 
+        display: inline-block; 
+        background: rgba(184, 150, 115, 0.212);
+        border-color: rgba(184, 150, 115, 0.692);
+    }  
+    label > input[type="checkbox"] + * {
+        display: inline-block; 
+    }   
+    /* STYLES CHECKBOX, QUANTITY, AND ITEM SPANS */       
+    span {
+        font-size: 1em;
+        color: #2c201e;
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }   
+     /* STYLES ICONS FOR EDITING AND DELETING INGREDIENTS */
+     .edit {
+        margin-left: 3px;
+    }
+    .trash {
+        font-size: 0.9em;
+        margin-left: 2px;
+    }     
+}       
+
+
+
+
+
+
+ 

@@ -12,7 +12,7 @@ function ShoppingListForm({search, add}) {
     // }, [items.items])
 
     return (
-        <div>
+        <div className="ShoppingListForm-container">
             <form onSubmit={e => {
                 e.preventDefault()
                 //FUNCTION FROM PROPS THAT PASSES IN USER DATA TO "ShoppingList" COMPONENT
