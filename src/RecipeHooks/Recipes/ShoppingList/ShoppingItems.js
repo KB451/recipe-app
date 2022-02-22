@@ -5,7 +5,7 @@ import UseInput from "../Inputs/UseInput"
 
 /* PROPS PASSED FROM "ShoppingList" COMPONENT. "ShoppingItems" FUNCTION DISPLAYS EITHER THE QUANTITY AND ITEM NAME OR THE FORM 
 TO EDIT AN ITEM */
-function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quantity, item, remove, edit}) {
+function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quantity, item, haveItem, remove, edit}) {
     //FUNCTION TOGGLES "isEdit" STATE AND TRIGGERS DISPLAYING EITHER ITEMS OR EDIT FORM
     const [isEdit, setIsEdit] = UseToggle()
     //USER INPUT THAT UPDATES QUANTITY AND ITEM
@@ -31,18 +31,20 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
     if (isEdit) {
         //DISPLAYS EDIT FORM
         displayItem = (
-            <form onSubmit={e => {
-                e.preventDefault()
-                //FUNCTION PROP THAT PASSES IN THE CHANGES USER MADE TO QUANTITY AND ITEM
-                edit(id, update)
-                //FUNCTION TOGGLES BACK TO ITEMS
-                setIsEdit(true)
-            }}>
-                {/* INITIAL VALUES ARE FROM "ShoppingList" AND UPDATES CHANGES MADE BY USER */}
-                <input type="text" placeholder="quantity" name="quantity" value={update.quantity} onChange={setUpdate}></input>
-                <input type="text" placeholder="item" name="item" value={update.item} onChange={setUpdate}></input>
-                <button className="iconButton"><i className="fas fa-save save"/></button>
-            </form>
+            <div className="ShoppingItems-displayEditMode-container">
+                <form onSubmit={e => {
+                    e.preventDefault()
+                    //FUNCTION PROP THAT PASSES IN THE CHANGES USER MADE TO QUANTITY AND ITEM
+                    edit(id, update)
+                    //FUNCTION TOGGLES BACK TO ITEMS
+                    setIsEdit(true)
+                }}>
+                    {/* INITIAL VALUES ARE FROM "ShoppingList" AND UPDATES CHANGES MADE BY USER */}
+                    <input type="text" placeholder="quantity" name="quantity" value={update.quantity} onChange={setUpdate}></input>
+                    <input type="text" placeholder="item" name="item" value={update.item} onChange={setUpdate}></input>
+                    <button className="iconButton"><i className="fas fa-save save"/></button>
+                </form>
+            </div>            
         )
     } else {
         //DISPLAYS ITEM
@@ -66,7 +68,7 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
                 </div>
                 
                 <div className="item"> 
-                    <span>{quantity} {item}</span>
+                    <span className={haveItem ? "crossOff" : "hideLine"}>{quantity} {item}</span>
                 </div>            
               
                 <div className="itemBtns">                

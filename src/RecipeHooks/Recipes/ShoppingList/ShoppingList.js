@@ -65,17 +65,19 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
             />
 
             {/* CALLS FUNCTION THAT REMOVES ALL ITEMS WHEN USER CLICKS */}
-            <button id="delete-all-btn" onClick={removeAllItems}>delete all</button>
+            <button className="regBtns" onClick={removeAllItems}>delete all</button>
 
-            {/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
+            {items.length > 0 ? 
+            <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
             {items.filter(i => i.item.toLowerCase().includes(searchList.toLowerCase())).map((i, index) => (
-                <div className="ShoppingList-ShoppingItems-container" key={i.id}>                    
+                <div key={i.id}>                    
                     <ShoppingItems 
                     key={i.id}
                     id={i.id}
                     index={index}
                     items={items}
                     checkItems={checkItems}
+                    haveItem={i.acquiredItem}
                     recipeId={i.recId}                    
                     recipeName={i.recName}
                     quantity={i.quantity}
@@ -84,7 +86,8 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
                     edit={editItems}
                     />
                 </div>              
-            ))}
+            ))}</div> :
+            <p>no items have been added</p>}            
         </div>    
     )
 }

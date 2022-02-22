@@ -85,3 +85,29 @@ input {
 .link {
     text-decoration: none;        
 }
+
+/* STYLES REGULAR DELETE AND SAVE BUTTONS (NOT ICONS) THROUGHOUT RECIPE APP */
+.regBtns {  
+    color:#2c201e;  
+    border: 1px solid rgb(135,85,34,0.3);
+    border-radius: 5px;                    
+    width: 75px;            
+    font-size: 0.9em;
+    padding: 3px;
+    outline: none;
+    background-color: rgba(187, 136, 121, 0.158); 
+    background-image: rgba(182, 95, 69, 0.096); 
+    background-image: -moz-linear-gradient(top, #fff 0%, rgba(218, 93, 55, 0.404) 100%); 
+    background-image: -webkit-linear-gradient(top, #fff 0%, rgba(218, 93, 55, 0.404) 100%); 
+    background-image: linear-gradient(to bottom, #fff 0%, rgba(218, 93, 55, 0.404) 100%); 
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;    
+}
+.regBtns:hover {
+    background-position: -200%;
+    transition: background 300ms ease-in-out;
+}
+

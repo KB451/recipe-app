@@ -1,3 +1,20 @@
+
+/* CONTAINER FOR WHEN ITEM IS IN EDIT MODE */
+.ShoppingItems-displayEditMode-container {
+    /* STYLES INPUTS FOR EDITING */
+    form {
+        input {
+            margin-left: 7px;
+            margin-bottom: 15px;
+        }
+        .save {
+            margin-left: 2px;
+            font-size: 1em;
+        }
+    }
+}
+
+/* CONTAINER FOR WHEN SHOPPING ITEMS ARE DISPLAYED */
 .ShoppingItems-displayItemsContainer {
     /* CENTERS ITEMS */
     display: flex;
@@ -46,7 +63,15 @@
     }  
     label > input[type="checkbox"] + * {
         display: inline-block; 
-    }   
+    }  
+    /* STRIKES A LINE THROUGH ITEM IF USER CHECKS IT OFF */
+    .crossOff {
+        color: rgba(27, 15, 15, 0.308);
+        text-decoration: line-through;
+    } 
+    .hideLine {
+        text-decoration: none;
+    }
     /* STYLES CHECKBOX, QUANTITY, AND ITEM SPANS */       
     span {
         font-size: 1em;
@@ -63,7 +88,7 @@
     .link {
         text-decoration: none;
         font-size: 1.1em;
-        color: #3f4d777a;
+        color: #3f4d7786;
         text-shadow: 
             0 0 1px rgba(102, 112, 121, 0.397);          
     }

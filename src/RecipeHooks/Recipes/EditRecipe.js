@@ -83,7 +83,7 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
                 }}
               />
             </div>
-            <button>save</button>
+            <button className="regBtns">save</button>
         </form>       
     </div>
   );
