@@ -1,31 +1,24 @@
 .ShoppingItems-displayItemsContainer {
-    /* ALIGNS INGREDIENTS TO LEFT */
-    display: grid;
-   
-   
-  
-    grid-gap: 5px;
-    .col1 {
-        grid-column: 1/2;
-        text-align: left;
-             
-    }
-
-    .col2 {
-        display: flex;
-        display: flex-end;
-        grid-column: 2/4;
-       
-       
-    }
-
-   
+    /* CENTERS ITEMS */
+    display: flex;
+    justify-content: center;   
+    /* ALIGNS ITEMS IN COLUMNS */
+        .recipeLink, .checkItem, .item, .itemBtns {        
+            flex-grow: 0;
+            flex-shrink: 0;
+        }    
+        .recipeLink, .item {
+            flex-basis: 160px;
+            text-align: left;
+        }
+        .checkItem {
+            flex-basis: 35px;        
+        }    
+        .itemBtns {
+            flex-basis: 65px;        
+        }  
    
     /* CODE TO STYLE CHECKBOXES */ 
-  
-        
-       
-  
     label > input[type="checkbox"] {
         display: none;
     }
@@ -61,15 +54,28 @@
         margin-top: 5px;
         margin-bottom: 3px;
     }   
-     /* STYLES ICONS FOR EDITING AND DELETING INGREDIENTS */
-     .edit {
-        margin-left: 3px;
-    }
+     /* STYLES DELETE ICON */
     .trash {
         font-size: 0.9em;
-        margin-left: 2px;
-    }     
+        margin-left: 8px;
+    }  
+    /* STYLES RECIPE TITLE LINKS AND MESSAGE WHEN ITEM IS NOT AN INGREDIENT FROM RECIPE */   
+    .link {
+        text-decoration: none;
+        font-size: 1.1em;
+        color: #3f4d777a;
+        text-shadow: 
+            0 0 1px rgba(102, 112, 121, 0.397);          
+    }
+    .link:hover {
+        color: #474e63;
+    }
+    .titleMessage {        
+        color: #2c201e57;
+    }
 }       
+
+
 
 
 

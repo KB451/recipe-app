@@ -47,39 +47,35 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
     } else {
         //DISPLAYS ITEM
         displayItem = (
-            <div className="ShoppingItems-displayItemsContainer">  
-                {/* TRACKS EACH USER CHECKBOX INPUT WHEN CHECKED TRUE OR FALSE */}
-                <div className="col1">
-                <label>
-                <input type="checkbox" checked={isChecked[index].acquiredItem} onChange={() => haveItems(isChecked[index].id)}></input>                      
-                <span></span>
-                </label>
-
-                {/* IF USER ADDS INGREDIENTS FROM A RECIPE, THIS LINK WILL TAKE USER BACK TO THAT RECIPE */}
-                <Link className="link" to={`/recipe/${recipeId}`}>{recipeName}</Link>
-           
-
-            
-                <span>{quantity}</span>                
-             
-
-                <span>{item}</span>
-                </div>
+            <div className="ShoppingItems-displayItemsContainer"> 
+                {/* EITHER DISPLAYS A LINK TO RECIPE OR JUST A DIV */}
+                {recipeName !== undefined ?                
+                <div className="recipeLink"> 
+                    {/* IF USER ADDS INGREDIENTS FROM A RECIPE, THIS LINK WILL TAKE USER BACK TO THAT RECIPE */}
+                    <Link className="link" to={`/recipe/${recipeId}`}>{recipeName}</Link>
+                </div> :
+                <div className="recipeLink titleMessage">non-recipe item</div>
+                }
                
-            
+                {/* TRACKS EACH CHECKBOX INPUT WHEN USER CHECKS TRUE OR FALSE */}              
+                <div className="checkItem">
+                    <label>
+                        <input type="checkbox" checked={isChecked[index].acquiredItem} onChange={() => haveItems(isChecked[index].id)}></input>                      
+                        <span></span>
+                    </label>
+                </div>
+                
+                <div className="item"> 
+                    <span>{quantity} {item}</span>
+                </div>            
               
-                
-                
-                {/* CALLS FUNCTION THAT TOGGLES TO DISPLAY THE EDIT FORM */}
-                <div className="col2">
-                <button className="iconButton" onClick={setIsEdit}><i className="fas fa-pencil-alt edit"/></button>
-                {/* IF USER CLICKS BUTTON, PROP FUNCTION "remove" IS CALLED AND DELETED AN ITEM FROM LIST */}
-                <button className="iconButton" onClick={() => remove(id)}><i className="fas fa-trash-alt trash"/></button>
-          
-                </div>
-               
-             
-                  </div>
+                <div className="itemBtns">                
+                    {/* CALLS FUNCTION THAT TOGGLES TO DISPLAY THE EDIT FORM */}              
+                    <button className="iconButton" onClick={setIsEdit}><i className="fas fa-pencil-alt edit"/></button>
+                    {/* IF USER CLICKS BUTTON, PROP FUNCTION "remove" IS CALLED AND DELETED AN ITEM FROM LIST */}
+                    <button className="iconButton" onClick={() => remove(id)}><i className="fas fa-trash-alt trash"/></button>          
+                </div>             
+            </div>
         )
     }
     return displayItem;

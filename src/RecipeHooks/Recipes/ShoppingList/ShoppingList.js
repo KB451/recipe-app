@@ -53,7 +53,7 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     const removeAllItems = () => setItems([])
     
     return (
-        <div className="ShoppingList-container">
+        <div className="App ShoppingList-container">
             <h2>Shopping List</h2>
             {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT WHEN CLICKED */}
             <Link to="/"><i className="fas fa-home iconButton home"/></Link>
