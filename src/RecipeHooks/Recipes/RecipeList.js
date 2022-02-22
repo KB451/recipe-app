@@ -40,15 +40,15 @@ function RecipeList({recipes, setRecipes}) {
     } else {
         //DISPLAYS THE INPUT TO SEARCH OR ADD RECIPES, PLUS A LIST OF THE RECIPE TITLES
         displayRecipeList = (            
-            <div className="App">                       
-                <div>
-                    <h3>Favorite Recipes</h3>
+            <div className="App RecipeList-container">       
+                <h2>Favorite Recipes</h2>
+                {/* LINK TAKES USER TO "shoppingList" COMPONENT WHEN CLICKED */}
+                <Link className="link shoppingLink" to="/shopping-list">shopping list</Link>                
+                <div className="searchItems">                    
                     {/* USER INPUT TO SEARCH OR ADD A RECIPE TITLE */}
                     <input type="text" placeholder="search or add recipe" name="title" value={title} onChange={setTitle}></input>
                     {/* BUTTON TOGGLES BETWEEN DISPLAYING FORM AND USER INPUT / LIST OF RECIPE TITLES */}
-                    <button className="iconButton" onClick={() => {toggleForm(isForm)}}><i className="fas fa-plus add"/></button>
-                    {/* LINK TAKES USER TO "shoppingList" COMPONENT WHEN CLICKED */}
-                    <Link className="link" to="/shopping-list">shopping list</Link>
+                    <button className="iconButton" onClick={() => {toggleForm(isForm)}}><i className="fas fa-plus add"/></button>                    
                 </div>
                 
                 {/* IF "recipes" ARRAY HAS NOTHING IN IT, MESSAGE DISPLAYS */}
@@ -58,7 +58,7 @@ function RecipeList({recipes, setRecipes}) {
                 {recipes.filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
                 <div key={r.id}>
                     {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
-                    <Link className="link" to={`/recipe/${r.id}`}>
+                    <Link className="link titleLink" to={`/recipe/${r.id}`}>
                         <h3>{r.title}</h3>                        
                    </Link> 
                    {/* CALLS FUNCTION TO DELETE A RECIPE WHEN CLICKED */}

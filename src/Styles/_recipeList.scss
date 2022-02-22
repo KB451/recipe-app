@@ -1,0 +1,19 @@
+.RecipeList-container {
+    h2 {
+        margin-bottom: 10px;
+    }
+    .shoppingLink {
+        font-size: 1.1rem;
+        color: rgb(109,181,218,0.5);
+        text-shadow: 
+            0 0 1px rgb(150,181,197,0.9);         
+    }
+    .shoppingLink:hover {
+        color: #457c97;
+    }
+    .searchItems {
+        margin-top: 35px;
+    }
+}
+
+
