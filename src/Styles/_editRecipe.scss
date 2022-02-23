@@ -18,10 +18,20 @@
             border-radius: 10px;
         }
         .regBtns {
-            margin-top: 20px;
+            margin-top: 15px;
         }
     }
-    
+    /* STYLES LEFT ARROW ICON */
+    .backButton-container {
+        margin-bottom: 10px;
+        .arrow {
+            color: #764b36;
+            font-size: 1.1rem;
+        }
+        .arrow:hover {
+            color: #ca8c6c;
+        }
+    }    
 }
         
   

@@ -56,7 +56,7 @@ function RecipeList({recipes, setRecipes}) {
                 
                 {/* FILTERS "recipes" AS USER TYPES, TO DISPLAY A RECIPE TITLE THAT MIGHT MATCH SEARCH */}
                 {recipes.filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
-                <div key={r.id}>
+                <div className="recipeTitle-container" key={r.id}>
                     {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
                     <Link className="link titleLink" to={`/recipe/${r.id}`}>
                         <h3>{r.title}</h3>                        

@@ -9,7 +9,7 @@ import '../Styles/_app.scss';
 
 function App() {
 
-  /* TO REPLACE THE BELOW CODE:
+  /* REPLACED THE BELOW CODE:
   
   //USE LOCAL STORAGE TO GET RECIPES AND SHOPPING LIST ITEMS
   const initialRecipes = JSON.parse(window.localStorage.getItem("recipes") || "[]")
@@ -29,7 +29,9 @@ function App() {
 
   ################################################################# */
 
-  /* "UseLocalStorage.js" FILE HAS TWO FUNCTIONS - ONE RETRIEVES DATA FROM LOCAL STORAGE
+  /* WITH THIS:
+  
+  "UseLocalStorage.js" FILE HAS TWO FUNCTIONS - ONE RETRIEVES DATA FROM LOCAL STORAGE
   AND THE OTHER SAVES DATA */  
   const [recipes, setRecipes] = UseLocalStorage("recipes", [])
   const [items, setItems] = UseLocalStorage("items", [])  

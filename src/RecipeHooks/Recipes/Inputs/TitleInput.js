@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 //FUNCTION THAT HANDLES USER INPUT FOR RECIPE TITLE
 function TitleInput(item) {

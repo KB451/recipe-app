@@ -40,7 +40,7 @@ function RecipeForm({name, add, toggleHome}) {
   return (
     <div className="App RecipeForm-container">    
         <div className="homeLink-container">
-          {/* LINK TAKES USER BACK TO HOMEPAGE */}
+          {/* BUTTON CALLS "toggleHome" FUNCTION TO GO BACK TO DISPLAYING LIST OF RECIPE TITLES */}
           <button className="iconButton" onClick={() => toggleHome()}><i className="fas fa-home home"/></button>
         </div>
         
@@ -88,7 +88,7 @@ function RecipeForm({name, add, toggleHome}) {
         }}> 
            <h3 id="directions-header">Directions:</h3>
            <div className="textEditor">
-            {/* TEXT EIDTOR COMPONENT */}
+            {/* TEXT EIDTOR COMPONENT - REPLACES TEXTAREA ELEMENT. ALLOWS USER TO TYPE IN RECIPE DIRECTIONS */}
               <CodeEditor
                 value={directions}
                 language="js"
@@ -112,5 +112,5 @@ function RecipeForm({name, add, toggleHome}) {
 
 export default RecipeForm;
 
-// <textarea type="text" placeholder="directions" name="directions" value={recipe.directions} onChange={setRecipe}></textarea>
+
            

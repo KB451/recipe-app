@@ -2,6 +2,7 @@
     h2 {
         margin-bottom: 10px;
     }
+    /* STYLES LINK THAT TAKES USER TO SHOPPINGLIST COMPONENT */
     .shoppingLink {
         font-size: 1.1rem;
         color: rgb(109,181,218,0.5);
@@ -11,8 +12,39 @@
     .shoppingLink:hover {
         color: #457c97;
     }
+    /* STYLES SEARCH INPUT */
     .searchItems {
         margin-top: 35px;
+        margin-bottom: 30px;
+        input {
+            margin-right: 5px;
+        }
+    }
+    /* STYLES RECIPE TITLE LINK THAT TAKES USER TO RECIPE DETAILS */
+    .recipeTitle-container {  
+        display: flex;     
+        justify-content: center;
+        .titleLink {
+            color: #b2794ae3;
+            flex-grow: 0;
+            flex-shrink: 0;
+            text-align: left;
+            flex-basis: 300px;   
+            h3 {
+                margin-bottom: 5px;
+            }                  
+        }
+        .titleLink:hover {
+            color: #e7ab7af3;
+        }
+        /* DELETE ICON */
+        .trash {
+            font-size: 0.9em;
+            flex-grow: 0;
+            flex-shrink: 0;
+            text-align: right;
+            flex-basis: 20px;
+        }
     }
 }
 

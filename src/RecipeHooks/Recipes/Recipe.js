@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import RecipeDetails from "./RecipeDetails"
 
 /* PROPS PASSED FROM "App.js" - "details" AND "updateDetails" UPDATES "recipes" DATA. "shoppingItems" AND 

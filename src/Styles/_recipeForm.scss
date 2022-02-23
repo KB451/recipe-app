@@ -7,6 +7,7 @@
       margin-top: 15px;
       margin-bottom: 40px;  
     }
+    /* STYLES LINK THAT TAKES USER TO HOMEPAGE */
     .homeLink-container {
         width: 100%;
         background-color: rgba(233, 208, 158, 0.2);
@@ -21,6 +22,7 @@
            margin-bottom: 5px;
        }
     }
+    /* HANDLES CENTERING AND SPACING THE LIST OF INGREDIENTS */
     .ingredients-container {
         display: flex;
         flex-direction: column;      
@@ -43,6 +45,7 @@
     #directions-header {
         margin-top: 40px;
     }
+    /* STYLES CODE EDITOR COMPONENT */
     .textEditor {
         color:#2c201e;
         width: 500px;

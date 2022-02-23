@@ -34,7 +34,11 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
   }   
   return (
     <div className="EditRecipe-container"> 
-        {/* INITAL VALUE IS FROM "Recipe" COMPONENT. USER INPUT CHANGES RECIPE TITLE */}   
+        {/* BUTTON CALLS "editMode" FUNCTION TO GO BACK TO DISPLAYING RECIPE DETAILS */}
+        <div className="backButton-container">
+          <button className="iconButton" onClick={()=> editMode(true)}><i class="fas fa-arrow-left arrow"></i></button>  
+        </div>
+         {/* INITAL VALUE IS FROM "Recipe" COMPONENT. USER INPUT CHANGES RECIPE TITLE */}   
         <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>       
        
         <h3 id="ingredients-title">Ingredients:</h3>
@@ -84,7 +88,7 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
               />
             </div>
             <button className="regBtns">save</button>
-        </form>       
+        </form>         
     </div>
   );
 }
