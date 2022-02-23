@@ -1,0 +1,56 @@
+.RecipeForm-container {
+    h3 {
+        color: #2c201e;
+        font-size: 1.2em; 
+    }
+    input {
+      margin-top: 15px;
+      margin-bottom: 40px;  
+    }
+    .homeLink-container {
+        width: 100%;
+        background-color: rgba(233, 208, 158, 0.2);
+        overflow: auto;
+    }
+    .home {  
+        padding: 5px;      
+        margin-bottom: 10px;
+    }
+    .ingredientForm-container {
+       input {
+           margin-bottom: 5px;
+       }
+    }
+    .ingredients-container {
+        display: flex;
+        flex-direction: column;      
+        .Ingredients-displayContainer {
+            justify-content: center;
+            margin: auto;
+        }
+        span {
+            flex-grow: 0;
+            flex-shrink: 0;
+            text-align: left;
+            flex-basis: 300px;
+        }
+        button {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 25px;
+        }
+    }
+    #directions-header {
+        margin-top: 40px;
+    }
+    .textEditor {
+        color:#2c201e;
+        width: 500px;
+        margin: auto;
+        border: 1px solid rgb(135,85,34,0.3);
+        border-radius: 10px;
+    }
+    .regBtns {
+        margin-top: 15px;
+    }
+}

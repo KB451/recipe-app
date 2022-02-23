@@ -38,27 +38,37 @@ function RecipeForm({name, add, toggleHome}) {
     setNewItems(updatedItem)
   }    
   return (
-    <div className="App">    
+    <div className="App RecipeForm-container">    
+        <div className="homeLink-container">
+          {/* LINK TAKES USER BACK TO HOMEPAGE */}
+          <button className="iconButton" onClick={() => toggleHome()}><i className="fas fa-home home"/></button>
+        </div>
+        
         {/* INITAL VALUE SET TO USER INPUT FROM "recipeList" COMPONENT. USER CAN CHANGE OR ADD RECIPE TITLE */}
         <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
 
-        <IngredientForm 
-        // PASSES FUNCTION "addIngredients" TO INGREDIENTS FORM SO USER INPUT CAN BE ADDED TO INGREDIENTS ARRAY ("items")
-        addToRecipe={addIngredients}
-        />
-
-        {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
-        SO USER INPUT CAN UPDATE INGREDIENTS ARRAY ("items") */}
-        {items.map(i => (
-            <Ingredients
-            key={i.id}
-            id={i.id}
-            quantity={i.quantity}
-            item={i.item}
-            remove={removeIngredients}
-            edit={editIngredients}
-            />
-        ))}
+        <h3>Ingredients:</h3>
+        <div className="ingredientForm-container">
+          <IngredientForm 
+          // PASSES FUNCTION "addIngredients" TO INGREDIENTS FORM SO USER INPUT CAN BE ADDED TO INGREDIENTS ARRAY ("items")
+          addToRecipe={addIngredients}
+          />
+        </div>  
+        
+       <div className="ingredients-container">
+          {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
+          SO USER INPUT CAN UPDATE INGREDIENTS ARRAY ("items") */}
+            {items.map(i => (
+              <Ingredients
+              key={i.id}
+              id={i.id}
+              quantity={i.quantity}
+              item={i.item}
+              remove={removeIngredients}
+              edit={editIngredients}
+              />
+            ))}  
+        </div>                 
 
         <form onSubmit={e => {
             e.preventDefault();
@@ -76,7 +86,8 @@ function RecipeForm({name, add, toggleHome}) {
               reset({title: "", directions: ""});
             }              
         }}> 
-           <div>
+           <h3 id="directions-header">Directions:</h3>
+           <div className="textEditor">
             {/* TEXT EIDTOR COMPONENT */}
               <CodeEditor
                 value={directions}
@@ -85,16 +96,17 @@ function RecipeForm({name, add, toggleHome}) {
                 onChange={(evn) => setDirections(evn.target.value)}
                 padding={15}
                 style={{
-                  fontSize: 12,
-                  backgroundColor: "#f5f5f5",
-                  fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-                }}
+                  fontSize: 14,
+                  color: "#2c201e",
+                  borderRadius: 10,
+                  backgroundColor: 'rgb(252, 248, 248)',
+                  fontFamily: 'Montserrat,sans-serif'
+                  }}
               />
             </div>
-            <button className="iconButton"><i className="fas fa-save save"/></button>
+            <button className="regBtns">save</button>
         </form>        
-        <button className="iconButton" onClick={() => toggleHome()}><i className="fas fa-home home"/></button>
-    </div>
+        </div>
   );
 }
 
