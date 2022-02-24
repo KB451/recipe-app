@@ -67,7 +67,7 @@ function HaveIngredient({ recipeId, recipeName, ingredients, haveIngredients, sh
       <div className="HaveIngredient-message-container">
         <h3>Ingredients:</h3>
         {ingredients.length <= 0 ?
-        <p>no ingredients have been added</p> :
+        <p id="no-ingredients-message">no ingredients have been added</p> :
         <div>{length <= 0 ? <p>You have every ingredient to make this recipe</p> : <p>Number of ingredients to buy: <span className="numIng">{length}</span></p>}</div>}  
         <Link className="link" to="/shopping-list" onClick={() => addToShoppingList()}>view shopping list</Link> 
       </div>

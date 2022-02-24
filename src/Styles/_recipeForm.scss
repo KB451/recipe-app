@@ -1,17 +1,22 @@
-.RecipeForm-container {
+.RecipeForm-container {    
+    width: 100vw;
+    height: 100vh;  
+    background: url(../RecipeHooks/Recipes/Images/blank-bg.png) no-repeat center;
+    background-size: cover; 
     h3 {
         color: #2c201e;
         font-size: 1.2em; 
     }
     input {
       margin-top: 15px;
-      margin-bottom: 40px;  
+      margin-bottom: 20px;  
     }
     /* STYLES LINK THAT TAKES USER TO HOMEPAGE */
     .homeLink-container {
         width: 100%;
-        background-color: rgba(233, 208, 158, 0.2);
+        background-color: rgba(189, 168, 155, 0.055);
         overflow: auto;
+        padding-top: 30px;
     }
     .home {  
         padding: 5px;      
@@ -42,18 +47,21 @@
             flex-basis: 25px;
         }
     }
-    #directions-header {
-        margin-top: 40px;
-    }
-    /* STYLES CODE EDITOR COMPONENT */
-    .textEditor {
-        color:#2c201e;
-        width: 500px;
-        margin: auto;
-        border: 1px solid rgb(135,85,34,0.3);
-        border-radius: 10px;
-    }
-    .regBtns {
-        margin-top: 15px;
-    }
+    form {
+        margin-bottom: 30px;
+        #directions-header {
+            margin-top: 30px;
+        }
+        /* STYLES CODE EDITOR COMPONENT */
+        .textEditor {
+            color:#2c201e;
+            width: 500px;
+            margin: auto;
+            border: 1px solid rgb(135,85,34,0.3);
+            border-radius: 10px;
+        }
+        .regBtns {
+            margin-top: 15px;
+        }
+    }   
 }

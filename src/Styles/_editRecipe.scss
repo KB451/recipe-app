@@ -1,26 +1,16 @@
 /* STYLES ELEMENTS WITHIN PARENT CONTAINER */
 .EditRecipe-container {
+    padding-top: 30px;
+    width: 100vw;
+    height: 100vh;  
+    background: url(../RecipeHooks/Recipes/Images/blank-bg.png) no-repeat center;
+    background-size: cover; 
+    display: inline-table; 
     h3 {
         color: #2c201e;
         font-size: 1.3rem;  
         margin-bottom: 15px;           
     }  
-    #ingredients-title {        
-       margin-bottom: 10px;;
-     } 
-    form {
-        /* CONTAINER FOR "CodeEditor" COMPONENT FROM "react-textarea-code-editor" */
-        .textEditor {
-            color:#2c201e;
-            width: 500px;
-            margin: auto;
-            border: 1px solid rgb(135,85,34,0.3);
-            border-radius: 10px;
-        }
-        .regBtns {
-            margin-top: 15px;
-        }
-    }
     /* STYLES LEFT ARROW ICON */
     .titleInput-container {
         margin-bottom: 40px;
@@ -32,7 +22,43 @@
         .arrow:hover {
             color: #ca8c6c;
         }
-    }       
+    } 
+    #ingredients-title {        
+       margin-bottom: 10px;;
+     } 
+    .ingredientsList-container {
+        display: flex;
+        flex-direction: column;      
+        .Ingredients-displayContainer {
+            justify-content: center;
+            margin: auto;
+        }
+        span {
+            flex-grow: 0;
+            flex-shrink: 0;
+            text-align: left;
+            flex-basis: 300px;
+        }
+        button {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 25px;
+        }
+    }
+    form {
+        padding-bottom: 30px;
+        /* CONTAINER FOR "CodeEditor" COMPONENT FROM "react-textarea-code-editor" */
+        .textEditor {
+            color:#2c201e;
+            width: 500px;
+            margin: auto;
+            border: 1px solid rgb(135,85,34,0.3);
+            border-radius: 10px;
+        }
+        .regBtns {
+            margin-top: 15px;
+        }
+    }      
 }
         
   

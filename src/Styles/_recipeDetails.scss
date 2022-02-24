@@ -5,12 +5,13 @@
 }
 
 /* CONTAINER FOR WHEN RECIPE DETAILS ARE DISPLAYED */
-.RecipeDetails-container { 
-    padding-top: 30px;
+.RecipeDetails-container {     
     width: 100vw;
     height: 100vh;  
     background: url(../RecipeHooks/Recipes/Images/blank-bg.png) no-repeat center;
+    /* IMAGE WAS CUTTING OFF AT BOTTOM - BELOW CODE MAKES IMG FILL ENTIRE SCREEN */
     background-size: cover; 
+    display: inline-table; 
   /* RECOGNIZES LINE BREAKS INSIDE TEXT EDITOR */
   white-space: pre-line;
   /* STYLES INGREDIENTS AND DIRECTIONS HEADERS */
@@ -35,11 +36,19 @@
     color: #2c201e;
     margin-top: 15px;    
   }
+  #no-directions-message {
+    text-align: center;
+    color: #2c201e75; 
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
   /* STYLES CONTAINER WRAPPING ICON LINKS AT TOP OF PAGE */
   .RecipeDetails-iconLinks-container {
     width: 100%;
-    background-color: rgba(233, 208, 158, 0.2);
+    background-color: rgba(189, 168, 155, 0.055);
     overflow: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
     /* STYLES INDIVIDUAL LINKS WITHIN CONTAINER */
     .iconLinks {   
       width: 15%;

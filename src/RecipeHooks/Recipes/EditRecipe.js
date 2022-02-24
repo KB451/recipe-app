@@ -50,9 +50,10 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
         addToRecipe={addIngredients}
         />
            
-        {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
-        SO USER INPUT CAN UPDATE INGREDIENTS ARRAY ("items") */}
-        {items.map(i => (
+        <div className="ingredientsList-container">
+          {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
+          SO USER INPUT CAN UPDATE INGREDIENTS ARRAY ("items") */}
+          {items.map(i => (
             <Ingredients
             key={i.id}
             id={i.id}
@@ -61,8 +62,9 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
             remove={removeIngredients}
             edit={editIngredients}
             />                
-        ))}
-
+          ))}
+        </div>
+        
         <h3>Directions:</h3>
         <form onSubmit={e => {
             e.preventDefault();

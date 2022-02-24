@@ -25,7 +25,12 @@
                 font-weight: bold;
                 text-shadow: 
                     0px 0.3px #5f300cde;
-            }
+            }           
+        }
+        #no-ingredients-message {
+            color: #2c201e75; 
+            font-size: 1.1rem;
+            font-weight: bold;
         }
         /* LINK TO "ShoppingList" COMPONENT */
         .link {
