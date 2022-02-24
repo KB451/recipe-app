@@ -39,8 +39,8 @@ function RecipeList({recipes, setRecipes}) {
         )
     } else {
         //DISPLAYS THE INPUT TO SEARCH OR ADD RECIPES, PLUS A LIST OF THE RECIPE TITLES
-        displayRecipeList = (            
-            <div className="App RecipeList-container">       
+        displayRecipeList = (          
+            <div className="App RecipeList-container">     
                 <h2>Favorite Recipes</h2>
                 {/* LINK TAKES USER TO "shoppingList" COMPONENT WHEN CLICKED */}
                 <Link className="link shoppingLink" to="/shopping-list">shopping list</Link>                

@@ -7,9 +7,9 @@ function ShoppingListForm({search, add}) {
     const [items, setItems, reset] = UseInput({quantity: "", item: ""})
 
     //PASSES USER DATA TO "ShoppingList" COMPONENT AS IT CHANGES SO A MATCHING ITEM CAN BE FILTERED AS USER TYPES
-    // useEffect(() => {
-    //     search(items.item)
-    // }, [items.items])
+    useEffect(() => {
+        search(items.item)
+    }, [items])
 
     return (
         <div className="ShoppingListForm-container">

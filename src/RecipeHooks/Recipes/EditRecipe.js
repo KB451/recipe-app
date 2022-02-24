@@ -34,13 +34,14 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
   }   
   return (
     <div className="EditRecipe-container"> 
+      <div className="titleInput-container">
         {/* BUTTON CALLS "editMode" FUNCTION TO GO BACK TO DISPLAYING RECIPE DETAILS */}
-        <div className="backButton-container">
-          <button className="iconButton" onClick={()=> editMode(true)}><i class="fas fa-arrow-left arrow"></i></button>  
-        </div>
-         {/* INITAL VALUE IS FROM "Recipe" COMPONENT. USER INPUT CHANGES RECIPE TITLE */}   
+        <button className="iconButton" onClick={()=> editMode(true)}><i className="fas fa-arrow-left arrow"></i></button>  
+      
+        {/* INITAL VALUE IS FROM "Recipe" COMPONENT. USER INPUT CHANGES RECIPE TITLE */}   
         <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>       
-       
+      </div>
+        
         <h3 id="ingredients-title">Ingredients:</h3>
 
         {/* DISPLAYS USER INPUTS TO ADD INGREDIENTS */}

@@ -5,8 +5,8 @@
         font-size: 1.3rem;  
         margin-bottom: 15px;           
     }  
-    #ingredients-title {
-       margin-bottom: 0;
+    #ingredients-title {        
+       margin-bottom: 10px;;
      } 
     form {
         /* CONTAINER FOR "CodeEditor" COMPONENT FROM "react-textarea-code-editor" */
@@ -22,16 +22,17 @@
         }
     }
     /* STYLES LEFT ARROW ICON */
-    .backButton-container {
-        margin-bottom: 10px;
+    .titleInput-container {
+        margin-bottom: 40px;
         .arrow {
+            margin-right: 15px;
             color: #764b36;
             font-size: 1.1rem;
         }
         .arrow:hover {
             color: #ca8c6c;
         }
-    }    
+    }       
 }
         
   

@@ -1,7 +1,18 @@
-.RecipeList-container {
+.RecipeList-container {      
+    // padding-top: 30px;
+    // width: 100vw;
+    // height: 100vh;  
+    // background: url(../RecipeHooks/Recipes/Images/recipeList.png) no-repeat center;
+    // background-size: cover; 
     h2 {
         margin-bottom: 10px;
     }
+    p {
+        color: #2c201e75; 
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    
     /* STYLES LINK THAT TAKES USER TO SHOPPINGLIST COMPONENT */
     .shoppingLink {
         font-size: 1.1rem;
