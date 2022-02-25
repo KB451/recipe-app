@@ -1,11 +1,28 @@
 .ShoppingList-container {
-    padding-top: 30px;
+    position: relative;
+}
+.ShoppingList-container:before {
+    background-color: #faf5f0;
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;     
     width: 100vw;
-    height: 100vh;  
-    background: url(../RecipeHooks/Recipes/Images/shopping.png) no-repeat center;
-    background-size: cover;  
-    h2 {
-        margin-bottom: 10px;
+    height: 100vh; 
+    opacity: 0.3;
+    background: url(../RecipeHooks/Recipes/Images/jess-bailey-kfDHPpCQEBQ-unsplash.jpg) no-repeat center;
+    background-size: cover; 
+    background-position: 50% 0;     
+}
+.ShoppingList-content {
+    position: relative;
+    padding-top: 30px;
+    h1 {
+        font-family: 'Fuzzy Bubbles', cursive; 
+        color: #663d28e0;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
     }
     p {
         color: #2c201e75; 

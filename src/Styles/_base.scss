@@ -12,6 +12,7 @@
 body, html {   
     font-family: 'Montserrat', sans-serif;      
     margin: 0;  
+    padding: 0;
      
 }
 /* STYLING FOR ALL INPUTS THROUGHOUT RECIPE APP */
@@ -34,7 +35,7 @@ input {
 }  
 /* CHANGES BACKGROUND COLOR OF INPUT WHEN HOVERED OVER */ 
 input:hover {
-    background-color: #f7f0e8;            
+    background-color: rgba(250, 245, 245, 0.959);            
 } 
 
 /* STYLING FOR ALL ICONS AND BUTTON WRAPPERS FOR ICONS THROUGHOUT RECIPE APP */
@@ -46,7 +47,7 @@ input:hover {
     padding: 4px; 
     /* ICON TO DELETE ITEMS */    
     .trash {
-        color: #c43c1e;  
+        color: #c04d33f1;  
     }
     .trash:hover {
         color: #ff1616;

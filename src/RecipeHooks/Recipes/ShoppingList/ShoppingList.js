@@ -54,40 +54,42 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     
     return (
         <div className="App ShoppingList-container">
-            <h2>Shopping List</h2>
-            {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT WHEN CLICKED */}
-            <Link to="/"><i className="fas fa-home iconButton home"/></Link>
+            <div className="ShoppingList-content">
+                <h1>Shopping List</h1>
+                {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT WHEN CLICKED */}
+                <Link to="/"><i className="fas fa-home iconButton home"/></Link>
 
-            <ShoppingListForm 
-            //FUNCTIONS PASSED TO "ShoppingListForm" TO ADD NEW ITEMS TO SHOPPING LIST AND UPDATE STATE OF ITEMS NAME
-            search={setSearchList}
-            add={addItems}
-            />
+                <ShoppingListForm 
+                //FUNCTIONS PASSED TO "ShoppingListForm" TO ADD NEW ITEMS TO SHOPPING LIST AND UPDATE STATE OF ITEMS NAME
+                search={setSearchList}
+                add={addItems}
+                />
 
-            {/* CALLS FUNCTION THAT REMOVES ALL ITEMS WHEN USER CLICKS */}
-            <button className="regBtns" onClick={removeAllItems}>delete all</button>
+                {/* CALLS FUNCTION THAT REMOVES ALL ITEMS WHEN USER CLICKS */}
+                <button className="regBtns" onClick={removeAllItems}>delete all</button>
 
-            {items.length > 0 ? 
-            <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
-            {items.filter(i => i.item.toLowerCase().includes(searchList.toLowerCase())).map((i, index) => (
-                <div key={i.id}>                    
-                    <ShoppingItems 
-                    key={i.id}
-                    id={i.id}
-                    index={index}
-                    items={items}
-                    checkItems={checkItems}
-                    haveItem={i.acquiredItem}
-                    recipeId={i.recId}                    
-                    recipeName={i.recName}
-                    quantity={i.quantity}
-                    item={i.item}
-                    remove={removeItems}
-                    edit={editItems}
-                    />
-                </div>              
-            ))}</div> :
-            <p>no items have been added</p>}            
+                {items.length > 0 ? 
+                <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
+                {items.filter(i => i.item.toLowerCase().includes(searchList.toLowerCase())).map((i, index) => (
+                    <div key={i.id}>                    
+                        <ShoppingItems 
+                        key={i.id}
+                        id={i.id}
+                        index={index}
+                        items={items}
+                        checkItems={checkItems}
+                        haveItem={i.acquiredItem}
+                        recipeId={i.recId}                    
+                        recipeName={i.recName}
+                        quantity={i.quantity}
+                        item={i.item}
+                        remove={removeItems}
+                        edit={editItems}
+                        />
+                    </div>              
+                ))}</div> :
+                <p>no items have been added</p>}            
+            </div>            
         </div>    
     )
 }

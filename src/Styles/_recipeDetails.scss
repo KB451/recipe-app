@@ -8,12 +8,10 @@
 .RecipeDetails-container {     
     width: 100vw;
     height: 100vh;  
-    background: url(../RecipeHooks/Recipes/Images/blank-bg.png) no-repeat center;
-    /* IMAGE WAS CUTTING OFF AT BOTTOM - BELOW CODE MAKES IMG FILL ENTIRE SCREEN */
-    background-size: cover; 
-    display: inline-table; 
-  /* RECOGNIZES LINE BREAKS INSIDE TEXT EDITOR */
-  white-space: pre-line;
+    background-color: #f1f1f1;
+    display: inline-table;    
+    /* RECOGNIZES LINE BREAKS INSIDE TEXT EDITOR */
+    white-space: pre-line;
   /* STYLES INGREDIENTS AND DIRECTIONS HEADERS */
   h2 {   
     color: #7c3839f8;
@@ -31,7 +29,7 @@
     inline-size: 155px;
     overflow-wrap: break-word;
     /* ### */
-    width: 500px;
+    width: 50%;
     margin: auto;
     color: #2c201e;
     margin-top: 15px;    

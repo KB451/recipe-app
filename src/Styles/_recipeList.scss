@@ -1,27 +1,49 @@
-.RecipeList-container {      
-    padding-top: 30px;
+/* CREATES TRANSPARENT BACKGROUND IMAGE. CREATE A PARENT ELEMENT AND MAKE POSITION RELATIVE */
+.RecipeList-container {
+    position: relative;
+}
+/* THEN SET THAT PARENT ELEMENT TO :BEFORE */
+.RecipeList-container:before { 
+    background-color: #faf5f0;
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;     
     width: 100vw;
-    height: 100vh;  
-    background: url(../RecipeHooks/Recipes/Images/recipeList.png) no-repeat center;
+    height: 100vh; 
+    opacity: 0.3;
+    background: url(../RecipeHooks/Recipes/Images/louis-hansel-FaDU4QH3D_4-unsplash.jpg) no-repeat center;
     background-size: cover; 
-    h2 {
+    background-position: 50% 0;    
+}  
+/* THEN CREATE A DIV INSIDE THE PARENT CONTAINER AND WRAP IT AROUND ALL THE CONTENT,
+MAKING SURE TO SET POSITION TO RELATIVE */  
+.RecipeList-content {
+    position: relative;
+    padding: 30px;
+    h1 {
+        font-family: 'Fuzzy Bubbles', cursive; 
+        color: #663d28e0;
         margin-bottom: 10px;
+        font-size: 2.5rem;
     }
     p {
         color: #2c201e75; 
         font-size: 1.1rem;
         font-weight: bold;
     }
-    
+
     /* STYLES LINK THAT TAKES USER TO SHOPPINGLIST COMPONENT */
     .shoppingLink {
-        font-size: 1.1rem;
-        color: rgb(109,181,218,0.5);
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #457c97;
         text-shadow: 
-            0 0 1px rgb(150,181,197,0.9);         
+            0 0 7px rgba(150, 181, 197, 0.493);         
     }
     .shoppingLink:hover {
-        color: #457c97;
+        color: #457c9786;
     }
     /* STYLES SEARCH INPUT */
     .searchItems {
@@ -29,34 +51,116 @@
         margin-bottom: 30px;
         input {
             margin-right: 5px;
+            padding: 8px;
         }
     }
     /* STYLES RECIPE TITLE LINK THAT TAKES USER TO RECIPE DETAILS */
     .recipeTitle-container {  
         display: flex;     
         justify-content: center;
-        .titleLink {
-            color: #b2794ae3;
+        .titleLink {   
+            font-weight: bold;        
+            color: #815e4e;
             flex-grow: 0;
             flex-shrink: 0;
             text-align: left;
             flex-basis: 300px;   
             h3 {
                 margin-bottom: 5px;
-            }                  
-        }
-        .titleLink:hover {
-            color: #e7ab7af3;
-        }
-        /* DELETE ICON */
-        .trash {
-            font-size: 0.9em;
-            flex-grow: 0;
-            flex-shrink: 0;
-            text-align: right;
-            flex-basis: 20px;
-        }
+            }  
+        }                
+    }
+    .titleLink:hover {
+        color: #9b573771;
+    }
+    /* DELETE ICON */
+    .trash {
+        font-size: 0.9em;
+        flex-grow: 0;
+        flex-shrink: 0;
+        text-align: right;
+        flex-basis: 20px;
     }
 }
 
+@media screen and (max-width: 400px) {
+    .RecipeList-container {
+        .RecipeList-content {
+            padding-top: 35px;
+            h1 {
+                font-size: 1.7rem;
+            }    
+            .shoppingLink {
+                font-size: 1.3rem;        
+            } 
+            .searchItems {
+                margin-top: 30px;
+                margin-bottom: 15px;
+                input {
+                    padding: 6px;
+                }
+            }      
+            .recipeTitle-container {
+                .titleLink {
+                    flex-basis: 180px;
+                }
+            }
+            .trash {
+                flex-basis: 15px;
+            }
+        }
+    }   
+}
 
+@media screen and (max-width: 300px) {
+    .RecipeList-container {
+        .RecipeList-content {
+            
+        }
+    }   
+}
+
+// @media screen and (max-width: 340px) {
+//     .RecipeList-container {
+//         .RecipeList-content {
+//             padding-top: 20px;
+//             h1 {
+//                 padding: 5px;
+//                 font-size: 2.1rem;
+//                 margin-bottom: 5px;
+//             }
+//             .searchItems {
+//                 margin-top: 30px;
+//                 margin-bottom: 20px;
+//                 input {
+//                     // margin-right: 5px;
+//                     padding: 5px;
+//                 }
+//             }
+//             .recipeTitle-container {
+//                 .titleLink {
+//                     flex-basis: 180px;
+//                 }
+//             }
+//             .trash {
+//                 flex-basis: 15px;
+//             }
+//         }
+//     }   
+// }
+
+// @media screen and (max-width: 325px) {
+//     .RecipeList-container {
+//         .RecipeList-content {
+//             padding: 20px;
+//             h1 {
+//                 padding: 5px;
+//                 font-size: 1.8rem;
+//                 margin-bottom: 3px;
+//             }
+//             .searchItems {
+//                 margin-top: 25px;
+//             }            
+//         }
+//     }   
+// }
