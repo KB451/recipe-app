@@ -83,7 +83,8 @@ MAKING SURE TO SET POSITION TO RELATIVE */
     }
 }
 
-@media screen and (max-width: 400px) {
+/* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
+@media screen and (max-width: 390px) {
     .RecipeList-container {
         .RecipeList-content {
             padding-top: 35px;
@@ -112,55 +113,3 @@ MAKING SURE TO SET POSITION TO RELATIVE */
     }   
 }
 
-@media screen and (max-width: 300px) {
-    .RecipeList-container {
-        .RecipeList-content {
-            
-        }
-    }   
-}
-
-// @media screen and (max-width: 340px) {
-//     .RecipeList-container {
-//         .RecipeList-content {
-//             padding-top: 20px;
-//             h1 {
-//                 padding: 5px;
-//                 font-size: 2.1rem;
-//                 margin-bottom: 5px;
-//             }
-//             .searchItems {
-//                 margin-top: 30px;
-//                 margin-bottom: 20px;
-//                 input {
-//                     // margin-right: 5px;
-//                     padding: 5px;
-//                 }
-//             }
-//             .recipeTitle-container {
-//                 .titleLink {
-//                     flex-basis: 180px;
-//                 }
-//             }
-//             .trash {
-//                 flex-basis: 15px;
-//             }
-//         }
-//     }   
-// }
-
-// @media screen and (max-width: 325px) {
-//     .RecipeList-container {
-//         .RecipeList-content {
-//             padding: 20px;
-//             h1 {
-//                 padding: 5px;
-//                 font-size: 1.8rem;
-//                 margin-bottom: 3px;
-//             }
-//             .searchItems {
-//                 margin-top: 25px;
-//             }            
-//         }
-//     }   
-// }

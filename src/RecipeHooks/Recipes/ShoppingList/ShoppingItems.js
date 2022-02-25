@@ -12,6 +12,7 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
     const [update, setUpdate] = UseInput({quantity: quantity, item: item}) 
     //FUNCTION UPDATES STATE OF USER INPUT (CHECKBOX) - CHECKED IF HAVE ITEM, NOT CHECKED IF DO NOT HAVE ITEM
     const [isChecked, setIsChecked] = useState(items)  
+    // const [isMobileSize, setIsMobileSize] = UseToggle()
     
     /* FUNCTION TOGGLES BOOLEAN STATE OF USER INPUT (CHECKBOX) AND CALLS PROP FUNCTION "checkItems" TO 
     PASS IN CHANGES AND UPDATE "items" */

@@ -51,6 +51,18 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     }         
     //FUNCTION SETS "items" TO EMPTY ARRAY SO ALL ITEMS ARE REMOVED
     const removeAllItems = () => setItems([])
+
+    // let displayRecipeLinkBtn;
+    // const getItems = items.filter(i => {
+
+    // })
+    // if () {
+    //     displayRecipeLinkBtn = (
+    //         <h1>Shopping List</h1>
+    //         <button></button>
+            
+    //     )
+    // }
     
     return (
         <div className="App ShoppingList-container">

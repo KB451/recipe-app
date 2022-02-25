@@ -20,20 +20,20 @@
     display: flex;
     justify-content: center;   
     /* ALIGNS ITEMS IN COLUMNS */
-        .recipeLink, .checkItem, .item, .itemBtns {        
-            flex-grow: 0;
-            flex-shrink: 0;
-        }    
-        .recipeLink, .item {
-            flex-basis: 160px;
-            text-align: left;
-        }
-        .checkItem {
-            flex-basis: 35px;        
-        }    
-        .itemBtns {
-            flex-basis: 65px;        
-        }  
+    .recipeLink, .checkItem, .item, .itemBtns {        
+        flex-grow: 0;
+        flex-shrink: 0;
+    }    
+    .recipeLink, .item {
+        flex-basis: 160px;
+        text-align: left;
+    }
+    .checkItem {
+        flex-basis: 35px;        
+    }    
+    .itemBtns {
+        flex-basis: 65px;        
+    }  
    
     /* CODE TO STYLE CHECKBOXES */ 
     label > input[type="checkbox"] {
@@ -98,7 +98,30 @@
     .titleMessage {        
         color: #2c201e57;
     }
-}       
+}   
+
+/* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
+@media screen and (max-width: 390px) {
+    .ShoppingItems-displayItemsContainer {
+        .recipeLink {            
+           display: none;
+        } 
+        .item {
+            flex-basis: 135px;
+            margin-bottom: 6px;
+            align-self: center;
+        }
+        .checkItem {          
+            flex-basis: 30px;  
+            margin-bottom: 5px;      
+        }    
+        .itemBtns {
+            margin-left: 10px;
+            margin-bottom: 5px;
+            flex-basis: 65px;        
+        }       
+    }   
+}
 
 
 

@@ -37,3 +37,33 @@
         margin-bottom: 35px;
     }
 }
+
+/* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
+// @media screen and (max-width: 390px) {
+//     .ShoppingList-container {
+//         .ShoppingList-content{
+//             padding-top: 35px;
+//             h1 {
+//                 font-size: 1.7rem;
+//             }    
+//             .shoppingLink {
+//                 font-size: 1.3rem;        
+//             } 
+//             .searchItems {
+//                 margin-top: 30px;
+//                 margin-bottom: 15px;
+//                 input {
+//                     padding: 6px;
+//                 }
+//             }      
+//             .recipeTitle-container {
+//                 .titleLink {
+//                     flex-basis: 180px;
+//                 }
+//             }
+//             .trash {
+//                 flex-basis: 15px;
+//             }
+//         }
+//     }   
+// }
