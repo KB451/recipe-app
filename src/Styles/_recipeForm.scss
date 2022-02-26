@@ -64,3 +64,60 @@
         }
     }   
 }
+
+/* STYLES "recipeForm" COMPONENT WHEN SCREEN IS MOBILE SIZE */
+@media screen and (max-width: 415px) {
+    .RecipeForm-container {
+        form {
+            #directions-header {
+                margin-top: 20px;
+            }
+            .textEditor {
+                width: 250px;                
+            }
+            .regBtns {
+                margin-top: 8px;
+            }
+        }
+        .homeLink-container {
+            padding-top: 20px;
+        }
+        .ingredientForm-container {
+            margin-top: -15px;
+            input {
+                margin-bottom: -10px;
+            }
+            button {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5px;
+            }
+        }
+        /* CENTERS INGREDIENTS */
+        .ingredients-container {
+            margin-top: -10px;
+            .Ingredients-displayEditModeContainer {
+                margin-top: 15px;
+                margin-bottom: -10px;
+                input {
+                    margin-bottom: -10px;
+                }
+                button {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 10px;
+                }
+            }
+            .Ingredients-displayContainer {
+                span {
+                    flex-basis: 125px;
+                    margin-bottom: 5px;
+                    margin-right: 10px;
+                    align-self: center;
+                }
+            }            
+        }
+    }   
+}

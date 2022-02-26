@@ -2,7 +2,7 @@
 .ShoppingList-container {
     width: 100vw;
     height: 100vh;  
-    background-image: linear-gradient(to bottom right, #fff9f3, rgb(235, 235, 207));
+    background-image: linear-gradient(to bottom right, #f1f1f1, rgb(255, 255, 203));
     display: inline-table; 
     /* STYLES CONTENT INSIDE SHOPPING LIST CONTAINER */ 
     .ShoppingList-content {
@@ -34,7 +34,7 @@
  /* ADDS BACKGROUND COLOR TO LIST OF RECIPE TITLES. THIS ONLY SHOWS WHEN SCREEN IS MOBILE SIZE */
 .recipeTitles-container {   
     height: 100vh;  
-    background-image: linear-gradient(to bottom right, #fff9f3, rgb(235, 235, 207));
+    background-image: linear-gradient(to bottom right, #f1f1f1, rgb(255, 255, 203));
     padding: 30px;
     .backButton {
         margin-bottom: 20px;
