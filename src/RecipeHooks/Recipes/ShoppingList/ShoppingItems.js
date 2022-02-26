@@ -26,7 +26,7 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
         checkItems(updateItem, recipeId, id, index)
     }            
        
-    //VARIABLE EITHER DISPLAYS ITEM OR FORM TO EDIT ITEM    
+    //VARIABLE DISPLAYS EITHER: ITEMS; OR RECIPE TITLE & ITEM; OR FORM TO EDIT ITEM     
     let displayItem;
     if (isEdit) {
         //DISPLAYS EDIT FORM
@@ -47,8 +47,9 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
             </div>            
         )
     } else if (!isEdit && recipeNames) {
-        displayItem = (
-            <div className="displayTitleLinks-container"> 
+        //DISPLAYS RECIPE TITLE AND ITEM WHEN SCREEN IS MOBILE SIZE
+        displayItem = (            
+            <div className="displayTitleLinks-content"> 
                 {/* EITHER DISPLAYS A LINK TO RECIPE OR JUST A DIV */}
                 {recipeName !== undefined ?                
                 <div className="recipeTitles"> 
@@ -61,7 +62,7 @@ function ShoppingItems({id, index, items, checkItems, recipeId, recipeName, quan
                 <div className="items"> 
                     <span>{quantity} {item}</span>
                 </div>                           
-            </div>
+            </div>                       
         )
     } else {
     //DISPLAYS ITEM

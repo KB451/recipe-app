@@ -1,47 +1,40 @@
+/* ADDS BACKGROUND COLOR TO SHOPPING LIST COMPONENT CONTAINER */
 .ShoppingList-container {
-    position: relative;
-}
-.ShoppingList-container:before {
-    background-color: #faf5f0;
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;     
     width: 100vw;
-    height: 100vh; 
-    opacity: 0.3;
-    background: url(../RecipeHooks/Recipes/Images/jess-bailey-kfDHPpCQEBQ-unsplash.jpg) no-repeat center;
-    background-size: cover; 
-    background-position: 50% 0;     
+    height: 100vh;  
+    background-image: linear-gradient(to bottom right, #fff9f3, rgb(235, 235, 207));
+    display: inline-table; 
+    /* STYLES CONTENT INSIDE SHOPPING LIST CONTAINER */ 
+    .ShoppingList-content {
+        padding-top: 30px;
+        h1 {
+            font-family: 'Fuzzy Bubbles', cursive; 
+            color: #883435bb;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #2c201e75; 
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        .home {
+            margin-bottom: 30px;
+        }
+        .regBtns {
+            margin-top: 15px;
+            margin-bottom: 35px;
+        }
+        /* HIDES "RECIPE NAME" BUTTON UNLESS SCREEN IS MOBILE SIZE */
+        .mobileListBtn-container {
+            display: none;
+        }
+    }
 }
-.ShoppingList-content {
-    position: relative;
-    padding-top: 30px;
-    h1 {
-        font-family: 'Fuzzy Bubbles', cursive; 
-        color: #663d28e0;
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-    }
-    p {
-        color: #2c201e75; 
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-    .home {
-        margin-bottom: 30px;
-    }
-    .regBtns {
-        margin-top: 15px;
-        margin-bottom: 35px;
-    }
-    .mobileList {
-        display: none;
-    }
-}
-
-.recipeTitles-container {
+ /* ADDS BACKGROUND COLOR TO LIST OF RECIPE TITLES. THIS ONLY SHOWS WHEN SCREEN IS MOBILE SIZE */
+.recipeTitles-container {   
+    height: 100vh;  
+    background-image: linear-gradient(to bottom right, #fff9f3, rgb(235, 235, 207));
     padding: 30px;
     .backButton {
         margin-bottom: 20px;
@@ -54,46 +47,33 @@
         }
     }
 }
-/* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
-@media screen and (max-width: 390px) {
+/* CODE TO KEEP "ShoppingList" COMPONENT RESPONSIVE TO SCREEN SIZES */
+@media screen and (max-width: 415px) {
     .ShoppingList-container {
         .ShoppingList-content{
+            padding: 20px;
+            h1 {
+                font-size: 2.1rem;
+                margin-bottom: 10px;
+            }    
+            .regBtns {
+                margin-bottom: 25px;
+            }    
+            /* UN-HIDES "RECIPE NAME" BUTTON */   
             .mobileListBtn-container {
                 display: block;
                 margin-bottom: 10px;
                 .iconButton {
-                    font-size: 1.1rem;
-                    font-weight: bold;
-                    color: #457c97;
+                    font-size: 1rem;
+                    color: #5981969a;
                     text-shadow: 
-                        0 0 7px rgba(150, 181, 197, 0.493);         
+                        0 0 7px rgba(75, 135, 165, 0.253);         
                 }
                 .iconButton:hover {
-                    color: #457c9786;
+                    color: #3c8cb454;
                 }
             }
         }
-            // padding-top: 35px;
-            // h1 {
-            //     font-size: 1.7rem;
-            // }    
-            // .shoppingLink {
-            //     font-size: 1.3rem;        
-            // } 
-            // .searchItems {
-            //     margin-top: 30px;
-            //     margin-bottom: 15px;
-            //     input {
-            //         padding: 6px;
-            //     }
-            // }      
-            // .recipeTitle-container {
-            //     .titleLink {
-            //         flex-basis: 180px;
-            //     }
-            // }
-            // .trash {
-            //     flex-basis: 15px;
-            // }
-        }
-    }   
+    }
+}
+ 

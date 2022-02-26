@@ -10,7 +10,7 @@ import UseToggle from "../Inputs/UseToggle"
 function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) { 
     //FUNCTION PASSED TO "ShoppingListForm" COMPONENT TO UPDATE STATE OF ITEM NAME AS USER TYPES  
     const [searchList, setSearchList] = useState("")  
-
+    //FUNCTION TOGGLES BETWEEN DISPLAYING RECIPE TITLES AND ITEMS OR FULL SHOPPING LIST 
     const [isRecipeName, setIsRecipeName] = UseToggle()
       
     //FUNCTION ADDS NEW ITEMS TO "items"
@@ -55,17 +55,19 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     //FUNCTION SETS "items" TO EMPTY ARRAY SO ALL ITEMS ARE REMOVED
     const removeAllItems = () => setItems([])
 
+    //VARIABLE THAT WILL EITHER DISPLAY RECIPE TITLES AND ITEMS OR FULL SHOPPING LIST
     let displayShoppingList;
+    //DISPLAYS RECIPE TITLES AND ITEMS
     if (isRecipeName) {
         displayShoppingList = (
             <div className="recipeTitles-container">
                 <div className="backButton">
-                   {/* BUTTON CALLS "editMode" FUNCTION TO GO BACK TO DISPLAYING RECIPE DETAILS */}
+                   {/* BUTTON CALLS "setIsRecipeName" FUNCTION TO GO BACK TO DISPLAYING FULL SHOPPING LIST */}
                    <button className="iconButton" onClick={() => setIsRecipeName(true)}><i className="fas fa-arrow-left arrow"></i></button> 
                 </div>
                              
                 {items.length > 0 ? 
-                <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
+                <div>
                     {items.map(i => (
                         <div key={i.id}>                    
                             <ShoppingItems 
@@ -87,47 +89,49 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     } else {
         displayShoppingList = (
             <div className="App ShoppingList-container">
-            <div className="ShoppingList-content">
-                <h1>Shopping List</h1>
-                {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT WHEN CLICKED */}
-                <Link to="/"><i className="fas fa-home iconButton home"/></Link>
+                <div className="ShoppingList-content">
+                    <h1>Shopping List</h1>
+                    {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT WHEN CLICKED */}
+                    <Link to="/"><i className="fas fa-home iconButton home"/></Link>
 
-                <ShoppingListForm 
-                //FUNCTIONS PASSED TO "ShoppingListForm" TO ADD NEW ITEMS TO SHOPPING LIST AND UPDATE STATE OF ITEMS NAME
-                search={setSearchList}
-                add={addItems}
-                />
+                    <ShoppingListForm 
+                    //FUNCTIONS PASSED TO "ShoppingListForm" TO ADD NEW ITEMS TO SHOPPING LIST AND UPDATE STATE OF ITEMS NAME
+                    search={setSearchList}
+                    add={addItems}
+                    />
 
-                {/* CALLS FUNCTION THAT REMOVES ALL ITEMS WHEN USER CLICKS */}
-                <button className="regBtns" onClick={removeAllItems}>delete all</button>
-               
-                <div className="mobileListBtn-container">
-                    <button className="iconButton" onClick={() => setIsRecipeName()}>Recipe</button>
-                </div>     
+                    {/* CALLS FUNCTION THAT REMOVES ALL ITEMS WHEN USER CLICKS */}
+                    <button className="regBtns" onClick={removeAllItems}>delete all</button>
+                
+                    {/* HIDDEN UNLESS SCREEN IS MOBILE SIZE. WHEN CLICKED, BUTTON CALLS "setIsRecipeName" TO DISPLAY A LIST OF
+                    RECIPE TITLES AND ITEMS */}
+                    <div className="mobileListBtn-container">
+                        <button className="iconButton" onClick={() => setIsRecipeName()}>Recipe Name</button>
+                    </div>     
 
-                {items.length > 0 ? 
-                <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
-                {items.filter(i => i.item.toLowerCase().includes(searchList.toLowerCase())).map((i, index) => (
-                    <div key={i.id}>                    
-                        <ShoppingItems 
-                        key={i.id}
-                        id={i.id}
-                        index={index}
-                        items={items}
-                        checkItems={checkItems}
-                        haveItem={i.acquiredItem}
-                        recipeId={i.recId}                    
-                        recipeName={i.recName}
-                        quantity={i.quantity}
-                        item={i.item}
-                        remove={removeItems}
-                        edit={editItems}
-                        recipeNames={isRecipeName}
-                        />
-                    </div>              
-                ))}</div> :
-                <p>no items have been added</p>}            
-            </div>            
+                    {items.length > 0 ? 
+                    <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
+                    {items.filter(i => i.item.toLowerCase().includes(searchList.toLowerCase())).map((i, index) => (
+                        <div key={i.id}>                    
+                            <ShoppingItems 
+                            key={i.id}
+                            id={i.id}
+                            index={index}
+                            items={items}
+                            checkItems={checkItems}
+                            haveItem={i.acquiredItem}
+                            recipeId={i.recId}                    
+                            recipeName={i.recName}
+                            quantity={i.quantity}
+                            item={i.item}
+                            remove={removeItems}
+                            edit={editItems}
+                            recipeNames={isRecipeName}
+                            />
+                        </div>              
+                    ))}</div> :
+                    <p>no items have been added</p>}            
+                </div>            
         </div>    
         )
     }    

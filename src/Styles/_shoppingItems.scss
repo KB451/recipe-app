@@ -32,7 +32,7 @@
         flex-basis: 35px;        
     }    
     .itemBtns {
-        flex-basis: 65px;        
+        flex-basis: 80px;        
     }  
    
     /* CODE TO STYLE CHECKBOXES */ 
@@ -96,13 +96,14 @@
         color: #474e63;
     }
     .titleMessage {        
-        color: #2c201e57;
+        color: #2c201e73;
     }
 } 
 
-.displayTitleLinks-container {
+/* STYLES RECIPE TITLE LINKS AND ITEMS WHEN SCREEN IS IN MOBILE SIZE */
+.displayTitleLinks-content {
     display: flex;
-    justify-content: center;
+    justify-content: center;      
     .recipeTitles, .items {
         flex-grow: 0;
         flex-shrink: 0;
@@ -113,11 +114,28 @@
     }
     .items {
         flex-basis: 100px;
+        align-self: center;
+        font-size: 1em;
+        color: #2c201e;
+    }
+    .link {
+        text-decoration: none;
+        font-size: 1.1em;
+        color: #2f44838f;
+        text-shadow: 
+            0 0 7px rgba(102, 112, 121, 0.349);          
+    }
+    .link:hover {
+        color: #474e63;
+    }
+    .noRecipeMessage {
+        color: #2c201e73;
     }
 }
 
-/* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
-@media screen and (max-width: 390px) {
+/* CODE TO KEEP "ShoppingItems" COMPONENT RESPONSIVE TO SCREEN SIZES */
+@media screen and (max-width: 415px) {
+    /* STYLES SHOPPING ITEMS */
     .ShoppingItems-displayItemsContainer {
         .recipeLink {            
            display: none;
@@ -136,7 +154,22 @@
             margin-bottom: 5px;
             flex-basis: 65px;        
         }       
-    }   
+    } 
+    /* STYLES WHEN ITEMS ARE IN EDIT MODE */
+    .ShoppingItems-displayEditMode-container {
+        form {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            input {
+                margin-bottom: 5px;
+            }
+            button {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
 }
 
 
