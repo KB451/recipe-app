@@ -36,34 +36,64 @@
         margin-top: 15px;
         margin-bottom: 35px;
     }
+    .mobileList {
+        display: none;
+    }
 }
 
+.recipeTitles-container {
+    padding: 30px;
+    .backButton {
+        margin-bottom: 20px;
+        .arrow {
+            color: #764b36;
+            font-size: 1.1rem;
+        }
+        .arrow:hover {
+            color: #ca8c6c;
+        }
+    }
+}
 /* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
-// @media screen and (max-width: 390px) {
-//     .ShoppingList-container {
-//         .ShoppingList-content{
-//             padding-top: 35px;
-//             h1 {
-//                 font-size: 1.7rem;
-//             }    
-//             .shoppingLink {
-//                 font-size: 1.3rem;        
-//             } 
-//             .searchItems {
-//                 margin-top: 30px;
-//                 margin-bottom: 15px;
-//                 input {
-//                     padding: 6px;
-//                 }
-//             }      
-//             .recipeTitle-container {
-//                 .titleLink {
-//                     flex-basis: 180px;
-//                 }
-//             }
-//             .trash {
-//                 flex-basis: 15px;
-//             }
-//         }
-//     }   
-// }
+@media screen and (max-width: 390px) {
+    .ShoppingList-container {
+        .ShoppingList-content{
+            .mobileListBtn-container {
+                display: block;
+                margin-bottom: 10px;
+                .iconButton {
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    color: #457c97;
+                    text-shadow: 
+                        0 0 7px rgba(150, 181, 197, 0.493);         
+                }
+                .iconButton:hover {
+                    color: #457c9786;
+                }
+            }
+        }
+            // padding-top: 35px;
+            // h1 {
+            //     font-size: 1.7rem;
+            // }    
+            // .shoppingLink {
+            //     font-size: 1.3rem;        
+            // } 
+            // .searchItems {
+            //     margin-top: 30px;
+            //     margin-bottom: 15px;
+            //     input {
+            //         padding: 6px;
+            //     }
+            // }      
+            // .recipeTitle-container {
+            //     .titleLink {
+            //         flex-basis: 180px;
+            //     }
+            // }
+            // .trash {
+            //     flex-basis: 15px;
+            // }
+        }
+    }   

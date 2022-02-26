@@ -98,7 +98,23 @@
     .titleMessage {        
         color: #2c201e57;
     }
-}   
+} 
+
+.displayTitleLinks-container {
+    display: flex;
+    justify-content: center;
+    .recipeTitles, .items {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-bottom: 10px;
+    }
+    .recipeTitles {
+        flex-basis: 112px;
+    }
+    .items {
+        flex-basis: 100px;
+    }
+}
 
 /* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
 @media screen and (max-width: 390px) {

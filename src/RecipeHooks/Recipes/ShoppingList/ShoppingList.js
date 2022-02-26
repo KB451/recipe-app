@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
 import ShoppingListForm from "./ShoppingListForm"
 import ShoppingItems from "./ShoppingItems"
+import UseToggle from "../Inputs/UseToggle"
  
 /* PROPS PASSED FROM "App.js" - "items" IS DATA FROM LOCAL STORAGE AND "setItems" UPDATES CHANGES TO THIS DATA.
 "ShoppingList" FUNCTION DISPLAYS ITEMS ENTERED BY USER AND UPDATES "items" WHEN ANY CHANGES ARE MADE */
 function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) { 
     //FUNCTION PASSED TO "ShoppingListForm" COMPONENT TO UPDATE STATE OF ITEM NAME AS USER TYPES  
     const [searchList, setSearchList] = useState("")  
+
+    const [isRecipeName, setIsRecipeName] = UseToggle()
       
     //FUNCTION ADDS NEW ITEMS TO "items"
     const addItems = (newItem) => {
@@ -52,20 +55,38 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     //FUNCTION SETS "items" TO EMPTY ARRAY SO ALL ITEMS ARE REMOVED
     const removeAllItems = () => setItems([])
 
-    // let displayRecipeLinkBtn;
-    // const getItems = items.filter(i => {
-
-    // })
-    // if () {
-    //     displayRecipeLinkBtn = (
-    //         <h1>Shopping List</h1>
-    //         <button></button>
+    let displayShoppingList;
+    if (isRecipeName) {
+        displayShoppingList = (
+            <div className="recipeTitles-container">
+                <div className="backButton">
+                   {/* BUTTON CALLS "editMode" FUNCTION TO GO BACK TO DISPLAYING RECIPE DETAILS */}
+                   <button className="iconButton" onClick={() => setIsRecipeName(true)}><i className="fas fa-arrow-left arrow"></i></button> 
+                </div>
+                             
+                {items.length > 0 ? 
+                <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
+                    {items.map(i => (
+                        <div key={i.id}>                    
+                            <ShoppingItems 
+                            key={i.id}
+                            id={i.id}
+                            items={items}
+                            recipeId={i.recId}                    
+                            recipeName={i.recName}
+                            quantity={i.quantity}
+                            item={i.item}     
+                            recipeNames={isRecipeName}
             
-    //     )
-    // }
-    
-    return (
-        <div className="App ShoppingList-container">
+                            />
+                        </div>              
+                    ))}</div> :
+                    <p>no items have been added</p>}                                
+            </div>            
+        )        
+    } else {
+        displayShoppingList = (
+            <div className="App ShoppingList-container">
             <div className="ShoppingList-content">
                 <h1>Shopping List</h1>
                 {/* LINK TAKES USER BACK TO "RecipeList" COMPONENT WHEN CLICKED */}
@@ -79,6 +100,10 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
 
                 {/* CALLS FUNCTION THAT REMOVES ALL ITEMS WHEN USER CLICKS */}
                 <button className="regBtns" onClick={removeAllItems}>delete all</button>
+               
+                <div className="mobileListBtn-container">
+                    <button className="iconButton" onClick={() => setIsRecipeName()}>Recipe</button>
+                </div>     
 
                 {items.length > 0 ? 
                 <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
@@ -97,13 +122,16 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
                         item={i.item}
                         remove={removeItems}
                         edit={editItems}
+                        recipeNames={isRecipeName}
                         />
                     </div>              
                 ))}</div> :
                 <p>no items have been added</p>}            
             </div>            
         </div>    
-    )
+        )
+    }    
+    return displayShoppingList
 }
 
 export default ShoppingList;
