@@ -57,12 +57,12 @@ MAKING SURE TO SET POSITION TO RELATIVE */
     /* STYLES RECIPE TITLE LINK THAT TAKES USER TO RECIPE DETAILS */
     .recipeTitle-container {
         margin-left: auto;
-        margin-right: auto;
-        width: 400px;
-        height: 200px;
+        margin-right: auto; 
+        /* CREATES SCROLLBAR TO CONTAIN RECIPE TITLES */     
         overflow: auto;
-        scrollbar-width: thin;
+        scrollbar-width: thin;        
         scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3); 
+        /* END CODE FOR SCROLLBAR */
         .recipeTitle-content {  
             display: flex;     
             justify-content: center;                      
@@ -90,8 +90,11 @@ MAKING SURE TO SET POSITION TO RELATIVE */
             flex-basis: 20px;
         }       
     }  
+    /* REST OF CODE FOR RECIPE TITLES SCROLLBAR */
     .recipeTitle-container::-webkit-scrollbar {
-        width: 12px;    
+        /* CONTROLS PHYSICAL SIZE OF WHAT SCROLLBAR LOOKS LIKE */
+        width: 10px;   
+        height: 10px; 
     }
     .recipeTitle-container::-webkit-scrollbar-track {
         background-color:rgba(216, 210, 218, 0.3);
@@ -101,18 +104,30 @@ MAKING SURE TO SET POSITION TO RELATIVE */
         background-image: rgba(196, 179, 202, 0.3); 
         background-image: -moz-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
         background-image: -webkit-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
-        background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);         
+        background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);        
         border-radius: 20px;
-        border: 1px solid #c0a39c;
+        border: 1px solid rgb(135,85,34,0.3);
     } 
 }
 
 
-/* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
-@media screen and (max-width: 390px) {
+/* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES */
+@media screen and (min-width: 446px) {
+    .RecipeList-content {
+        /* CODE THAT HANDLES SIZE OF WHEN SCROLLBAR IS NEEDED */
+        .recipeTitle-container {
+            height: 300px;
+            width: 400px; 
+        }
+    }
+}
+@media screen and (max-width: 445px) {
     .RecipeList-container {
-        .RecipeList-content {
+        .RecipeList-content {            
             padding-top: 35px;
+            padding-right: 20px;
+            padding-left: 5px;
+            padding-bottom: 5px;
             h1 {
                 font-size: 1.7rem;
             }    
@@ -127,6 +142,8 @@ MAKING SURE TO SET POSITION TO RELATIVE */
                 }
             }      
             .recipeTitle-container {
+                /* CODE THAT HANDLES SIZE OF WHEN SCROLLBAR IS NEEDED */
+                height: 400px;
                 .titleLink {
                     flex-basis: 180px;
                 }
