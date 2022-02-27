@@ -68,7 +68,7 @@ function HaveIngredient({ recipeId, recipeName, ingredients, haveIngredients, sh
         <h3>Ingredients:</h3>
         {ingredients.length <= 0 ?
         <p id="no-ingredients-message">no ingredients have been added</p> :
-        <div>{length <= 0 ? <p>You have every ingredient to make this recipe</p> : <p>Number of ingredients to buy: <span className="numIng">{length}</span></p>}</div>}  
+        <div className="numOfIng">{length <= 0 ? <p>You have every ingredient to make this recipe</p> : <p>Number of ingredients to buy: <span className="numIng">{length}</span></p>}</div>}  
         <Link className="link" to="/shopping-list" onClick={() => addToShoppingList()}>view shopping list</Link> 
       </div>
            
@@ -76,11 +76,10 @@ function HaveIngredient({ recipeId, recipeName, ingredients, haveIngredients, sh
         <div className="HaveIngredient-checkbox-container" key={i.id}>
           {/* TRACKS EACH USER INPUT (CHECKBOXES) WHEN CHECKED TRUE OR FALSE */}
             <label>
-              <input type="checkbox" checked={isChecked[index].haveItem} onChange={() => handleHaveItems(isChecked[index].id, index)}></input>
-              <span></span> 
+              <input className="check" type="checkbox" checked={isChecked[index].haveItem} onChange={() => handleHaveItems(isChecked[index].id, index)}></input>
+              <span className="check"></span> 
             </label>
-            <span>{i.quantity}</span>
-            <span>{i.item}</span>        
+            <span className="items">{i.quantity} {i.item}</span>       
         </div>
       ))}      
     </div>

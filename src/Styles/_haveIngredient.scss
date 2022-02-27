@@ -45,11 +45,6 @@
     }   
     /* STYLES ELEMENTS WITHIN THE CHECKBOX CONTAINER */    
     .HaveIngredient-checkbox-container {  
-        /* ALIGNS INGREDIENTS TO LEFT */
-        display: flex;
-        justify-content: flex-start;   
-        gap: 6px;
-        margin-left: 95px;   
         /* CODE TO STYLE CHECKBOXES */                    
         label > input[type="checkbox"] {
             display: none;

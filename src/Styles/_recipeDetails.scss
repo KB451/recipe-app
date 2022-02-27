@@ -1,7 +1,7 @@
 /* STYLES PARENT DIV FOR "EditRecipe" COMPONENT - CONTAINER FOR WHEN IN EDIT MODE */
 .RecipeDetails-EditRecipe-container {
   display: flex;
-  justify-content: center;
+  justify-content: center;  
 }
 
 /* CONTAINER FOR WHEN RECIPE DETAILS ARE DISPLAYED */
@@ -12,62 +12,127 @@
     display: inline-table;    
     /* RECOGNIZES LINE BREAKS INSIDE TEXT EDITOR */
     white-space: pre-line;
-  /* STYLES INGREDIENTS AND DIRECTIONS HEADERS */
-  h2 {   
-    color: #7c3839f8;
-    font-weight: bold;
-  }
-  h3 {
-    color: #2c201e;
-    font-size: 1.3rem;    
-    margin-top: 30px;  
-  }
-  /* STYLES TEXT EDITOR AND DATA WITHIN */
-  #directions {
-    text-align: justify;   
-    /* CODE TO KEEP LONG WORDS WITHIN DIV WIDTH */
-    inline-size: 155px;
-    overflow-wrap: break-word;
-    /* ### */
-    width: 50%;
-    margin: auto;
-    color: #2c201e;
-    margin-top: 15px;    
-  }
-  #no-directions-message {
-    text-align: center;
-    color: #2c201e75; 
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  /* STYLES CONTAINER WRAPPING ICON LINKS AT TOP OF PAGE */
-  .RecipeDetails-iconLinks-container {
-    width: 100%;
-    background-color: rgba(189, 168, 155, 0.055);
-    overflow: auto;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    /* STYLES INDIVIDUAL LINKS WITHIN CONTAINER */
-    .iconLinks {   
-      width: 15%;
+    /* STYLES INGREDIENTS AND DIRECTIONS HEADERS */
+    h2 {   
+      color: #7c3839f8;
+      font-weight: bold;
+    }
+    h3 {
+      color: #2c201e;
+      font-size: 1.3rem;    
+      margin-top: 30px;  
+    }
+    /* STYLES PARENT DIV FOR "HaveIngredient" COMPONENT */
+    .RecipeDetails-haveIngredient-container {    
+      /* CENTERS INGREDIENTS LIST */
+      .HaveIngredient-checkbox-container { 
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        .check, .items {
+          flex-grow: 0;
+          flex-shrink: 0;
+          text-align: left;
+        }
+        .check {
+          flex-basis: 10px;
+        }
+        .items {
+          flex-basis: 300px;
+          align-self: center;
+        }    
+      }        
+    }
+    /* STYLES TEXT EDITOR AND DATA WITHIN */
+    #directions {
+      text-align: justify;   
+      /* CODE TO KEEP LONG WORDS WITHIN DIV WIDTH */
+      inline-size: 155px;
+      overflow-wrap: break-word;
+      /* ### */
+      width: 50%;
+      margin: auto;
+      color: #2c201e;
+      margin-top: 15px;    
+    }
+    #no-directions-message {
       text-align: center;
-      padding: 10px 0;
-      transition: all 0.3s ease;
-      color: white;
+      color: #2c201e75; 
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    /* STYLES CONTAINER WRAPPING ICON LINKS AT TOP OF PAGE */
+    .RecipeDetails-iconLinks-container {
+      width: 100%;
+      background-color: rgba(189, 168, 155, 0.055);
+      overflow: auto;
+      padding-top: 30px;
+      padding-bottom: 10px;
+      /* STYLES INDIVIDUAL LINKS WITHIN CONTAINER */
+      .iconLinks {   
+        width: 15%;
+        text-align: center;
+        padding: 10px 0;
+        transition: all 0.3s ease;
+        color: white;
       .trash {
-        color: #c43c1e;  
+      color: #c43c1e;  
       }
       .trash:hover {
-          color: #ff1616;
+        color: #ff1616;
       }
     }
-  }    
-  /* STYLES PARENT DIV FOR "HaveIngredient" COMPONENT */
-  .RecipeDetails-haveIngredient-container {
-    display: flex;
-    justify-content: center;
-  }
+  }   
+}  
+
+/* ADDS RESPONSIVENESS WHEN SCREEN IS MOBILE SIZE */
+@media screen and (max-width: 300px) {
+  .RecipeDetails-container {
+    .RecipeDetails-iconLinks-container {
+      padding-top: 20px;
+      .iconLinks {
+        width: 25%;
+      }
+    }
+    .RecipeDetails-haveIngredient-container {    
+      .HaveIngredient-message-container {
+        .numOfIng { 
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 5px;
+          width: 60%;                
+          p {
+            font-size: 1rem;
+          }
+          .numIng {
+            font-size: 1.1rem;
+          }         
+        } 
+        .link {
+          font-size: 1rem;
+        }    
+      }
+      .HaveIngredient-container {
+        .HaveIngredient-checkbox-container { 
+          .check {
+            flex-basis: 10px;
+          }
+          .items {
+            flex-basis: 160px;
+          }    
+        } 
+      }    
+    }
+    #directions {
+      width: 70%;
+    }
+  }  
 }
+  
+    
+    
+  
+
 
 
 
