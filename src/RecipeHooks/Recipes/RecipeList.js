@@ -55,17 +55,19 @@ function RecipeList({recipes, setRecipes}) {
                     {/* IF "recipes" ARRAY HAS NOTHING IN IT, MESSAGE DISPLAYS */}
                     {recipes.length <= 0 ? <p>no recipes have been added</p> : ""}  
                     
+                    <div className="recipeTitle-container">
                     {/* FILTERS "recipes" AS USER TYPES, TO DISPLAY A RECIPE TITLE THAT MIGHT MATCH SEARCH */}
-                    {recipes.filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
-                    <div className="recipeTitle-container" key={r.id}>
-                        {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
-                        <Link className="link titleLink xs" to={`/recipe/${r.id}`}>
-                            <h3>{r.title}</h3>                        
-                    </Link> 
-                    {/* CALLS FUNCTION TO DELETE A RECIPE WHEN CLICKED */}
-                    <button className="iconButton" onClick={() => removeRecipe(r.id)}><i className="fas fa-trash-alt trash"/></button>
-                    </div>                                                                         
-                    ))}    
+                        {recipes.filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
+                            <div className="recipeTitle-content" key={r.id}>
+                                {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
+                                <Link className="link titleLink xs" to={`/recipe/${r.id}`}>
+                                    <h3>{r.title}</h3>                        
+                                </Link> 
+                                {/* CALLS FUNCTION TO DELETE A RECIPE WHEN CLICKED */}
+                                <button className="iconButton" onClick={() => removeRecipe(r.id)}><i className="fas fa-trash-alt trash"/></button>
+                            </div>                                                                         
+                        ))}   
+                    </div>                     
                 </div>  
             </div>
         )

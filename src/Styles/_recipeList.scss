@@ -55,33 +55,58 @@ MAKING SURE TO SET POSITION TO RELATIVE */
         }
     }
     /* STYLES RECIPE TITLE LINK THAT TAKES USER TO RECIPE DETAILS */
-    .recipeTitle-container {  
-        display: flex;     
-        justify-content: center;
-        .titleLink {   
-            font-weight: bold;        
-            color: #815e4e;
+    .recipeTitle-container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+        height: 200px;
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3); 
+        .recipeTitle-content {  
+            display: flex;     
+            justify-content: center;                      
+             .titleLink {   
+                font-weight: bold;        
+                color: #815e4e;
+                flex-grow: 0;
+                flex-shrink: 0;
+                text-align: left;
+                flex-basis: 300px;   
+                h3 {
+                    margin-bottom: 5px;
+                }  
+            }                
+        }
+        .titleLink:hover {
+            color: #9b573771;
+        }
+        /* DELETE ICON */
+        .trash {
+            font-size: 0.9em;
             flex-grow: 0;
             flex-shrink: 0;
-            text-align: left;
-            flex-basis: 300px;   
-            h3 {
-                margin-bottom: 5px;
-            }  
-        }                
+            text-align: right;
+            flex-basis: 20px;
+        }       
+    }  
+    .recipeTitle-container::-webkit-scrollbar {
+        width: 12px;    
     }
-    .titleLink:hover {
-        color: #9b573771;
+    .recipeTitle-container::-webkit-scrollbar-track {
+        background-color:rgba(216, 210, 218, 0.3);
     }
-    /* DELETE ICON */
-    .trash {
-        font-size: 0.9em;
-        flex-grow: 0;
-        flex-shrink: 0;
-        text-align: right;
-        flex-basis: 20px;
-    }
+    .recipeTitle-container::-webkit-scrollbar-thumb {
+        background-color: rgba(196, 179, 202, 0.3); 
+        background-image: rgba(196, 179, 202, 0.3); 
+        background-image: -moz-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+        background-image: -webkit-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+        background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);         
+        border-radius: 20px;
+        border: 1px solid #c0a39c;
+    } 
 }
+
 
 /* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES*/
 @media screen and (max-width: 390px) {
