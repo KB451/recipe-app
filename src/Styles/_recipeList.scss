@@ -13,7 +13,7 @@
     width: 100vw;
     height: 100vh; 
     opacity: 0.4;
-    background: url(../RecipeHooks/Recipes/Images/F06BCA1B-CAAB-4642-9607-7AB4A43A9AC5.jpeg) no-repeat center;
+    background: url(../RecipeHooks/Recipes/Images/louis-hansel-FaDU4QH3D_4-unsplash.jpg) no-repeat center;
     background-size: cover; 
     background-position: 50% 0;    
 }  
@@ -58,6 +58,8 @@ MAKING SURE TO SET POSITION TO RELATIVE */
     .recipeTitle-container {
         margin-left: auto;
         margin-right: auto; 
+        width: 400px;
+        height: 300px;
         /* CREATES SCROLLBAR TO CONTAIN RECIPE TITLES */     
         overflow: auto;
         scrollbar-width: thin;        
@@ -114,22 +116,13 @@ MAKING SURE TO SET POSITION TO RELATIVE */
 
 
 /* CODE TO KEEP "RecipeList" COMPONENT RESPONSIVE TO SCREEN SIZES */
-@media screen and (min-width: 446px) {
-    .RecipeList-content {
-        /* CODE THAT HANDLES SIZE OF WHEN SCROLLBAR IS NEEDED */
-        .recipeTitle-container {
-            height: 300px;
-            width: 400px; 
-        }
-    }
-}
 @media screen and (max-width: 445px) {
     .RecipeList-container {
         .RecipeList-content {            
             padding-top: 35px;
             padding-right: 20px;
             padding-left: 5px;
-            padding-bottom: 5px;
+            padding-bottom: 5px;            
             h1 {
                 font-size: 1.7rem;
             }    
@@ -145,15 +138,22 @@ MAKING SURE TO SET POSITION TO RELATIVE */
             }      
             .recipeTitle-container {
                 /* CODE THAT HANDLES SIZE OF WHEN SCROLLBAR IS NEEDED */
-                height: 400px;
-                .titleLink {
-                    flex-basis: 180px;
-                }
-            }
-            .trash {
-                flex-basis: 15px;
-            }
+                width: 260px;
+                .recipeTitle-content {                    
+                    .titleLink {
+                        flex-basis: 150px;
+                        margin-right: 15px;                        
+                    }
+                    .trash {
+                        flex-basis: 15px;    
+                        margin-top: 15px;                    
+                    }
+                    h3 {
+                        margin-bottom: 3px;
+                    }
+                }              
+            }            
         }
-    }   
+    } 
 }
 
