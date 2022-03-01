@@ -71,17 +71,19 @@ function HaveIngredient({ recipeId, recipeName, ingredients, haveIngredients, sh
         <div className="numOfIng">{length <= 0 ? <p>You have every ingredient to make this recipe</p> : <p>Number of ingredients to buy: <span className="numIng">{length}</span></p>}</div>}  
         <Link className="link" to="/shopping-list" onClick={() => addToShoppingList()}>view shopping list</Link> 
       </div>
-           
-      {isChecked.map((i, index) => (
-        <div className="HaveIngredient-checkbox-container" key={i.id}>
-          {/* TRACKS EACH USER INPUT (CHECKBOXES) WHEN CHECKED TRUE OR FALSE */}
-            <label>
-              <input className="check" type="checkbox" checked={isChecked[index].haveItem} onChange={() => handleHaveItems(isChecked[index].id, index)}></input>
-              <span className="check"></span> 
-            </label>
-            <span className="items">{i.quantity} {i.item}</span>       
-        </div>
-      ))}      
+      
+      <div className="ingredients-content-container">
+        {isChecked.map((i, index) => (
+          <div className="HaveIngredient-checkbox-container" key={i.id}>
+            {/* TRACKS EACH USER INPUT (CHECKBOXES) WHEN CHECKED TRUE OR FALSE */}
+              <label>
+                <input className="check" type="checkbox" checked={isChecked[index].haveItem} onChange={() => handleHaveItems(isChecked[index].id, index)}></input>
+                <span className="check"></span> 
+              </label>
+              <span className="items">{i.quantity} {i.item}</span>       
+          </div>
+        ))}  
+      </div>          
     </div>
   )
 }  

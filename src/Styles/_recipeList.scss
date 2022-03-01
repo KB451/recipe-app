@@ -1,6 +1,6 @@
 /* CREATES TRANSPARENT BACKGROUND IMAGE. CREATE A PARENT ELEMENT AND MAKE POSITION RELATIVE */
 .RecipeList-container {
-    position: relative;
+    position: relative;    
 }
 /* THEN SET THAT PARENT ELEMENT TO :BEFORE */
 .RecipeList-container:before { 
@@ -12,8 +12,8 @@
     top: 0;     
     width: 100vw;
     height: 100vh; 
-    opacity: 0.3;
-    background: url(../RecipeHooks/Recipes/Images/louis-hansel-FaDU4QH3D_4-unsplash.jpg) no-repeat center;
+    opacity: 0.4;
+    background: url(../RecipeHooks/Recipes/Images/F06BCA1B-CAAB-4642-9607-7AB4A43A9AC5.jpeg) no-repeat center;
     background-size: cover; 
     background-position: 50% 0;    
 }  
@@ -21,7 +21,7 @@
 MAKING SURE TO SET POSITION TO RELATIVE */  
 .RecipeList-content {
     position: relative;
-    padding: 30px;
+    padding: 50px;
     h1 {
         font-family: 'Fuzzy Bubbles', cursive; 
         color: #663d28e0;
@@ -68,7 +68,9 @@ MAKING SURE TO SET POSITION TO RELATIVE */
             justify-content: center;                      
              .titleLink {   
                 font-weight: bold;        
-                color: #815e4e;
+                color: #6e5042cb;
+                text-shadow: 
+                    0 0 4px #80635634; 
                 flex-grow: 0;
                 flex-shrink: 0;
                 text-align: left;
@@ -79,7 +81,7 @@ MAKING SURE TO SET POSITION TO RELATIVE */
             }                
         }
         .titleLink:hover {
-            color: #9b573771;
+            color: #6e50426b;
         }
         /* DELETE ICON */
         .trash {

@@ -1,7 +1,7 @@
 /* STYLES PARENT DIV FOR "EditRecipe" COMPONENT - CONTAINER FOR WHEN IN EDIT MODE */
 .RecipeDetails-EditRecipe-container {
   display: flex;
-  justify-content: center;  
+  justify-content: center;   
 }
 
 /* CONTAINER FOR WHEN RECIPE DETAILS ARE DISPLAYED */
@@ -23,38 +23,100 @@
       margin-top: 30px;  
     }
     /* STYLES PARENT DIV FOR "HaveIngredient" COMPONENT */
-    .RecipeDetails-haveIngredient-container {    
-      /* CENTERS INGREDIENTS LIST */
-      .HaveIngredient-checkbox-container { 
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-        .check, .items {
-          flex-grow: 0;
-          flex-shrink: 0;
-          text-align: left;
+    .RecipeDetails-haveIngredient-container {  
+      .ingredients-content-container {         
+          margin-left: auto;
+          margin-right: auto; 
+          /* SCROLL BAR */
+          height: 110px;
+          width: 300px;
+          overflow: auto;
+          scrollbar-width: thin;        
+          scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3);         
+        /* CENTERS INGREDIENTS LIST */
+        .HaveIngredient-checkbox-container { 
+          display: flex;
+          justify-content: center;
+          gap: 5px;          
+          .check, .items {
+            flex-grow: 0;
+            flex-shrink: 0;
+            text-align: left;
+          }
+          .check {
+            flex-basis: 10px;
+          }
+          .items {
+            flex-basis: 200px;
+            align-self: center;
+          }    
         }
-        .check {
-          flex-basis: 10px;
-        }
-        .items {
-          flex-basis: 300px;
-          align-self: center;
-        }    
-      }        
-    }
+      }
+      /* REST OF CODE FOR RECIPE TITLES SCROLLBAR */
+      .ingredients-content-container::-webkit-scrollbar {
+      /* CONTROLS PHYSICAL SIZE OF WHAT SCROLLBAR LOOKS LIKE */
+      width: 10px;   
+      height: 10px; 
+      }
+      .ingredients-content-container::-webkit-scrollbar-track {
+          background-color:rgba(216, 210, 218, 0.3);
+      }
+      .ingredients-content-container::-webkit-scrollbar-thumb {
+          background-color: rgba(196, 179, 202, 0.3); 
+          background-image: rgba(196, 179, 202, 0.3); 
+          background-image: -moz-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+          background-image: -webkit-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+          background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);        
+          border-radius: 20px;
+          border: 1px solid rgb(135,85,34,0.3);
+      }    
+    }        
     /* STYLES TEXT EDITOR AND DATA WITHIN */
-    #directions {
-      text-align: justify;   
-      /* CODE TO KEEP LONG WORDS WITHIN DIV WIDTH */
-      inline-size: 155px;
-      overflow-wrap: break-word;
-      /* ### */
-      width: 50%;
-      margin: auto;
-      color: #2c201e;
-      margin-top: 15px;    
+    .directions-container {
+      display: flex;
+      justify-content: center;  
+      margin-top: 15px; 
+      margin-left: auto;
+      margin-right: auto;    
+      margin-bottom: 30px;
+      /* SCROLLBAR */ 
+      height: 270px;
+      width: 470px;  
+      overflow: auto;
+      scrollbar-width: thin;        
+      scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3);       
+      #directions {          
+        text-align: justify; 
+        margin-bottom: 90px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 395px;       
+        /* CODE TO KEEP LONG WORDS WITHIN DIV WIDTH */
+        inline-size: 155px;
+        overflow-wrap: break-word;
+        /* ### */
+        color: #2c201e;
+      }       
     }
+     /* REST OF CODE FOR RECIPE TITLES SCROLLBAR */
+     .directions-container::-webkit-scrollbar {
+      /* CONTROLS PHYSICAL SIZE OF WHAT SCROLLBAR LOOKS LIKE */
+      width: 10px;   
+      height: 10px; 
+    }
+    .directions-container::-webkit-scrollbar-track {
+        background-color:rgba(216, 210, 218, 0.3);
+    }
+    .directions-container::-webkit-scrollbar-thumb {
+        background-color: rgba(196, 179, 202, 0.3); 
+        background-image: rgba(196, 179, 202, 0.3); 
+        background-image: -moz-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+        background-image: -webkit-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+        background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);        
+        border-radius: 20px;
+        border: 1px solid rgb(135,85,34,0.3);
+    } 
+    /* END OF CODE FOR SCROLLBAR */
     #no-directions-message {
       text-align: center;
       color: #2c201e75; 
@@ -87,7 +149,7 @@
 
 /* ADDS RESPONSIVENESS WHEN SCREEN IS MOBILE SIZE */
 @media screen and (max-width: 300px) {
-  .RecipeDetails-container {
+  .RecipeDetails-container {   
     .RecipeDetails-iconLinks-container {
       padding-top: 20px;
       .iconLinks {
@@ -123,9 +185,9 @@
         } 
       }    
     }
-    #directions {
-      width: 70%;
-    }
+    .directions-container {
+      height: 675px;
+    }    
   }  
 }
   

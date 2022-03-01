@@ -59,8 +59,10 @@ function RecipeDetails({ id, title, ingredients, directions, update, removeRecip
     
         <h3>Directions:</h3>   
          {/* CHECKS IF "directions" IS EMPTY */}  
-        <p id={directions.length > 0 ? "directions" : "no-directions-message"}>{directions.length > 0 ? directions : "no directions have been added"} </p>         
-    </div>
+         <div className="directions-container">
+            <p id={directions.length > 0 ? "directions" : "no-directions-message"}>{directions.length > 0 ? directions : "no directions have been added"} </p>         
+         </div>
+      </div>
     )
   }  
   return displayRecipeDetails;
