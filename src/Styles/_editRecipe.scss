@@ -23,19 +23,29 @@
         }
     } 
     #ingredients-title {        
-       margin-bottom: 10px;;
+       margin-bottom: 10px;
      } 
     .ingredientsList-container {
         display: flex;
-        flex-direction: column;      
+        flex-direction: column;  
+        margin-left: auto;
+        margin-right: auto; 
+        /* SCROLLBAR */
+        height: 110px;
+        width: 400px;
+        overflow: auto;
+        scrollbar-width: thin;        
+        scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3);   
+        /* END SCROLLBAR */       
         .Ingredients-displayContainer {
             justify-content: center;
-            margin: auto;
+            margin: auto;            
         }
         span {
             flex-grow: 0;
             flex-shrink: 0;
             text-align: left;
+            align-self: center;
             flex-basis: 300px;
         }
         button {
@@ -44,20 +54,118 @@
             flex-basis: 25px;
         }
     }
+    /* REST OF CODE FOR INGREDIENTS LIST SCROLLBAR */
+    .ingredientsList-container::-webkit-scrollbar {
+    /* CONTROLS PHYSICAL SIZE OF WHAT SCROLLBAR LOOKS LIKE */
+    width: 10px;   
+    height: 10px; 
+    }
+    .ingredientsList-container::-webkit-scrollbar-track {
+        background-color:rgba(216, 210, 218, 0.3);
+    }
+    .ingredientsList-container::-webkit-scrollbar-thumb {
+        background-color: rgba(196, 179, 202, 0.3); 
+        background-image: rgba(196, 179, 202, 0.3); 
+        background-image: -moz-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+        background-image: -webkit-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+        background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);        
+        border-radius: 20px;
+        border: 1px solid rgb(135,85,34,0.3);
+    } 
     form {
         padding-bottom: 30px;
         /* CONTAINER FOR "CodeEditor" COMPONENT FROM "react-textarea-code-editor" */
         .textEditor {
             color:#2c201e;
-            width: 500px;
-            margin: auto;
             border: 1px solid rgb(135,85,34,0.3);
-            border-radius: 10px;
+            border-radius: 5px;
+            margin-left: auto;
+            margin-right: auto;    
+            margin-bottom: 5px;
+            /* SCROLLBAR */ 
+            height: 330px;
+            width: 470px;  
+            overflow: auto;
+            scrollbar-width: thin;        
+            scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3);       
+            /* END SCROLLBAR */
         }
+        /* REST OF CODE FOR SCROLLBAR */
+        .textEditor::-webkit-scrollbar {
+            /* CONTROLS PHYSICAL SIZE OF WHAT SCROLLBAR LOOKS LIKE */
+            width: 10px;   
+            height: 10px; 
+        }
+        .textEditor::-webkit-scrollbar-track {
+            background-color:rgba(216, 210, 218, 0.3);
+        }
+        .textEditor::-webkit-scrollbar-thumb {
+          background-color: rgba(196, 179, 202, 0.3); 
+          background-image: rgba(196, 179, 202, 0.3); 
+          background-image: -moz-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+          background-image: -webkit-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+          background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);        
+          border-radius: 20px;
+          border: 1px solid rgb(135,85,34,0.3);
+        } 
+        /* END OF CODE FOR SCROLLBAR */
         .regBtns {
             margin-top: 15px;
         }
     }      
+}
+/* CODE TO MAKE EDIT RECIPE COMPONENT RESPONSIVE TO MOBILE SCREEN SIZE */
+@media screen and (max-width: 300px) {
+    .EditRecipe-container {
+        /* RECIPE TITLE */
+        .titleInput-container {
+            margin-bottom: 35px;
+        }
+        /* INGREDIENT FORM INPUTS */
+        .ingredientForm-container {
+            form {
+                padding-bottom: 0;
+                input {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 5px;
+                }
+                button {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }       
+        }
+        /* INGREDIENT LIST WITH DELETE/EDIT BUTTONS */
+        .ingredientsList-container {
+            width: 270px;
+            .Ingredients-displayContainer {            
+                span {
+                    flex-basis: 150px;
+                }
+            }
+            .Ingredients-displayEditModeContainer {
+                input {
+                    margin-bottom: 5px;
+                }
+                button {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+        /* DIRECTIONS TEXT FORM */
+        form {
+            .textEditor {
+                height: 270px;
+                width: 275px;
+                margin-bottom: 0;
+            }           
+        }
+    }
 }
         
   
