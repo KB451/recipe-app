@@ -57,7 +57,7 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
 
     //VARIABLE THAT WILL EITHER DISPLAY RECIPE TITLES AND ITEMS OR FULL SHOPPING LIST
     let displayShoppingList;
-    //DISPLAYS RECIPE TITLES AND ITEMS
+    //DISPLAYS RECIPE TITLES AND ITEMS WHEN SCREEN SIZE IS MOBILE
     if (isRecipeName) {
         displayShoppingList = (
             <div className="recipeTitles-container">
@@ -78,8 +78,7 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
                             recipeName={i.recName}
                             quantity={i.quantity}
                             item={i.item}     
-                            recipeNames={isRecipeName}
-            
+                            recipeNames={isRecipeName}            
                             />
                         </div>              
                     ))}</div> :
@@ -110,7 +109,7 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
                     </div>     
 
                     {items.length > 0 ? 
-                    <div>{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
+                    <div className="ShoppingItems-component-container">{/* FILTERS "items" AS USER TYPES TO CHECK IF ITEM NAME MATCHES ANY ALREADY IN LIST */}
                     {items.filter(i => i.item.toLowerCase().includes(searchList.toLowerCase())).map((i, index) => (
                         <div key={i.id}>                    
                             <ShoppingItems 

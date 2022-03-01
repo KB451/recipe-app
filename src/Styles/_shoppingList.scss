@@ -29,6 +29,34 @@
         .mobileListBtn-container {
             display: none;
         }
+        .ShoppingItems-component-container {
+            /* SCROLL BAR */
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            width: 480px;
+            overflow: auto;
+            scrollbar-width: thin;        
+            scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3);            
+        }
+        /* REST OF CODE FOR SCROLLBAR */
+        .ShoppingItems-component-container::-webkit-scrollbar {
+            /* CONTROLS PHYSICAL SIZE OF WHAT SCROLLBAR LOOKS LIKE */
+            width: 10px;   
+            height: 10px; 
+            }
+        .ShoppingItems-component-container::-webkit-scrollbar-track {
+            background-color:rgba(216, 210, 218, 0.3);
+        }
+        .ShoppingItems-component-container::-webkit-scrollbar-thumb {
+            background-color: rgba(196, 179, 202, 0.3); 
+            background-image: rgba(196, 179, 202, 0.3); 
+            background-image: -moz-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+            background-image: -webkit-linear-gradient(top, #fff 0%, rgba(196, 179, 202, 0.3) 100%); 
+            background-image: linear-gradient(to bottom, #fff 0%, rgba(196, 179, 202, 0.3) 100%);        
+            border-radius: 20px;
+            border: 1px solid rgb(135,85,34,0.3);
+        }   
     }
 }
  /* ADDS BACKGROUND COLOR TO LIST OF RECIPE TITLES. THIS ONLY SHOWS WHEN SCREEN IS MOBILE SIZE */
@@ -58,7 +86,11 @@
             }    
             .regBtns {
                 margin-bottom: 25px;
-            }    
+            }  
+            .ShoppingItems-component-container {
+                height: 435px;
+                width: 300px;
+            }  
             /* UN-HIDES "RECIPE NAME" BUTTON */   
             .mobileListBtn-container {
                 display: block;
