@@ -43,12 +43,13 @@ function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, edit
       </div>
         
         <h3 id="ingredients-title">Ingredients:</h3>
-
-        {/* DISPLAYS USER INPUTS TO ADD INGREDIENTS */}
-        <IngredientForm 
-        // PASSES FUNCTION "addIngredients" TO INGREDIENTS FORM SO USER INPUT CAN BE ADDED TO INGREDIENTS ARRAY ("items")
-        addToRecipe={addIngredients}
-        />
+        <div className="ingredientForm-container">
+          {/* DISPLAYS USER INPUTS TO ADD INGREDIENTS */}
+          <IngredientForm 
+          // PASSES FUNCTION "addIngredients" TO INGREDIENTS FORM SO USER INPUT CAN BE ADDED TO INGREDIENTS ARRAY ("items")
+          addToRecipe={addIngredients}
+          />
+        </div>      
            
         <div className="ingredientsList-container">
           {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
