@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import TitleInput from "./Inputs/TitleInput"
 import UseToggle from "./Inputs/UseToggle"
 import RecipeForm from "./RecipeForm"
+import CategoryList from "./Categories/CategoryList"
 
 /* "recipes" AND "setRecipes" ARE PROPS FROM "App.js" - "recipes" IS DATA FROM LOCAL STORAGE, 
 "setRecipes" IS FUNCTION TO UPDATE RECIPES WITH CHANGES. THE "RecipeList" COMPONENT IS A FUNCTION
@@ -50,6 +51,9 @@ function RecipeList({recipes, setRecipes}) {
                         <input type="text" placeholder="search or add recipe" name="title" value={title} onChange={setTitle}></input>
                         {/* BUTTON TOGGLES BETWEEN DISPLAYING FORM AND USER INPUT / LIST OF RECIPE TITLES */}
                         <button className="iconButton" onClick={() => {toggleForm(isForm)}}><i className="fas fa-plus add"/></button>                    
+                    </div>
+                    <div>
+                        <CategoryList />
                     </div>
                     
                     {/* IF "recipes" ARRAY HAS NOTHING IN IT, MESSAGE DISPLAYS */}
