@@ -1,0 +1,18 @@
+/* STYLES SELECT ELEMENT IN "CategoryList" COMPONENT */
+.CategoryList-container {
+    select {    
+        text-align-last: center;    
+        font-size: 1.2rem; 
+        line-height: 1.6;     
+        outline: none;
+        border: none;       
+        margin-right: 5px;
+        padding: 5px;
+        background: transparent;       
+    }
+    select:hover {
+        text-decoration: underline;
+    }
+}
+
+

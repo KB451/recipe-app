@@ -7,7 +7,7 @@
         font-size: 1.2em; 
     }
     input {
-      margin-top: 15px;
+      margin-top: 5px;
       margin-bottom: 20px;  
     }
     /* STYLES LINK THAT TAKES USER TO HOMEPAGE */
@@ -20,6 +20,21 @@
     .home {  
         padding: 5px;      
         margin-bottom: 10px;
+    }
+    .category-container {
+        margin-top: 15px;
+        .CategoryList-container {
+            select {
+                color: #2c201e;
+            }
+        } 
+    }
+    .category-container {
+        .CategoryList-container {
+            select:hover {
+                color: #2c201e8e;
+            }
+        }
     }
     .ingredientForm-container {
        input {

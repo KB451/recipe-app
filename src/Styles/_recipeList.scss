@@ -45,10 +45,25 @@ MAKING SURE TO SET POSITION TO RELATIVE */
     .shoppingLink:hover {
         color: #457c9786;
     }
+    .category-container {
+        margin-bottom: 30px;
+        .CategoryList-container {
+            select {
+                color: #764b36;
+            }
+        }       
+    }
+    .category-container {
+        .CategoryList-container {
+            select:hover {
+                color: #a36d52;
+            }
+        }        
+    }
     /* STYLES SEARCH INPUT */
     .searchItems {
         margin-top: 35px;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         input {
             margin-right: 5px;
             padding: 8px;
