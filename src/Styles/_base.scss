@@ -76,7 +76,16 @@ input:hover {
         color: #a36d52;
     }    
 }
-
+/* ICON WRAPPED IN BUTTON AND LINK THAT TAKES USER TO CATEGORY MENU */
+.iconButton-ctgy {
+    border-radius: 20px;
+    border: none;   
+    padding: 3px;
+    margin-left: 5px;
+    .ctgy-icon {
+        padding: 2px;
+    }
+}
 /* ICON WRAPPED IN LINK THAT TAKES USER TO HOMEPAGE */
 .home {
     color: rgb(134, 107, 95);

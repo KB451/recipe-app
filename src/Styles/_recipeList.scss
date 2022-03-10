@@ -48,10 +48,26 @@ MAKING SURE TO SET POSITION TO RELATIVE */
     .category-container {
         margin-bottom: 30px;
         .CategoryList-container {
+            display: inline-block;
             select {
                 color: #764b36;
             }
-        }       
+        }  
+        /* STYLES ICON BUTTON FOR CATEGORY LIST MENU */
+        .iconButton-ctgy {
+            background-color:#7b8ea146;
+            .ctgy-icon {
+                color: #6e5042a2;
+                text-shadow: 
+                    0 0 4px #80635634;                 
+            }
+            .ctgy-icon:hover {
+                color: #6e50424b;
+            }
+        }   
+        .iconButton-ctgy:hover {
+            background-color:#77889931;
+        }  
     }
     .category-container {
         .CategoryList-container {
