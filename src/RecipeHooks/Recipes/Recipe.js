@@ -51,6 +51,7 @@ function Recipe({details, updateDetails, shoppingItems, updateShoppingList}) {
         <RecipeDetails 
         key={r.id}
         id={r.id}
+        ctgy={r.category}
         title={r.title}
         ingredients={r.ingredients}
         directions={r.directions}  

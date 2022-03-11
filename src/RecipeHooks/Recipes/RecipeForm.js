@@ -1,23 +1,32 @@
 import React, {useState} from 'react';
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import UseInput from "./Inputs/UseInput"
+import UseToggle from "./Inputs/UseToggle";
 import IngredientForm from "./Ingredients/IngredientForm"
 import Ingredients from "./Ingredients/Ingredients"
+import CategoryList from './Categories/CategoryList';
 
 
 /* "name" AND "add" ARE PROPS FROM THE "recipeList" COMPONENT - "name" PASSES IN RECIPE TITLE 
 FROM SEARCH INPUT. "add" IS FUNCTION TO PASS USER DATA BACK TO "recipeList" AND UPDATE "recipes" 
 DATA. THE "recipeForm" FUNCTION DISPLAYS INPUTS THAT TAKE IN USER DATA TO CREATE A NEW RECIPE THAT 
 INCLUDES A TITLE, INGREDIENTS, AND DIRECTIONS. */
-function RecipeForm({name, add, toggleHome}) {  
-  //FUNCTION TO SET RECIPE DIRECTIONS WITH USER INPUT TAKEN FROM "CodeEditor"  
-  const [directions, setDirections] = React.useState("");
+function RecipeForm({ctgyName, selectCtgy, name, add, toggleHome}) {  
+  //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
+  const [ctgy, setCtgy] = useState(ctgyName)
   //USER INPUT THAT UPDATES RECIPE TITLE AND DIRECTIONS 
   const [recipe, setRecipe, reset] = UseInput({title: name, directions: ""})
-  
+  //FUNCTION TO SET RECIPE DIRECTIONS WITH USER INPUT TAKEN FROM "CodeEditor"  
+  const [directions, setDirections] = React.useState("");
   //FUNCTION THAT UPDATES INGREDIENTS ARRAY
   const [items, setNewItems] = useState([])  
+
+  const resetCtgyAndToggleHome = () => {    
+    selectCtgy("-- Select Category --")
+    toggleHome()   
+  }
   
   //FUNCTION ADDS ITEM TO INGREDIENTS ARRAY
   const addIngredients = (newItem) => {
@@ -36,14 +45,29 @@ function RecipeForm({name, add, toggleHome}) {
       return i
     })
     setNewItems(updatedItem)
-  }    
+  }   
   return (
     <div className="App RecipeForm-container">    
         <div className="homeLink-container">
           {/* BUTTON CALLS "toggleHome" FUNCTION TO GO BACK TO DISPLAYING LIST OF RECIPE TITLES */}
-          <button className="iconButton" onClick={() => toggleHome()}><i className="fas fa-home home"/></button>
+          <button className="iconButton" onClick={() => resetCtgyAndToggleHome()}><i className="fas fa-home home"/></button>
         </div>
-        
+
+        {/* COMPONENT LETS USER SELECT A CATEGORY FOR RECIPE */}
+        {ctgyName !== "-- Select Category --" ? 
+        <div>
+          <input type="text" value={ctgy} onChange={e => setCtgy(e.target.value)}></input>
+          <Link className="link" to="/category-menu"><button className="iconButton-ctgy"><i className="fas fa-ellipsis-h ctgy-icon"></i></button></Link>         
+        </div> :
+        <div className="category-container">
+          <CategoryList 
+          ctgyName={ctgy}
+          //PASSES FUNCTION THAT WILL UPDATE CATEGORY NAME TO WHATEVER USER SELECTS
+          selectCtgy={setCtgy}
+          />
+          <Link className="link" to="/category-menu"><button className="iconButton-ctgy"><i className="fas fa-ellipsis-h ctgy-icon"></i></button></Link>       
+        </div>}           
+
         {/* INITAL VALUE SET TO USER INPUT FROM "recipeList" COMPONENT. USER CAN CHANGE OR ADD RECIPE TITLE */}
         <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
 
@@ -75,7 +99,7 @@ function RecipeForm({name, add, toggleHome}) {
             //CHECKS THAT USER TYPED SOMETHING IN THE RECIPE TITLE INPUT
             if (recipe.title.length > 0) {
               //FUNCTION PASSES USER DATA TO "recipeList" COMPONENT TO UPDATE "recipes" DATA
-              add({title: recipe.title, ingredients: items, directions: directions})
+              add({category: ctgy, title: recipe.title, ingredients: items, directions: directions})
             } else {
               //OTHERWISE AN ALERT TELLS USER A TITLE WAS NOT ENTERED
               alert("You have not entered a title for your recipe")

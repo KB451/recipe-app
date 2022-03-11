@@ -9,7 +9,7 @@ import CategoryList from "./Categories/CategoryList"
 /* "recipes" AND "setRecipes" ARE PROPS FROM "App.js" - "recipes" IS DATA FROM LOCAL STORAGE, 
 "setRecipes" IS FUNCTION TO UPDATE RECIPES WITH CHANGES. THE "RecipeList" COMPONENT IS A FUNCTION
 THAT DISPLAYS EITHER A LIST OF RECIPES OR A FORM TO ADD NEW ONES */
-function RecipeList({recipes, setRecipes}) {  
+function RecipeList({recipes, setRecipes, categories, updateCategories}) {  
     //INPUT UPDATES AS USER SEARCHES OR ADDS A NEW TITLE TO RECIPE   
     const [title, setTitle, reset] = TitleInput("")
     //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
@@ -26,13 +26,7 @@ function RecipeList({recipes, setRecipes}) {
     }    
   
     //FUNCTION FILTERS OUT RECIPE FROM "recipes" 
-    const removeRecipe = id => setRecipes(recipes.filter(r => r.id !== id))
-
-    //FUNCTION CALLS "setCtgy" TO RESET CATEGORY LIST AND CALLS "toggleForm" WHEN USER CLICKS ON ADD ICON
-    const resetListAndToggle = () => {
-        setCtgy("-- Select Category --")
-        toggleForm(isForm)
-    }
+    const removeRecipe = id => setRecipes(recipes.filter(r => r.id !== id))  
 
     //VARIABLE WILL EITHER DISPLAY FORM TO CREATE NEW RECIPE OR LIST OF RECIPES   
     let displayRecipeList;
@@ -42,6 +36,7 @@ function RecipeList({recipes, setRecipes}) {
             <RecipeForm
             name={title}
             ctgyName={ctgy}
+            selectCtgy={setCtgy} 
             // PASSES FUNCTION "addRecipe" TO FORM SO USER INPUT CAN BE ADDED TO "recipes" DATA
             add={addRecipe}
             toggleHome={toggleForm}
@@ -59,16 +54,17 @@ function RecipeList({recipes, setRecipes}) {
                         {/* USER INPUT TO SEARCH OR ADD A RECIPE TITLE */}
                         <input type="text" placeholder="search or add recipe" name="title" value={title} onChange={setTitle}></input>
                         {/* BUTTON TOGGLES BETWEEN DISPLAYING FORM AND USER INPUT / LIST OF RECIPE TITLES */}
-                        <button className="iconButton" onClick={() => {resetListAndToggle()}}><i className="fas fa-plus add"/></button>                    
+                        <button className="iconButton" onClick={() => toggleForm(isForm)}><i className="fas fa-plus add"/></button>                    
                     </div>
 
                     {/* LETS USER SELECT RECIPE CATEGORY */}
                     <div className="category-container">
                         <CategoryList
+                        categories={categories}
                         ctgyName={ctgy}
                         selectCtgy={setCtgy} 
                         />
-                        <button className="iconButton-ctgy"><i className="fas fa-ellipsis-h ctgy-icon"></i></button>
+                        <Link className="link" to="/category-menu"><button className="iconButton-ctgy"><i className="fas fa-ellipsis-h ctgy-icon"></i></button> </Link>                                            
                     </div>
                     
                     {/* IF "recipes" ARRAY HAS NOTHING IN IT, MESSAGE DISPLAYS */}

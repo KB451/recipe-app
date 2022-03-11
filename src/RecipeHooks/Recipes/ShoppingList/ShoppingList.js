@@ -12,7 +12,7 @@ function ShoppingList({items, setItems, listOfRecipes, updateListOfRecipes}) {
     const [searchList, setSearchList] = useState("")  
     //FUNCTION TOGGLES BETWEEN DISPLAYING RECIPE TITLES AND ITEMS OR FULL SHOPPING LIST 
     const [isRecipeName, setIsRecipeName] = UseToggle()
-      
+   
     //FUNCTION ADDS NEW ITEMS TO "items"
     const addItems = (newItem) => {
         setItems([...items, {id: uuidv4(), acquiredItem: false, ...newItem}])        
