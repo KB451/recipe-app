@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { v4 as uuidv4 } from 'uuid'
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import UseInput from "./Inputs/UseInput"
-import IngredientForm from "./Ingredients/IngredientForm"
-import Ingredients from "./Ingredients/Ingredients"
+import UseInput from "../Inputs/UseInput"
+import IngredientForm from "../Ingredients/IngredientForm"
+import Ingredients from "../Ingredients/Ingredients"
 
 //PROPS PASSED FROM "RecipeDetails" COMPONENT. "EditRecipe" FUNCTION DISPLAYS INPUTS SO USER CAN EDIT RECIPE
 function EditRecipe({recipeId, name, ingredients, instructions, saveUpdate, editMode}) {    

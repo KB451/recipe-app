@@ -2,18 +2,18 @@ import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import UseInput from "./Inputs/UseInput"
-import UseToggle from "./Inputs/UseToggle";
-import IngredientForm from "./Ingredients/IngredientForm"
-import Ingredients from "./Ingredients/Ingredients"
-import CategoryList from './Categories/CategoryList';
+import UseInput from "../Inputs/UseInput"
+import UseToggle from "../Inputs/UseToggle";
+import IngredientForm from "../Ingredients/IngredientForm"
+import Ingredients from "../Ingredients/Ingredients"
+import CategoryList from '../Categories/CategoryList';
 
 
 /* "name" AND "add" ARE PROPS FROM THE "recipeList" COMPONENT - "name" PASSES IN RECIPE TITLE 
 FROM SEARCH INPUT. "add" IS FUNCTION TO PASS USER DATA BACK TO "recipeList" AND UPDATE "recipes" 
 DATA. THE "recipeForm" FUNCTION DISPLAYS INPUTS THAT TAKE IN USER DATA TO CREATE A NEW RECIPE THAT 
 INCLUDES A TITLE, INGREDIENTS, AND DIRECTIONS. */
-function RecipeForm({ctgyName, selectCtgy, name, add, toggleHome}) {  
+function RecipeForm({categories, ctgyName, selectCtgy, name, add, toggleHome}) {  
   //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
   const [ctgy, setCtgy] = useState(ctgyName)
   //USER INPUT THAT UPDATES RECIPE TITLE AND DIRECTIONS 
@@ -61,6 +61,7 @@ function RecipeForm({ctgyName, selectCtgy, name, add, toggleHome}) {
         </div> :
         <div className="category-container">
           <CategoryList 
+          categories={categories}
           ctgyName={ctgy}
           //PASSES FUNCTION THAT WILL UPDATE CATEGORY NAME TO WHATEVER USER SELECTS
           selectCtgy={setCtgy}

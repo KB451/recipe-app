@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import EditRecipe from "./EditRecipe"
-import UseToggle from "./Inputs/UseToggle"
-import HaveIngredient from "./Ingredients/HaveIngredient"
+import UseToggle from "../Inputs/UseToggle"
+import HaveIngredient from "../Ingredients/HaveIngredient"
 
 /* PROPS ARE PASSED FROM "Recipe" COMPONENT. "RecipeDetails" FUNCTION DISPLAYS THE DETAILS OF 
 A RECIPE OR THE FORM TO EDIT THE RECIPE. THE DETAILS INCLUDE THE RECIPE TITLE, INGREDIENTS, 

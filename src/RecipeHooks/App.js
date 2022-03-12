@@ -2,8 +2,7 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import RecipeList from "./Recipes/RecipeList"
-import CategoryMenu from "./Recipes/Categories/CategoryMenu";
-import Recipe from "./Recipes/Recipe";
+import Recipe from "./Recipes/RecipeDetails/Recipe";
 import ShoppingList from "./Recipes/ShoppingList/ShoppingList";
 import UseLocalStorage from "./Recipes/Inputs/UseLocalStorage";
 import '../Styles/_app.scss';
@@ -30,28 +29,17 @@ function App() {
 
   ################################################################# */
   
-  //VARIABLE ASSIGNED ARRAY WITH INITIAL VALUES OF RECIPE CATEGORIES THAT USER CAN CHOOSE FROM 
-  const ctgyList = [
-    {name: "Appetizers", id: uuidv4()},
-    {name: "Soups & Salads", id: uuidv4()},
-    {name: "Main Dishes: Meat", id: uuidv4()},
-    {name: "Main Dishes: Vegetarian", id: uuidv4()},
-    {name: "Sides", id: uuidv4()},
-    {name: "Desserts", id: uuidv4()},
-    {name: "Beverages", id: uuidv4()},
-  ] 
+ 
   /* REPLACED ABOVE OLD CODE WITH THIS:  
   "UseLocalStorage.js" FILE HAS TWO FUNCTIONS - ONE RETRIEVES DATA FROM LOCAL STORAGE
-  AND THE OTHER SAVES DATA */  
-  const [categories, setCategories] = UseLocalStorage("categories", ctgyList)
+  AND THE OTHER SAVES DATA */    
   const [recipes, setRecipes] = UseLocalStorage("recipes", [])
   const [items, setItems] = UseLocalStorage("items", [])  
   
   //USE ROUTES TO LINK EACH RECIPE TO MAIN PAGE AND INGREDIENTS TO SHOPPING LIST COMPONENT
   return (
     <Routes>
-      <Route path="/*" element={<RecipeList recipes={recipes} setRecipes={setRecipes} categories={categories} updateCategories={setCategories}/>}/>
-      <Route path="/category-menu" element={<CategoryMenu categories={categories} updateCategories={setCategories}/>} />
+      <Route path="/*" element={<RecipeList recipes={recipes} setRecipes={setRecipes}/>}/>
       <Route path="/recipe/:id" element={<Recipe details={recipes} updateDetails={setRecipes} shoppingItems={items} updateShoppingList={setItems}/>}/>                
       <Route path="/shopping-list" element={<ShoppingList items={items} setItems={setItems} listOfRecipes={recipes} updateListOfRecipes={setRecipes}/>}/>
     </Routes>  
