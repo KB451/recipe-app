@@ -1,0 +1,28 @@
+.CategoryForm-container {  
+    width: 100vw;
+    height: 100vh; 
+    padding: 35px; 
+    text-align: center;
+    background-image: linear-gradient(to bottom right, #f1f1f1, rgb(247, 247, 242));
+    display: inline-table; 
+    form {
+        display: inline;
+        input {
+            margin-right: 35px;
+        }
+        button {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            display: block;
+            width: 55px; 
+        }
+    }
+    .arrow {
+        color:#764b36;
+        margin-right: 15px;
+    }
+    .arrow:hover {
+        color: #ca8c6c;
+    }  
+}

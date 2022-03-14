@@ -30,6 +30,10 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
         toggleHideMenuBar();
         toggleMenuBar()
     }
+    const resetCtgyName = () => {
+        selectCtgy("-- Select Category --")
+        toggleMenu(true)
+    }
     //FUNCTION RETURNS CATEGORY NAME SELECTED BASED OFF ITS ID
     const getCtgy = (id) => {
         const ctgy = categories.filter(c => {
@@ -73,20 +77,20 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
         </div> 
     )  
     return (  
-        <div>
-            {/* DISPLAYS JUST THE DROPDOWN ELEMENT THAT LISTS THE RECIPE CATEGORIES */}
-            <div>
-                {!menuMode && displayCategories}
-            </div> 
+        <div className="CategoryMenu-container">
+            {/* DISPLAYS JUST THE DROPDOWN ELEMENT THAT LISTS THE RECIPE CATEGORIES */}           
+            {!menuMode && displayCategories}            
 
             {/* DISPLAYS THE DROPDOWN ELEMENT AND MENU BAR THAT ALLOWS USER TO ADD, EDIT, OR DELETE A CATEGORY */}
             {menuMode && !hideMenuBar &&
-                <div>
+                <div className="CategoryMenuBar-container">
+                    <div className="menuBar-icon-container">
+                        <button className="iconButton" onClick={() => resetCtgyName()}><i className="fas fa-arrow-left arrow"></i></button>                 
+                        <button className="iconButton" onClick={() => hideMenu(toggleIsAdd)}><i className="fas fa-plus add"/></button> 
+                        <button className="iconButton" onClick={() => hideMenu(toggleIsEdit)}><i className="fas fa-pencil-alt edit"/></button>  
+                        <button className="iconButton"><i className="fas fa-trash-alt trash"/></button>                     
+                    </div>                    
                     {displayCategories}
-                    <button onClick={() => toggleMenu(true)}><i className="fas fa-newspaper"></i></button>                 
-                    <button className="iconButton" onClick={() => hideMenu(toggleIsAdd)}><i className="fas fa-plus add"/></button> 
-                    <button className="iconButton" onClick={() => hideMenu(toggleIsEdit)}><i className="fas fa-pencil-alt edit"/></button>  
-                    <button className="iconButton"><i className="fas fa-trash-alt trash"/></button> 
                 </div>}
 
             {/* DISPLAYS ONLY THE "CategoryForm" COMPONENT SO USER CAN ADD A NEW CATEGORY */}

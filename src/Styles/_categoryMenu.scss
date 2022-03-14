@@ -1,18 +1,51 @@
-/* STYLES SELECT ELEMENT IN "CategoryList" COMPONENT */
-.CategoryList-container {
-    select {    
-        text-align-last: center;    
-        font-size: 1.2rem; 
-        line-height: 1.6;     
-        outline: none;
-        border: none;       
-        margin-right: 5px;
-        padding: 5px;
-        background: transparent;       
+/* STYLES SELECT ELEMENT IN "CategoryMenu" COMPONENT */
+
+.CategoryMenu-container {
+    display: flex;
+    justify-content: center;
+    .CategoryList-container {
+        text-align: center;
+        select {    
+            color: #764b36;
+            text-align-last: center;    
+            font-size: 1.4rem; 
+            line-height: 1.6;     
+            outline: none;
+            border: none;       
+            margin-right: 5px;
+            padding: 5px;
+            background: transparent;       
+        }
+        select:hover {
+            color: #a36d52;
+        }
     }
-    select:hover {
-        text-decoration: underline;
+
+    .CategoryMenuBar-container {  
+            width: 100%;
+            overflow: auto;      
+        .menuBar-icon-container {
+            background-color: rgba(189, 168, 155, 0.096);          
+            text-align: center;
+            padding: 25px;
+            margin-bottom: 20px;
+            .iconButton {
+                width: 7%;
+                padding: 10px 0;
+                transition: all 0.3s ease;
+            }
+            .add {
+                font-size: 1.5rem;
+            }
+            .arrow {
+                color:#764b36ad;
+            }
+            .arrow:hover {
+                color: #ca8b6ce1;
+            }
+        }
     }
 }
+
 
 

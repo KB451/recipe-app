@@ -52,8 +52,8 @@ function RecipeList({recipes, setRecipes}) {
                     ctgyName={ctgy}
                     selectCtgy={setCtgy} 
                     />
-                    {/* WHEN USER CLICKS BUTTON, DISPLAY TOGGLES TO "CategoryForm" COMPONENT */}
-                    <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>                                          
+                    {/* WHEN USER CLICKS BUTTON, DISPLAY TOGGLES TO "CategoryForm" COMPONENT */}                  
+                    <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>                                                            
                 </div>
                 
                 {/* IF "recipes" ARRAY HAS NOTHING IN IT, MESSAGE DISPLAYS */}

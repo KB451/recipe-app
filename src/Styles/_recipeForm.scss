@@ -23,7 +23,8 @@
     }
     .category-container {
         margin-top: 15px;
-        .CategoryList-container {
+        .CategoryMenu-container {
+            display: inline-block;
             select {
                 color: #2c201e;
             }
