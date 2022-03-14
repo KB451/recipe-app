@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
 import UseInput from "../Inputs/UseInput";
 
-function CategoryForm({ctgyName, editMode, toggle, toggleMenuBar, updateCtgy, addNewCtgy}) {    
-    const [ctgy, setCtgy, reset] = UseInput(editMode ? {category: ctgyName} : {category: ""})
-   
+//FUNCTION TO EITHER LET USER ADD A NEW CATEGORY OR EDIT ONE THEY SELECTED
+function CategoryForm({ctgyName, editMode, toggle, toggleMenuBar, updateCtgy, addNewCtgy}) {   
+    //FUNCTION TO UPDATE CATEGORY NAME TO WHAT USER INPUTS
+    const [ctgy, setCtgy, reset] = UseInput(editMode ? {category: ctgyName[0].category} : {category: ""})    
     return (
         <div>
             <form onSubmit={e => {
                 e.preventDefault();
+                //FUNCTION TO EITHER EDIT OR ADD A CATEGORY
                 editMode ? updateCtgy(ctgy) : addNewCtgy(ctgy);   
-                reset({category: ""})            
+                reset({category: ""}) 
+                //FUNCTIONS TOGGLE BACK TO "CategoryMenu" COMPONENT           
                 toggle(true);
                 toggleMenuBar(true)
             }}           

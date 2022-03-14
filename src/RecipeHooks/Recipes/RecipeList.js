@@ -14,6 +14,7 @@ function RecipeList({recipes, setRecipes}) {
     const [title, setTitle, reset] = TitleInput("")
     //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
     const [ctgy, setCtgy] = useState("-- Select Category --")
+    //FUNCTION TOGGLES BETWEEN "CategoryMenu" COMPONENT AND "RecipeList" COMPONENT
     const [ctgyMenu, toggleCtgyMenu] = UseToggle()
     //FUNCTION TOGGLES BETWEEN FORM TO CREATE NEW RECIPE AND THE LIST OF RECIPES ALREADY CREATED
     const [isForm, toggleForm] = UseToggle()   
@@ -51,6 +52,7 @@ function RecipeList({recipes, setRecipes}) {
                     ctgyName={ctgy}
                     selectCtgy={setCtgy} 
                     />
+                    {/* WHEN USER CLICKS BUTTON, DISPLAY TOGGLES TO "CategoryForm" COMPONENT */}
                     <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>                                          
                 </div>
                 
@@ -71,7 +73,7 @@ function RecipeList({recipes, setRecipes}) {
                     ))}  
                     
                     {/* FILTERS "recipes" BY CATEGORY AND TITLE */}
-                    {(ctgy !==  "-- Select Category --") && recipes.filter(r => r.category === ctgy && r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
+                    {(ctgy !==  "-- Select Category --") && recipes.filter(r => r.category === ctgy[0].category && r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
                     <div className="recipeTitle-content" key={r.id}>
                         {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
                         <Link className="link titleLink xs" to={`/recipe/${r.id}`}>
@@ -99,7 +101,10 @@ function RecipeList({recipes, setRecipes}) {
                                 />
         }
 
+        {/* DISPLAYS "RecipeList" COMPONENT */}
         {!isForm && !ctgyMenu && displayRecipeList}
+
+        {/* DISPLAYS "CategoryMenu" COMPONENT */}
         {ctgyMenu &&  <CategoryMenu
                        menuMode={ctgyMenu}
                        toggleMenu={toggleCtgyMenu}
@@ -107,12 +112,7 @@ function RecipeList({recipes, setRecipes}) {
                        selectCtgy={setCtgy} 
                        />
         }
-
     </div>
-
-
-
-
   );
 }
 

@@ -16,8 +16,12 @@ function UseInput(val) {
 
   //FUNCTION UPDATES VALUE PROVIDED BY USER  
   const handleChange = e => {
+    let ctgy;
     let title;
-    if (e.target.name === "title") {
+    if (e.target.name === "category") {
+      ctgy = toTitleCase(e.target.value)
+      setNewVal({[e.target.name]: ctgy})
+    } else if (e.target.name === "title") {
       title = toTitleCase(e.target.value)
       setNewVal({...newVal, [e.target.name]: title}) 
     } else {
