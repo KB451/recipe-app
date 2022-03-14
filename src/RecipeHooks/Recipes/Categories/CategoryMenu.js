@@ -30,6 +30,15 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
         toggleHideMenuBar();
         toggleMenuBar()
     }
+    //FUNCTION ALERTS USER IF THEY HAVE NOT SELECTED A CATEGORY WHEN EDIT BUTTON IS CLICKED
+    const alertToSelectCtgy = () => {
+        if (ctgyName === "-- Select Category --") {
+            alert("Select a category to edit")
+        } else {
+            hideMenu(toggleIsEdit)
+        }
+    }
+    //FUNCTION RESETS CATEGORY TO DISPLAY LIST OF RECIPES WHEN GOING BACK TO "RecipeList" COMPONENT
     const resetCtgyName = () => {
         selectCtgy("-- Select Category --")
         toggleMenu(true)
@@ -87,7 +96,7 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
                     <div className="menuBar-icon-container">
                         <button className="iconButton" onClick={() => resetCtgyName()}><i className="fas fa-arrow-left arrow"></i></button>                 
                         <button className="iconButton" onClick={() => hideMenu(toggleIsAdd)}><i className="fas fa-plus add"/></button> 
-                        <button className="iconButton" onClick={() => hideMenu(toggleIsEdit)}><i className="fas fa-pencil-alt edit"/></button>  
+                        <button className="iconButton" onClick={() => alertToSelectCtgy()}><i className="fas fa-pencil-alt edit"/></button>  
                         <button className="iconButton"><i className="fas fa-trash-alt trash"/></button>                     
                     </div>                    
                     {displayCategories}
