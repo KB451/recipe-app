@@ -10,7 +10,6 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
     const ctgyList = [
         {category: "Appetizers", id: uuidv4()},
         {category: "Soups & Salads", id: uuidv4()},
-        {category: "Soups & Salads", id: uuidv4()},
         {category: "Main Dishes: Meat", id: uuidv4()},
         {category: "Main Dishes: Vegetarian", id: uuidv4()},
         {category: "Sides", id: uuidv4()},
@@ -19,6 +18,22 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
     ]
     //FUNCTION SAVES LIST OF CATEGORIES TO LOCAL STORAGE
     const [categories, setCategories] = UseLocalStorage("categories", ctgyList)
+
+    //alphabatizes category names in dropdown
+    // let sortAlpha = (ctgyList) => {ctgyList.sort((a,b) => {
+    //     const value1 = a.category.toLowerCase()
+    //     const value2 = b.category.toLowerCase()
+    //     if (value1 < value2) {
+    //         return -1
+    //     } 
+    //     if (value1 > value2) {
+    //         return 1
+    //     }
+    //     return 0
+    //     }) 
+
+    //     setCategories(ctgyList)
+    // }      
     
     //FUNCTIONS TOGGLE TO DETERMINE WHAT WILL DISPLAY TO USER
     const [hideMenuBar, toggleHideMenuBar] = UseToggle();
@@ -52,6 +67,7 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
         })
         selectCtgy(ctgy)
     }
+ 
     //FUNCTION ADDS NEW CATEGORY USER INPUTS THROUGH "CategoryForm" COMPONENT
     const addCtgy = (newCtgy) => {
         setCategories([...categories, {category: newCtgy.category, id: uuidv4()}])       
@@ -66,10 +82,10 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
         })
         setCategories(updatedCtgy)
     }
-
-   
-
-
+    //FUNCTION REMOVES CATEGORY FROM DROPDOWN LIST
+    const removeCtgy = () => {
+        setCategories(categories.filter(c => c.id !== ctgyName[0].id))
+    }
 
     //VARIABLE DISPLAYS THE LIST OF CATEGORIES THROUGH A DROPDOWN ELEMENT
     const displayCategories = (
@@ -97,7 +113,7 @@ function CategoryMenu({ctgyName, selectCtgy, menuMode, toggleMenu}) {
                         <button className="iconButton" onClick={() => resetCtgyName()}><i className="fas fa-arrow-left arrow"></i></button>                 
                         <button className="iconButton" onClick={() => hideMenu(toggleIsAdd)}><i className="fas fa-plus add"/></button> 
                         <button className="iconButton" onClick={() => alertToSelectCtgy()}><i className="fas fa-pencil-alt edit"/></button>  
-                        <button className="iconButton"><i className="fas fa-trash-alt trash"/></button>                     
+                        <button className="iconButton" onClick={() => removeCtgy()}><i className="fas fa-trash-alt trash"/></button>                     
                     </div>                    
                     {displayCategories}
                 </div>}
