@@ -41,8 +41,9 @@ function RecipeDetails({ id, ctgy, title, ingredients, directions, update, remov
               <Link className="iconLinks" to="/" onClick={() => removeRecipe(id)}><i className="iconButton fas fa-trash-alt trash"/></Link> 
           </div>       
        
+        <h4>{ctgy}</h4>
         <h2>{title}</h2> 
-        <h4>Category: {ctgy}</h4>
+        
 
         <div className="RecipeDetails-haveIngredient-container">            
           <HaveIngredient 

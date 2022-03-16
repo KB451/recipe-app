@@ -29,18 +29,29 @@ function App() {
 
   ################################################################# */
   
+  //VARIABLE ASSIGNED ARRAY WITH INITIAL VALUES OF RECIPE CATEGORIES THAT USER CAN CHOOSE FROM 
+  const ctgyList = [
+    {category: "Appetizers", id: uuidv4()},
+    {category: "Soups & Salads", id: uuidv4()},
+    {category: "Main Dishes: Meat", id: uuidv4()},
+    {category: "Main Dishes: Vegetarian", id: uuidv4()},
+    {category: "Sides", id: uuidv4()},
+    {category: "Desserts", id: uuidv4()},
+    {category: "Beverages", id: uuidv4()},
+  ]
  
   /* REPLACED ABOVE OLD CODE WITH THIS:  
   "UseLocalStorage.js" FILE HAS TWO FUNCTIONS - ONE RETRIEVES DATA FROM LOCAL STORAGE
   AND THE OTHER SAVES DATA */    
+  const [categories, setCategories] = UseLocalStorage("categories", ctgyList)  
   const [recipes, setRecipes] = UseLocalStorage("recipes", [])
   const [items, setItems] = UseLocalStorage("items", [])  
   
   //USE ROUTES TO LINK EACH RECIPE TO MAIN PAGE AND INGREDIENTS TO SHOPPING LIST COMPONENT
   return (
     <Routes>
-      <Route path="/*" element={<RecipeList recipes={recipes} setRecipes={setRecipes}/>}/>
-      <Route path="/recipe/:id" element={<Recipe details={recipes} updateDetails={setRecipes} shoppingItems={items} updateShoppingList={setItems}/>}/>                
+      <Route path="/*" element={<RecipeList recipes={recipes} setRecipes={setRecipes} categories={categories} updateCategories={setCategories}/>}/>
+      <Route path="/recipe/:id" element={<Recipe details={recipes} updateDetails={setRecipes} categories={categories} updateCategories={setCategories} shoppingItems={items} updateShoppingList={setItems}/>}/>                
       <Route path="/shopping-list" element={<ShoppingList items={items} setItems={setItems} listOfRecipes={recipes} updateListOfRecipes={setRecipes}/>}/>
     </Routes>  
   );

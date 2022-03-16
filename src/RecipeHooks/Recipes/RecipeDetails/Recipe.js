@@ -5,10 +5,10 @@ import RecipeDetails from "./RecipeDetails"
 /* PROPS PASSED FROM "App.js" - "details" AND "updateDetails" UPDATES "recipes" DATA. "shoppingItems" AND 
 "updateShoppingList" UPDATES "items" DATA FROM "ShoppingList" COMPONENT. "Recipe" FUNCTION DISPLAYS THE "RecipeDetails" 
 COMPONENT AND UPDATES "details" and "shoppingItems" WITH ANY USER CHANGES. */
-function Recipe({details, updateDetails, shoppingItems, updateShoppingList}) {
+function Recipe({categories, updateCategories, details, updateDetails, shoppingItems, updateShoppingList}) {
   //GRABS ID FROM THE RECIPE TITLE LINK
   let {id} = useParams() 
-  //FILTERS "details" PROP THAT MATCHES WITH THE RECIPE LINK ID THAT USER CLICKED ON 
+  //FILTERS "details" PROP THAT MATCHES WITH THE RECIPE LINK ID THAT USER CLICKED ON   
   let displayRecipe = details.filter(r => r.id === id)
 
   //FUNCTION UPDATES RECIPE BASED ON USER CHANGES AND PASSES DATA TO "updateDetails" TO CHANGE "recipes"

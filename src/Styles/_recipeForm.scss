@@ -23,19 +23,33 @@
     }
     .category-container {
         margin-top: 15px;
+        margin-bottom: 5px;
         .CategoryMenu-container {
             display: inline-block;
             select {
+                font-size: 1.3rem; 
                 color: #2c201e;
+                margin-right: 15px;
+            }
+            select:hover {
+                color: #2c201e8f;
             }
         } 
-    }
-    .category-container {
-        .CategoryList-container {
-            select:hover {
-                color: #2c201e8e;
-            }
+        /* STYLES ICON BUTTON FOR CATEGORY LIST MENU */
+        .iconButton-ctgy {
+            background-color:#85a3c246;
+        .ctgy-icon {
+            color: #6e5042a2;
+            text-shadow: 
+                0 0 4px #80635634;                 
         }
+        .ctgy-icon:hover {
+            color: #6e504267;
+        }
+        }   
+        .iconButton-ctgy:hover {
+            background-color:#6ea0d11a;
+        } 
     }
     .ingredientForm-container {
        input {

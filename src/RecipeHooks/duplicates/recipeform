@@ -16,7 +16,6 @@ INCLUDES A TITLE, INGREDIENTS, AND DIRECTIONS. */
 function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, add, toggleHome}) {  
   //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
   const [ctgy, setCtgy] = useState(ctgyName[0].category)
-  //FUNCTION TOGGLES BETWEEN "CategoryMenu" COMPONENT AND "RecipeForm" COMPONENT
   const [ctgyMenu, toggleCtgyMenu] =UseToggle()
   //USER INPUT THAT UPDATES RECIPE TITLE AND DIRECTIONS 
   const [recipe, setRecipe, reset] = UseInput({title: name, directions: ""})
@@ -112,18 +111,17 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
           e.preventDefault();
           //CHECKS THAT USER TYPED SOMETHING IN THE RECIPE TITLE INPUT
           if (recipe.title.length > 0) {
-            //FUNCTION PASSES USER DATA TO "recipeList" COMPONENT TO UPDATE "recipes" DATA
-            add({category: ctgy[0].category, ctgyId: ctgy[0].id, title: recipe.title, ingredients: items, directions: directions})
+          //FUNCTION PASSES USER DATA TO "recipeList" COMPONENT TO UPDATE "recipes" DATA
+          add({category: ctgy[0].category, title: recipe.title, ingredients: items, directions: directions})
           } else {
-            //OTHERWISE AN ALERT TELLS USER A TITLE WAS NOT ENTERED
-            alert("You have not entered a title for your recipe")
+          //OTHERWISE AN ALERT TELLS USER A TITLE WAS NOT ENTERED
+          alert("You have not entered a title for your recipe")
           }
           //CHECKS THAT USER HAS NOT TYPED ANYTHING BEFORE CLEARING INPUTS   
           if (recipe.directions.length <= 0) {
-            //FUNCTION CLEARS USER DATA FROM INPUTS
-            reset({title: "", directions: ""});
-          }        
-          selectCtgy("-- Select Category --")      
+          //FUNCTION CLEARS USER DATA FROM INPUTS
+          reset({title: "", directions: ""});
+          }              
           }}> 
               <h3 id="directions-header">Directions:</h3>
               <div className="textEditor">

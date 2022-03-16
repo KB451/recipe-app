@@ -21,7 +21,7 @@ function CategoryForm({ctgyName, editMode, toggle, toggleMenuBar, updateCtgy, ad
                     alert("Please enter a category name")
                 } else {
                     //FUNCTION TO EITHER EDIT OR ADD A CATEGORY
-                    editMode ? updateCtgy(ctgy, ctgyName[0].id) : addNewCtgy(ctgy);   
+                    editMode ? updateCtgy(ctgy) : addNewCtgy(ctgy);   
                     reset("-- Select Category --")   
                     //FUNCTIONS TOGGLE BACK TO "CategoryMenu" COMPONENT           
                     toggle(true);

@@ -49,12 +49,10 @@ function RecipeList({categories, updateCategories, recipes, setRecipes}) {
                     <CategoryMenu
                     categories={categories}
                     updateCategories={updateCategories}
-                    ctgyName={ctgy}
-                    selectCtgy={setCtgy} 
                     menuMode={ctgyMenu}
                     toggleMenu={toggleCtgyMenu}
-                    recipes={recipes}
-                    updateRecipes={setRecipes}
+                    ctgyName={ctgy}
+                    selectCtgy={setCtgy} 
                     />
                     {/* WHEN USER CLICKS BUTTON, DISPLAY TOGGLES TO "CategoryForm" COMPONENT */}                  
                     <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>                                                            
@@ -91,7 +89,7 @@ function RecipeList({categories, updateCategories, recipes, setRecipes}) {
             </div>  
         </div>
     )
-console.log(ctgy)
+
   return (
     <div>   
         {//DISPLAYS "RecipeForm" COMPONENT
@@ -114,12 +112,10 @@ console.log(ctgy)
         {ctgyMenu &&  <CategoryMenu
                        categories={categories}
                        updateCategories={updateCategories}
+                       menuMode={ctgyMenu}
+                       toggleMenu={toggleCtgyMenu}
                        ctgyName={ctgy}
                        selectCtgy={setCtgy} 
-                       menuMode={ctgyMenu}
-                       toggleMenu={toggleCtgyMenu}                      
-                       recipes={recipes}
-                       updateRecipes={setRecipes}
                        />
         }
     </div>
