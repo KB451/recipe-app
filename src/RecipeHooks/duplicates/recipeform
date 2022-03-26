@@ -17,7 +17,7 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
   //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
   const [ctgy, setCtgy] = useState(ctgyName[0].category)
   //FUNCTION TOGGLES BETWEEN "CategoryMenu" COMPONENT AND "RecipeForm" COMPONENT
-  const [ctgyMenu, toggleCtgyMenu] =UseToggle()
+  const [ctgyMenu, toggleCtgyMenu] = UseToggle()
   //USER INPUT THAT UPDATES RECIPE TITLE AND DIRECTIONS 
   const [recipe, setRecipe, reset] = UseInput({title: name, directions: ""})
   //FUNCTION TO SET RECIPE DIRECTIONS WITH USER INPUT TAKEN FROM "CodeEditor"  

@@ -15,9 +15,9 @@ DATA. THE "recipeForm" FUNCTION DISPLAYS INPUTS THAT TAKE IN USER DATA TO CREATE
 INCLUDES A TITLE, INGREDIENTS, AND DIRECTIONS. */
 function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, add, toggleHome}) {  
   //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
-  const [ctgy, setCtgy] = useState(ctgyName[0].category)
+  const [ctgy, setCtgy] = useState(ctgyName)
   //FUNCTION TOGGLES BETWEEN "CategoryMenu" COMPONENT AND "RecipeForm" COMPONENT
-  const [ctgyMenu, toggleCtgyMenu] =UseToggle()
+  const [ctgyMenu, toggleCtgyMenu] = UseToggle()
   //USER INPUT THAT UPDATES RECIPE TITLE AND DIRECTIONS 
   const [recipe, setRecipe, reset] = UseInput({title: name, directions: ""})
   //FUNCTION TO SET RECIPE DIRECTIONS WITH USER INPUT TAKEN FROM "CodeEditor"  
@@ -26,7 +26,7 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
   const [items, setNewItems] = useState([])  
 
   const resetCtgyAndToggleHome = () => {    
-    selectCtgy("-- Select Category --")
+    //selectCtgy("-- Select Category --")
     toggleHome()   
   }
   
@@ -48,6 +48,8 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
     })
     setNewItems(updatedItem)
   }   
+
+  console.log(ctgy)
   return (
       <div>
         {/* DISPLAYS ONLY THE "CategoryMenu" COMPONENT */}
@@ -69,13 +71,10 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
           </div>
 
         {/* COMPONENT LETS USER SELECT A CATEGORY FOR RECIPE */}
-        {ctgyName !== "-- Select Category --" ? 
-        <div className="category-input">
-          <input type="text" value={ctgy} onChange={e => setCtgy(e.target.value)}></input>
-          <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>      
-        </div> :
         <div className="category-container">
           <CategoryMenu 
+          // recipes={recipes}
+          // updateRecipes={setRecipes}
           categories={categories}
           updateCategories={updateCategories}
           menuMode={ctgyMenu}
@@ -85,7 +84,7 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
           selectCtgy={setCtgy}
           />
           <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>      
-        </div>}                
+        </div>              
 
         {/* INITAL VALUE SET TO USER INPUT FROM "recipeList" COMPONENT. USER CAN CHANGE OR ADD RECIPE TITLE */}
         <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>

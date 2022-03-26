@@ -93,13 +93,15 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
             //FUNCTION CALLS "getCtgy" AND PASSES "id" TO RETURN THE CATEGORY NAME SELECTED BY USER
             onChange={handleChange}
             > 
-                <option id={slctCtgyOpt[0].id} value={slctCtgyOpt[0].id}>-- Select Category --</option>                           
+                <option id={slctCtgyOpt[0].id} value={slctCtgyOpt[0].category}>{slctCtgyOpt[0].category}</option>                           
                 {ctgyOptions.map(c => (                                       
                     <option key={c.id} id={c.id} value={c.category}>{c.category}</option>                                
                 ))}                          
             </select> 
         </div> 
     )  
+
+    console.log(ctgyName)
     return (  
         <div className="CategoryMenu-container">
             {/* DISPLAYS JUST THE DROPDOWN ELEMENT THAT LISTS THE RECIPE CATEGORIES */}           

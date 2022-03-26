@@ -65,7 +65,8 @@ function RecipeList({categories, updateCategories, recipes, setRecipes}) {
                 
                 <div className="recipeTitle-container">                   
                     {/* FILTERS "recipes" SO THAT AS USER TYPES, A TITLE DISPLAYS IF THERE IS A MATCH */}
-                    {(ctgy === "-- Select Category --") && recipes.filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
+                    {(ctgy[0].category === "-- Select Category --") ||  (ctgy === "-- Select Category --") ? 
+                    recipes.filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
                         <div className="recipeTitle-content" key={r.id}>
                             {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
                             <Link className="link titleLink xs" to={`/recipe/${r.id}`}>
@@ -74,10 +75,9 @@ function RecipeList({categories, updateCategories, recipes, setRecipes}) {
                             {/* CALLS FUNCTION TO DELETE A RECIPE WHEN CLICKED */}
                             <button className="iconButton" onClick={() => removeRecipe(r.id)}><i className="fas fa-trash-alt trash"/></button>
                         </div>                                                                         
-                    ))}  
-                    
-                    {/* FILTERS "recipes" BY CATEGORY AND TITLE */}
-                    {(ctgy !==  "-- Select Category --") && recipes.filter(r => r.category === ctgy[0].category && r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
+                    )) :                     
+                    // OTHERWISE USER CAN FILTER "recipes" BY CATEGORY
+                    recipes.filter(r => r.category === ctgy[0].category && r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
                     <div className="recipeTitle-content" key={r.id}>
                         {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
                         <Link className="link titleLink xs" to={`/recipe/${r.id}`}>
