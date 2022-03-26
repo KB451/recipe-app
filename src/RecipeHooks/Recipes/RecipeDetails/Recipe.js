@@ -10,7 +10,7 @@ function Recipe({categories, updateCategories, details, updateDetails, shoppingI
   let {id} = useParams() 
   //FILTERS "details" PROP THAT MATCHES WITH THE RECIPE LINK ID THAT USER CLICKED ON   
   let displayRecipe = details.filter(r => r.id === id)
-
+  let updatedCtgy = categories.filter(c => displayRecipe[0].ctgyId === c.id)
   //FUNCTION UPDATES RECIPE BASED ON USER CHANGES AND PASSES DATA TO "updateDetails" TO CHANGE "recipes"
   const updateRecipe = (recipeId, editedRecipe) => {
     const updatedRecipe = details.map(r => {
@@ -44,14 +44,15 @@ function Recipe({categories, updateCategories, details, updateDetails, shoppingI
         return i
     })
     updateShoppingList(updateShoppedItems)      
-  }  
+  } 
+  console.log(updatedCtgy)
   return (
     <div className="App">     
       {displayRecipe.map(r => (
         <RecipeDetails 
         key={r.id}
         id={r.id}
-        ctgy={r.category}
+        ctgy={updatedCtgy[0].category}
         title={r.title}
         ingredients={r.ingredients}
         directions={r.directions}  

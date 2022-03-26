@@ -49,7 +49,7 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
     setNewItems(updatedItem)
   }   
 
-  console.log(ctgy)
+  
   return (
       <div>
         {/* DISPLAYS ONLY THE "CategoryMenu" COMPONENT */}

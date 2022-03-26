@@ -11,6 +11,7 @@ function CategoryForm({ctgyName, editMode, toggle, toggleMenuBar, updateCtgy, ad
         toggleMenuBar(true)    
         reset("-- Select Category --")    
     }
+    
     return (
         <div className="CategoryForm-container">
             <button className="iconButton" onClick={() => goBack()}><i className="fas fa-arrow-left arrow"></i></button> 
@@ -22,7 +23,6 @@ function CategoryForm({ctgyName, editMode, toggle, toggleMenuBar, updateCtgy, ad
                 } else {
                     //FUNCTION TO EITHER EDIT OR ADD A CATEGORY
                     editMode ? updateCtgy(ctgy, ctgyName[0].id) : addNewCtgy(ctgy);   
-                    reset("-- Select Category --")   
                     //FUNCTIONS TOGGLE BACK TO "CategoryMenu" COMPONENT           
                     toggle(true);
                     toggleMenuBar(true)

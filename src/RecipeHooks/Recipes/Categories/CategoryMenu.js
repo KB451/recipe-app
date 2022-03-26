@@ -68,7 +68,6 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
             return c
         })
         updateCategories(updatedCtgy)
-
         //VARIABLE UPDATES ANY RECIPES THAT MATCH "ctgyId" WITH EDITED VERSION OF CATEGORY
         const updateRecipeCtgy = recipes.map(r => {
             if (r.ctgyId === id) {
@@ -100,8 +99,7 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
             </select> 
         </div> 
     )  
-
-    console.log(ctgyName)
+    
     return (  
         <div className="CategoryMenu-container">
             {/* DISPLAYS JUST THE DROPDOWN ELEMENT THAT LISTS THE RECIPE CATEGORIES */}           
