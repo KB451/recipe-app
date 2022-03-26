@@ -68,83 +68,88 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
               <button className="iconButton" onClick={() => resetCtgyAndToggleHome()}><i className="fas fa-home home"/></button>
           </div>
 
-          {/* COMPONENT LETS USER SELECT A CATEGORY FOR RECIPE */}          
-          <div className="category-container">
-              <CategoryMenu 
-              categories={categories}
-              updateCategories={updateCategories}
-              menuMode={ctgyMenu}
-              toggleMenu={toggleCtgyMenu}
-              ctgyName={ctgy}
-              //PASSES FUNCTION THAT WILL UPDATE CATEGORY NAME TO WHATEVER USER SELECTS
-              selectCtgy={setCtgy}
-              />
-              <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>      
-          </div>       
+        {/* COMPONENT LETS USER SELECT A CATEGORY FOR RECIPE */}
+        {ctgyName !== "-- Select Category --" ? 
+        <div className="category-input">
+          <input type="text" value={ctgy} onChange={e => setCtgy(e.target.value)}></input>
+          <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>      
+        </div> :
+        <div className="category-container">
+          <CategoryMenu 
+          categories={categories}
+          updateCategories={updateCategories}
+          menuMode={ctgyMenu}
+          toggleMenu={toggleCtgyMenu}
+          ctgyName={ctgy}
+          //PASSES FUNCTION THAT WILL UPDATE CATEGORY NAME TO WHATEVER USER SELECTS
+          selectCtgy={setCtgy}
+          />
+          <button className="iconButton-ctgy" onClick={() => toggleCtgyMenu()}><i className="fas fa-ellipsis-h ctgy-icon"></i></button>      
+        </div>}                
 
-          {/* INITAL VALUE SET TO USER INPUT FROM "recipeList" COMPONENT. USER CAN CHANGE OR ADD RECIPE TITLE */}
-          <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
+        {/* INITAL VALUE SET TO USER INPUT FROM "recipeList" COMPONENT. USER CAN CHANGE OR ADD RECIPE TITLE */}
+        <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
 
-          <h3>Ingredients:</h3>
-          <div className="ingredientForm-container">
-              <IngredientForm 
-              // PASSES FUNCTION "addIngredients" TO INGREDIENTS FORM SO USER INPUT CAN BE ADDED TO INGREDIENTS ARRAY ("items")
-              addToRecipe={addIngredients}
-              />
-          </div>  
+        <h3>Ingredients:</h3>
+        <div className="ingredientForm-container">
+            <IngredientForm 
+            // PASSES FUNCTION "addIngredients" TO INGREDIENTS FORM SO USER INPUT CAN BE ADDED TO INGREDIENTS ARRAY ("items")
+            addToRecipe={addIngredients}
+            />
+        </div>  
 
-          <div className="ingredients-container">
-              {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
-              SO USER INPUT CAN UPDATE INGREDIENTS ARRAY ("items") */}
-              {items.map(i => (
-              <Ingredients
-              key={i.id}
-              id={i.id}
-              quantity={i.quantity}
-              item={i.item}
-              remove={removeIngredients}
-              edit={editIngredients}
-              />
-              ))}  
-          </div>                 
+        <div className="ingredients-container">
+            {/* DISPLAYS INGREDIENTS AND PASSES FUNCTIONS "removeIngredients" AND "editIngredients" TO "Ingredients" COMPONENT
+            SO USER INPUT CAN UPDATE INGREDIENTS ARRAY ("items") */}
+            {items.map(i => (
+            <Ingredients
+            key={i.id}
+            id={i.id}
+            quantity={i.quantity}
+            item={i.item}
+            remove={removeIngredients}
+            edit={editIngredients}
+            />
+            ))}  
+        </div>                 
 
-          <form onSubmit={e => {
-          e.preventDefault();
-          //CHECKS THAT USER TYPED SOMETHING IN THE RECIPE TITLE INPUT
-          if (recipe.title.length > 0) {
-            //FUNCTION PASSES USER DATA TO "recipeList" COMPONENT TO UPDATE "recipes" DATA
-            add({category: ctgy[0].category, ctgyId: ctgy[0].id, title: recipe.title, ingredients: items, directions: directions})
-          } else {
-            //OTHERWISE AN ALERT TELLS USER A TITLE WAS NOT ENTERED
-            alert("You have not entered a title for your recipe")
-          }
-          //CHECKS THAT USER HAS NOT TYPED ANYTHING BEFORE CLEARING INPUTS   
-          if (recipe.directions.length <= 0) {
-            //FUNCTION CLEARS USER DATA FROM INPUTS
-            reset({title: "", directions: ""});
-          }        
-          selectCtgy("-- Select Category --")      
-          }}> 
-              <h3 id="directions-header">Directions:</h3>
-              <div className="textEditor">
-              {/* TEXT EIDTOR COMPONENT - REPLACES TEXTAREA ELEMENT. ALLOWS USER TO TYPE IN RECIPE DIRECTIONS */}
-              <CodeEditor
-              value={directions}
-              language="js"
-              placeholder="directions"
-              onChange={(evn) => setDirections(evn.target.value)}
-              padding={15}
-              style={{
-                fontSize: 14,
-                color: "#2c201e",
-                borderRadius: 10,
-                backgroundColor: 'rgb(252, 248, 248)',
-                fontFamily: 'Montserrat,sans-serif'
-                }}
-              />
-              </div>
-              <button className="regBtns">save</button>
-          </form>
+        <form onSubmit={e => {
+        e.preventDefault();
+        //CHECKS THAT USER TYPED SOMETHING IN THE RECIPE TITLE INPUT
+        if (recipe.title.length > 0) {
+          //FUNCTION PASSES USER DATA TO "recipeList" COMPONENT TO UPDATE "recipes" DATA
+          add({category: ctgy[0].category, ctgyId: ctgy[0].id, title: recipe.title, ingredients: items, directions: directions})
+        } else {
+          //OTHERWISE AN ALERT TELLS USER A TITLE WAS NOT ENTERED
+          alert("You have not entered a title for your recipe")
+        }
+        //CHECKS THAT USER HAS NOT TYPED ANYTHING BEFORE CLEARING INPUTS   
+        if (recipe.directions.length <= 0) {
+          //FUNCTION CLEARS USER DATA FROM INPUTS
+          reset({title: "", directions: ""});
+        }        
+        selectCtgy("-- Select Category --")      
+        }}> 
+            <h3 id="directions-header">Directions:</h3>
+            <div className="textEditor">
+            {/* TEXT EIDTOR COMPONENT - REPLACES TEXTAREA ELEMENT. ALLOWS USER TO TYPE IN RECIPE DIRECTIONS */}
+            <CodeEditor
+            value={directions}
+            language="js"
+            placeholder="directions"
+            onChange={(evn) => setDirections(evn.target.value)}
+            padding={15}
+            style={{
+              fontSize: 14,
+              color: "#2c201e",
+              borderRadius: 10,
+              backgroundColor: 'rgb(252, 248, 248)',
+              fontFamily: 'Montserrat,sans-serif'
+              }}
+            />
+            </div>
+            <button className="regBtns">save</button>
+        </form>
       </div>}
     </div>
   );

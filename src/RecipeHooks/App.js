@@ -31,6 +31,7 @@ function App() {
   
   //VARIABLE ASSIGNED ARRAY WITH INITIAL VALUES OF RECIPE CATEGORIES THAT USER CAN CHOOSE FROM 
   const ctgyList = [
+    {category: "-- Select Category --", id: uuidv4()},
     {category: "Appetizers", id: uuidv4()},
     {category: "Soups & Salads", id: uuidv4()},
     {category: "Main Dishes: Meat", id: uuidv4()},

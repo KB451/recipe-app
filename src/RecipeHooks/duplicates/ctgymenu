@@ -4,7 +4,7 @@ import UseToggle from "../Inputs/UseToggle";
 import CategoryForm from "./CategoryForm";
 
 //FUNCTION ALLOWS USER TO ADD, DELETE, OR EDIT A RECIPE CATEGORY
-function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuMode, toggleMenu}) {
+function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuMode, toggleMenu, recipes, updateRecipes}) {
     //alphabatizes category names in dropdown
     // let sortAlpha = (ctgyList) => {ctgyList.sort((a,b) => {
     //     const value1 = a.category.toLowerCase()
@@ -20,7 +20,7 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
 
     //     setCategories(ctgyList)
     // }      
-    
+    console.log(ctgyName)
     //FUNCTIONS TOGGLE TO DETERMINE WHAT WILL DISPLAY TO USER
     const [hideMenuBar, toggleHideMenuBar] = UseToggle();
     const [isAdd, toggleIsAdd] = UseToggle();
@@ -46,12 +46,16 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
     }
     //FUNCTION RETURNS CATEGORY NAME SELECTED BASED OFF ITS ID
     const getCtgy = (id) => {
-        const ctgy = categories.filter(c => {
-            if (c.id === id) {
-                return c.category
-            }
-        })
-        selectCtgy(ctgy)
+        if (id === "-- Select Category --") {
+            selectCtgy("-- Select Category --")
+        } else {
+            const ctgy = categories.filter(c => {
+                if (c.id === id) {
+                    return c.category
+                } 
+            })
+            selectCtgy(ctgy)
+        }       
     }
  
     //FUNCTION ADDS NEW CATEGORY USER INPUTS THROUGH "CategoryForm" COMPONENT
@@ -59,7 +63,8 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
         updateCategories([...categories, {category: newCtgy.category, id: uuidv4()}])       
     } 
     //FUNCTION EDITS CATEGORY SELECTED BY USER THROUGH "CategoryForm" COMPONENT
-    const editCtgy = (update) => {
+    const editCtgy = (update, id) => {
+        //VARIABLE UPDATES EDITED CATEGORY IN DROPDOWN MENU
         const updatedCtgy = categories.map(c => {
             if (c.id === ctgyName[0].id) {
                 return {...c, category: update.category}
@@ -67,6 +72,15 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
             return c
         })
         updateCategories(updatedCtgy)
+
+        //VARIABLE UPDATES ANY RECIPES THAT MATCH "ctgyId" WITH EDITED VERSION OF CATEGORY
+        const updateRecipeCtgy = recipes.map(r => {
+            if (r.ctgyId === id) {
+                return {...r, category: update.category}
+            }
+            return r
+        })
+        updateRecipes(updateRecipeCtgy)
     }
     //FUNCTION REMOVES CATEGORY FROM DROPDOWN LIST
     const removeCtgy = () => {

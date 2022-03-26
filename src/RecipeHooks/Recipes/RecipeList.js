@@ -91,7 +91,7 @@ function RecipeList({categories, updateCategories, recipes, setRecipes}) {
             </div>  
         </div>
     )
-console.log(ctgy)
+
   return (
     <div>   
         {//DISPLAYS "RecipeForm" COMPONENT

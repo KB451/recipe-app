@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import UseToggle from "../Inputs/UseToggle";
 import CategoryForm from "./CategoryForm";
@@ -41,23 +41,19 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
     }
     //FUNCTION RESETS CATEGORY TO DISPLAY LIST OF RECIPES WHEN GOING BACK TO "RecipeList" COMPONENT
     const resetCtgyName = () => {         
-        selectCtgy("-- Select Category --")                  
+        // selectCtgy(ctgyName[0].category)                  
         toggleMenu(true)
     }
     //FUNCTION RETURNS CATEGORY NAME SELECTED BASED OFF ITS ID
-    const getCtgy = (id) => {
-        if (id === "-- Select Category --") {
-            selectCtgy("-- Select Category --")
-        } else {
-            const ctgy = categories.filter(c => {
-                if (c.id === id) {
-                    return c.category
-                } 
-            })
-            selectCtgy(ctgy)
-        }       
-    }
- 
+    const handleChange = (e) => {   
+        const id = e.target.children[e.target.selectedIndex].id;     
+        const ctgy = categories.filter(c => {
+            if (c.id === id) {
+                return e.target.value
+            } 
+        })   
+        selectCtgy(ctgy)          
+    }    
     //FUNCTION ADDS NEW CATEGORY USER INPUTS THROUGH "CategoryForm" COMPONENT
     const addCtgy = (newCtgy) => {
         updateCategories([...categories, {category: newCtgy.category, id: uuidv4()}])       
@@ -86,17 +82,20 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
     const removeCtgy = () => {
         updateCategories(categories.filter(c => c.id !== ctgyName[0].id))
     }
-
+   
     //VARIABLE DISPLAYS THE LIST OF CATEGORIES THROUGH A DROPDOWN ELEMENT
+    const slctCtgyOpt = categories.filter(c => c.category === "-- Select Category --")
+    const ctgyOptions = categories.filter(c => c.category !== "-- Select Category --")
     const displayCategories = (
         <div className="CategoryList-container">
             <select
+            value={ctgyName[0].category}
             //FUNCTION CALLS "getCtgy" AND PASSES "id" TO RETURN THE CATEGORY NAME SELECTED BY USER
-            onChange={e => getCtgy(e.target.value)}
+            onChange={handleChange}
             > 
-                <option value="-- Select Category --">-- Select Category --</option>
-                {categories.map(c => (                    
-                    <option key={c.id} id={c.id} value={c.id}>{c.category}</option>                                
+                <option id={slctCtgyOpt[0].id} value={slctCtgyOpt[0].id}>-- Select Category --</option>                           
+                {ctgyOptions.map(c => (                                       
+                    <option key={c.id} id={c.id} value={c.category}>{c.category}</option>                                
                 ))}                          
             </select> 
         </div> 
