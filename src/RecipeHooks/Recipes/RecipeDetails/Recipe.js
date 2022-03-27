@@ -47,7 +47,6 @@ function Recipe({categories, updateCategories, details, updateDetails, shoppingI
     })
     updateShoppingList(updateShoppedItems)      
   }   
-  console.log(details)
   return (
     <div className="App">     
       {displayRecipe.map(r => (

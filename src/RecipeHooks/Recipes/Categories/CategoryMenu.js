@@ -4,28 +4,26 @@ import UseToggle from "../Inputs/UseToggle";
 import CategoryForm from "./CategoryForm";
 
 //FUNCTION ALLOWS USER TO ADD, DELETE, OR EDIT A RECIPE CATEGORY
-function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuMode, toggleMenu, recipes, updateRecipes}) {
-    //alphabatizes category names in dropdown
-    // let sortAlpha = (ctgyList) => {ctgyList.sort((a,b) => {
-    //     const value1 = a.category.toLowerCase()
-    //     const value2 = b.category.toLowerCase()
-    //     if (value1 < value2) {
-    //         return -1
-    //     } 
-    //     if (value1 > value2) {
-    //         return 1
-    //     }
-    //     return 0
-    //     }) 
-
-    //     setCategories(ctgyList)
-    // }      
-    
+function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuMode, toggleMenu, recipes, updateRecipes}) {    
     //FUNCTIONS TOGGLE TO DETERMINE WHAT WILL DISPLAY TO USER
     const [hideMenuBar, toggleHideMenuBar] = UseToggle();
     const [isAdd, toggleIsAdd] = UseToggle();
     const [isEdit, toggleIsEdit] = UseToggle();
 
+    //ALPHABETIZES CATEGORY NAMES IN DROPDOWN
+    const sortAlpha = (ctgyName) => {
+        return ctgyName.sort((a,b) => {
+            const value1 = a.category.toLowerCase()
+            const value2 = b.category.toLowerCase()
+            if (value1 < value2) {
+                return -1
+            } 
+            if (value1 > value2) {
+                return 1
+            }
+            return 0
+        })    
+    }  
     //FUNCTION TOGGLES BETWEEN MENU BAR AND "CategoryForm" COMPONENT
     const hideMenu = (toggleMenuBar) => {
         toggleHideMenuBar();
@@ -88,7 +86,7 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
             onChange={handleChange}
             > 
                 <option id={slctCtgyOpt[0].id} value={slctCtgyOpt[0].category}>{slctCtgyOpt[0].category}</option>                           
-                {ctgyOptions.map(c => (                                       
+                {sortAlpha(ctgyOptions).map(c => (                                       
                     <option key={c.id} id={c.id} value={c.category}>{c.category}</option>                                
                 ))}                          
             </select> 
