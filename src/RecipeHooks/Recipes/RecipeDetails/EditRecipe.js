@@ -8,7 +8,7 @@ import Ingredients from "../Ingredients/Ingredients"
 import CategoryMenu from '../Categories/CategoryMenu';
 
 //PROPS PASSED FROM "RecipeDetails" COMPONENT. "EditRecipe" FUNCTION DISPLAYS INPUTS SO USER CAN EDIT RECIPE
-function EditRecipe({recipeId, categories, updateCategories, ctgyName, name, ingredients, instructions, saveUpdate, editMode}) { 
+function EditRecipe({recipes, updateRecipes, recipeId, categories, updateCategories, ctgyName, name, ingredients, instructions, saveUpdate, editMode}) { 
   //FUNCTION UPDATES RECIPE CATEGORY WHEN USER SELECTS A CATEGORY NAME
   const [ctgy, setCtgy] = useState(ctgyName)
   //FUNCTION TOGGLES BETWEEN "CategoryMenu" COMPONENT AND "EditForm" COMPONENT
@@ -37,12 +37,13 @@ function EditRecipe({recipeId, categories, updateCategories, ctgyName, name, ing
       return i
     })
     setNewItems(updatedItem)
-  }  
-  console.log(ctgy) 
+  }   
   return (
     <div className="EditRecipe-container"> 
       {/* DISPLAYS ONLY THE "CategoryMenu" COMPONENT */}
       {ctgyMenu && <CategoryMenu 
+        recipes={recipes}
+        updateRecipes={updateRecipes}
         categories={categories}
         updateCategories={updateCategories}
         menuMode={ctgyMenu}
@@ -61,6 +62,8 @@ function EditRecipe({recipeId, categories, updateCategories, ctgyName, name, ing
           {/* COMPONENT LETS USER SELECT A CATEGORY FOR RECIPE */}
           <div className="category-container">
             <CategoryMenu 
+            recipes={recipes}
+            updateRecipes={updateRecipes}
             categories={categories}
             updateCategories={updateCategories}
             menuMode={ctgyMenu}

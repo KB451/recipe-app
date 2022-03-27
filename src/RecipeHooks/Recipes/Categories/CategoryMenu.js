@@ -38,12 +38,7 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
         } else {
             hideMenu(toggleIsEdit)
         }
-    }
-    //FUNCTION RESETS CATEGORY TO DISPLAY LIST OF RECIPES WHEN GOING BACK TO "RecipeList" COMPONENT
-    const resetCtgyName = () => {         
-        // selectCtgy(ctgyName[0].category)                  
-        toggleMenu(true)
-    }
+    }  
     //FUNCTION RETURNS CATEGORY NAME SELECTED BASED OFF ITS ID
     const handleChange = (e) => {   
         const id = e.target.children[e.target.selectedIndex].id;     
@@ -99,7 +94,6 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
             </select> 
         </div> 
     )  
-    
     return (  
         <div className="CategoryMenu-container">
             {/* DISPLAYS JUST THE DROPDOWN ELEMENT THAT LISTS THE RECIPE CATEGORIES */}           
@@ -109,7 +103,7 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
             {menuMode && !hideMenuBar &&
                 <div className="CategoryMenuBar-container">
                     <div className="menuBar-icon-container">
-                        <button className="iconButton" onClick={() => resetCtgyName()}><i className="fas fa-arrow-left arrow"></i></button>                 
+                        <button className="iconButton" onClick={() => toggleMenu()}><i className="fas fa-arrow-left arrow"></i></button>                 
                         <button className="iconButton" onClick={() => hideMenu(toggleIsAdd)}><i className="fas fa-plus add"/></button> 
                         <button className="iconButton" onClick={() => alertToSelectCtgy()}><i className="fas fa-pencil-alt edit"/></button>  
                         <button className="iconButton" onClick={() => removeCtgy()}><i className="fas fa-trash-alt trash"/></button>  
@@ -133,8 +127,8 @@ function CategoryMenu({categories, updateCategories, ctgyName, selectCtgy, menuM
                     <CategoryForm
                     ctgyName={ctgyName}
                     editMode={isEdit}
-                    toggle={toggleIsEdit}
-                    toggleMenuBar={toggleHideMenuBar}
+                    toggleBack={hideMenu}
+                    toggleEdit={toggleIsEdit}
                     updateCtgy={editCtgy}
                     reset={selectCtgy}
                     />

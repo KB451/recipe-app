@@ -7,7 +7,7 @@ import HaveIngredient from "../Ingredients/HaveIngredient"
 /* PROPS ARE PASSED FROM "Recipe" COMPONENT. "RecipeDetails" FUNCTION DISPLAYS THE DETAILS OF 
 A RECIPE OR THE FORM TO EDIT THE RECIPE. THE DETAILS INCLUDE THE RECIPE TITLE, INGREDIENTS, 
 AND DIRECTIONS, PLUS BUTTONS TO EDIT OR DELETE THE RECIPE */
-function RecipeDetails({ id, categories, updateCategories, ctgy, title, ingredients, directions, update, removeRecipe, updateIngredients, shoppingItems, addItemsToShoppingList }) {  
+function RecipeDetails({ recipes, updateRecipes, id, categories, updateCategories, ctgy, title, ingredients, directions, update, removeRecipe, updateIngredients, shoppingItems, addItemsToShoppingList }) {  
  
   //FUNCTION TOGGLES BETWEEN RECIPE DETAILS AND FORM TO EDIT THE RECIPE
   const [isEdit, toggleEdit] = UseToggle()   
@@ -28,6 +28,8 @@ function RecipeDetails({ id, categories, updateCategories, ctgy, title, ingredie
           saveUpdate={update}
           categories={categories}
           updateCategories={updateCategories}
+          recipes={recipes}
+          updateRecipes={updateRecipes}
           /> 
         </div>        
     )

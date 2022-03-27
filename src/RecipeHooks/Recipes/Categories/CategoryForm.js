@@ -2,13 +2,12 @@ import React from 'react';
 import UseInput from "../Inputs/UseInput";
 
 //FUNCTION TO EITHER LET USER ADD A NEW CATEGORY OR EDIT ONE THEY SELECTED
-function CategoryForm({ctgyName, editMode, toggle, toggleMenuBar, updateCtgy, addNewCtgy, reset}) {   
+function CategoryForm({ctgyName, editMode, toggleEdit, toggleBack, updateCtgy, addNewCtgy, reset}) {   
     //FUNCTION TO UPDATE CATEGORY NAME TO WHAT USER INPUTS
     const [ctgy, setCtgy] = UseInput(editMode ? {category: ctgyName[0].category} : {category: ""})   
     //FUNCTION THAT TOGGLES USER BACK TO MENU BAR AND RESETS CATEGORY 
     const goBack = () => {    
-        toggle(true);        
-        toggleMenuBar(true)    
+        toggleBack(toggleEdit)    
         reset("-- Select Category --")    
     }
     
@@ -24,8 +23,7 @@ function CategoryForm({ctgyName, editMode, toggle, toggleMenuBar, updateCtgy, ad
                     //FUNCTION TO EITHER EDIT OR ADD A CATEGORY
                     editMode ? updateCtgy(ctgy, ctgyName[0].id) : addNewCtgy(ctgy);   
                     //FUNCTIONS TOGGLE BACK TO "CategoryMenu" COMPONENT           
-                    toggle(true);
-                    toggleMenuBar(true)
+                    toggleBack(toggleEdit)
                 }               
             }}           
             >

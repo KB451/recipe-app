@@ -6,6 +6,7 @@ import RecipeDetails from "./RecipeDetails"
 "updateShoppingList" UPDATES "items" DATA FROM "ShoppingList" COMPONENT. "Recipe" FUNCTION DISPLAYS THE "RecipeDetails" 
 COMPONENT AND UPDATES "details" and "shoppingItems" WITH ANY USER CHANGES. */
 function Recipe({categories, updateCategories, details, updateDetails, shoppingItems, updateShoppingList}) {
+  console.log(details)
   //GRABS ID FROM THE RECIPE TITLE LINK
   let {id} = useParams() 
   //FILTERS "details" PROP THAT MATCHES WITH THE RECIPE LINK ID THAT USER CLICKED ON   
@@ -16,6 +17,7 @@ function Recipe({categories, updateCategories, details, updateDetails, shoppingI
   //FUNCTION UPDATES RECIPE BASED ON USER CHANGES AND PASSES DATA TO "updateDetails" TO CHANGE "recipes"
   const updateRecipe = (recipeId, editedRecipe) => {
     const updatedRecipe = details.map(r => {
+      console.log(r)
       if (r.id === recipeId) {
           return {...r, category: editedRecipe.category, ctgyId: editedRecipe.ctgyId, title: editedRecipe.title, ingredients: editedRecipe.ingredients, directions: editedRecipe.directions}
         }
