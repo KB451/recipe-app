@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import UseInput from "../Inputs/UseInput"
@@ -23,12 +22,7 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
   //FUNCTION TO SET RECIPE DIRECTIONS WITH USER INPUT TAKEN FROM "CodeEditor"  
   const [directions, setDirections] = React.useState("");
   //FUNCTION THAT UPDATES INGREDIENTS ARRAY
-  const [items, setNewItems] = useState([])  
-
-  const resetCtgyAndToggleHome = () => {    
-    //selectCtgy("-- Select Category --")
-    toggleHome()   
-  }
+  const [items, setNewItems] = useState([])    
   
   //FUNCTION ADDS ITEM TO INGREDIENTS ARRAY
   const addIngredients = (newItem) => {
@@ -47,9 +41,7 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
       return i
     })
     setNewItems(updatedItem)
-  }   
-
-  
+  }     
   return (
       <div>
         {/* DISPLAYS ONLY THE "CategoryMenu" COMPONENT */}
@@ -64,17 +56,16 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
           />
         } 
 
+        {/* DISPLAYS FORM FOR USER TO CREATE A RECIPE */}
         {!ctgyMenu &&  <div className="App RecipeForm-container">     
           <div className="homeLink-container">
               {/* BUTTON CALLS "toggleHome" FUNCTION TO GO BACK TO DISPLAYING LIST OF RECIPE TITLES */}
-              <button className="iconButton" onClick={() => resetCtgyAndToggleHome()}><i className="fas fa-home home"/></button>
+              <button className="iconButton" onClick={() => toggleHome()}><i className="fas fa-home home"/></button>
           </div>
 
         {/* COMPONENT LETS USER SELECT A CATEGORY FOR RECIPE */}
         <div className="category-container">
           <CategoryMenu 
-          // recipes={recipes}
-          // updateRecipes={setRecipes}
           categories={categories}
           updateCategories={updateCategories}
           menuMode={ctgyMenu}

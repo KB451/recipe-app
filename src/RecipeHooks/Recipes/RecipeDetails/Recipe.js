@@ -10,12 +10,15 @@ function Recipe({categories, updateCategories, details, updateDetails, shoppingI
   let {id} = useParams() 
   //FILTERS "details" PROP THAT MATCHES WITH THE RECIPE LINK ID THAT USER CLICKED ON   
   let displayRecipe = details.filter(r => r.id === id)
+  //IF USER EDITS A CATEGORY NAME, THIS FILTERS THE MOST CURRENT VERSION OF THAT NAME BASED OFF THE CATEGORY ID 
   let updatedCtgy = categories.filter(c => displayRecipe[0].ctgyId === c.id)
+  
   //FUNCTION UPDATES RECIPE BASED ON USER CHANGES AND PASSES DATA TO "updateDetails" TO CHANGE "recipes"
   const updateRecipe = (recipeId, editedRecipe) => {
     const updatedRecipe = details.map(r => {
+      console.log(r)
       if (r.id === recipeId) {
-          return {...r, title: editedRecipe.title, ingredients: editedRecipe.ingredients, directions: editedRecipe.directions}
+          return {...r, category: editedRecipe.category, ctgyId: editedRecipe.ctgyId, title: editedRecipe.title, ingredients: editedRecipe.ingredients, directions: editedRecipe.directions}
         }
           return r
       })
@@ -44,18 +47,20 @@ function Recipe({categories, updateCategories, details, updateDetails, shoppingI
         return i
     })
     updateShoppingList(updateShoppedItems)      
-  } 
-  console.log(updatedCtgy)
+  }   
   return (
     <div className="App">     
       {displayRecipe.map(r => (
         <RecipeDetails 
         key={r.id}
         id={r.id}
-        ctgy={updatedCtgy[0].category}
+        //PASSES MOST CURRENT CTGY NAME TO "RecipeDetails" COMPONENT
+        ctgy={updatedCtgy}
         title={r.title}
         ingredients={r.ingredients}
         directions={r.directions}  
+        categories={categories}
+        updateCategories={updateCategories}
         //PROPS BELOW ARE FUNCTIONS PASSED TO "RecipeDetails" COMPONENT
         update={updateRecipe} 
         removeRecipe={removeRecipe} 

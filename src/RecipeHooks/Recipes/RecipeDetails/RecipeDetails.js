@@ -7,7 +7,7 @@ import HaveIngredient from "../Ingredients/HaveIngredient"
 /* PROPS ARE PASSED FROM "Recipe" COMPONENT. "RecipeDetails" FUNCTION DISPLAYS THE DETAILS OF 
 A RECIPE OR THE FORM TO EDIT THE RECIPE. THE DETAILS INCLUDE THE RECIPE TITLE, INGREDIENTS, 
 AND DIRECTIONS, PLUS BUTTONS TO EDIT OR DELETE THE RECIPE */
-function RecipeDetails({ id, ctgy, title, ingredients, directions, update, removeRecipe, updateIngredients, shoppingItems, addItemsToShoppingList }) {  
+function RecipeDetails({ id, categories, updateCategories, ctgy, title, ingredients, directions, update, removeRecipe, updateIngredients, shoppingItems, addItemsToShoppingList }) {  
  
   //FUNCTION TOGGLES BETWEEN RECIPE DETAILS AND FORM TO EDIT THE RECIPE
   const [isEdit, toggleEdit] = UseToggle()   
@@ -20,11 +20,14 @@ function RecipeDetails({ id, ctgy, title, ingredients, directions, update, remov
         <div className="RecipeDetails-EditRecipe-container">
           <EditRecipe
           recipeId={id}
+          ctgyName={ctgy}
           name={title}
           ingredients={ingredients}
           instructions={directions}
           editMode={toggleEdit}
           saveUpdate={update}
+          categories={categories}
+          updateCategories={updateCategories}
           /> 
         </div>        
     )
@@ -41,9 +44,8 @@ function RecipeDetails({ id, ctgy, title, ingredients, directions, update, remov
               <Link className="iconLinks" to="/" onClick={() => removeRecipe(id)}><i className="iconButton fas fa-trash-alt trash"/></Link> 
           </div>       
        
-        <h4>{ctgy}</h4>
-        <h2>{title}</h2> 
-        
+        <h4>{ctgy[0].category}</h4>
+        <h2>{title}</h2>        
 
         <div className="RecipeDetails-haveIngredient-container">            
           <HaveIngredient 

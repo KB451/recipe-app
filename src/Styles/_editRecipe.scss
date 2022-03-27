@@ -13,6 +13,9 @@
     /* STYLES LEFT ARROW ICON */
     .titleInput-container {
         margin-bottom: 40px;
+        input {
+            text-align: center;
+        }
         .arrow {
             margin-right: 15px;
             color: #764b36;
@@ -20,6 +23,29 @@
         }
         .arrow:hover {
             color: #ca8c6c;
+        }
+        .category-container {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            .CategoryMenu-container {
+                display: inline-block;
+            }
+            /* STYLES ICON BUTTON FOR CATEGORY LIST MENU */
+            .iconButton-ctgy {
+                margin-left: 15px;
+                background-color:#85a3c246;
+            .ctgy-icon {
+                color: #6e5042a2;
+                text-shadow: 
+                    0 0 4px #80635634;                 
+            }
+            .ctgy-icon:hover {
+                color: #6e504267;
+            }
+            }   
+            .iconButton-ctgy:hover {
+                background-color:#6ea0d11a;
+            } 
         }
     } 
     #ingredients-title {        
@@ -73,9 +99,10 @@
         border: 1px solid rgb(135,85,34,0.3);
     } 
     form {
-        padding-bottom: 30px;
-        /* CONTAINER FOR "CodeEditor" COMPONENT FROM "react-textarea-code-editor" */
-        .textEditor {
+        padding-bottom: 30px;    
+        /* CONTAINER FOR "CodeEditor" COMPONENT FROM "react-textarea-code-editor" */        
+        .textEditor {            
+            background-color: rgb(252, 248, 248); 
             color:#2c201e;
             border: 1px solid rgb(135,85,34,0.3);
             border-radius: 5px;
@@ -88,8 +115,8 @@
             overflow: auto;
             scrollbar-width: thin;        
             scrollbar-color: rgba(196, 179, 202, 0.3) rgba(216, 210, 218, 0.3);       
-            /* END SCROLLBAR */
-        }
+            /* END SCROLLBAR */                      
+        }       
         /* REST OF CODE FOR SCROLLBAR */
         .textEditor::-webkit-scrollbar {
             /* CONTROLS PHYSICAL SIZE OF WHAT SCROLLBAR LOOKS LIKE */
