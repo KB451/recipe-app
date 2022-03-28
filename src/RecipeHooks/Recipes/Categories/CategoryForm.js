@@ -8,7 +8,7 @@ function CategoryForm({ctgyName, editMode, toggleEdit, toggleBack, updateCtgy, a
     //FUNCTION THAT TOGGLES USER BACK TO MENU BAR AND RESETS CATEGORY 
     const goBack = () => {    
         toggleBack(toggleEdit)    
-        reset(ctgyName)    
+        reset(ctgy[0].category)    
     }    
     return (
         <div className="CategoryForm-container">

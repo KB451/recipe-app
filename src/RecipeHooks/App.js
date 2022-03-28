@@ -40,8 +40,7 @@ function App() {
     {category: "Desserts", id: uuidv4()},
     {category: "Beverages", id: uuidv4()},
   ]
- 
- 
+   
   /* REPLACED ABOVE OLD CODE WITH THIS:  
   "UseLocalStorage.js" FILE HAS TWO FUNCTIONS - ONE RETRIEVES DATA FROM LOCAL STORAGE
   AND THE OTHER SAVES DATA */    

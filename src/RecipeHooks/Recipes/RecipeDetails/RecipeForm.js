@@ -78,7 +78,7 @@ function RecipeForm({categories, updateCategories, ctgyName, selectCtgy, name, a
         </div>              
 
         {/* INITAL VALUE SET TO USER INPUT FROM "recipeList" COMPONENT. USER CAN CHANGE OR ADD RECIPE TITLE */}
-        <input type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
+        <input className="titleInput" type="text" placeholder="recipe name" name="title" value={recipe.title} onChange={setRecipe}></input>
 
         <h3>Ingredients:</h3>
         <div className="ingredientForm-container">
