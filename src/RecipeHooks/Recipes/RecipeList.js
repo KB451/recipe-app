@@ -17,7 +17,22 @@ function RecipeList({categories, updateCategories, recipes, setRecipes}) {
     //FUNCTION TOGGLES BETWEEN "CategoryMenu" COMPONENT AND "RecipeList" COMPONENT
     const [ctgyMenu, toggleCtgyMenu] = UseToggle()
     //FUNCTION TOGGLES BETWEEN FORM TO CREATE NEW RECIPE AND THE LIST OF RECIPES ALREADY CREATED
-    const [isForm, toggleForm] = UseToggle()   
+    const [isForm, toggleForm] = UseToggle()  
+    
+    //ALPHABETIZES RECIPES BY THEIR TITLE 
+    const sortAlpha = (recName) => {
+    return recName.sort((a,b) => {
+        const value1 = a.title.toLowerCase()
+        const value2 = b.title.toLowerCase()
+        if (value1 < value2) {
+            return -1
+        } 
+        if (value1 > value2) {
+            return 1
+        }
+            return 0
+        })    
+    } 
 
     /* FUNCTION CALLS "setRecipes" TO ADD NEW RECIPE TO "recipes" DATA. ALSO CLEARS USER INPUTS, AND TOGGLES 
     USER OUT OF FORM AND BACK TO LIST OF RECIPES */
@@ -66,7 +81,7 @@ function RecipeList({categories, updateCategories, recipes, setRecipes}) {
                 <div className="recipeTitle-container">                   
                     {/* FILTERS "recipes" SO THAT AS USER TYPES, A TITLE DISPLAYS IF THERE IS A MATCH */}
                     {(ctgy[0].category === "-- Select Category --") ||  (ctgy === "-- Select Category --") ? 
-                    recipes.filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
+                    sortAlpha(recipes).filter(r => r.title.toLowerCase().includes(title.toLowerCase())).map(r => (
                         <div className="recipeTitle-content" key={r.id}>
                             {/* RECIPE TITLE IS TURNED INTO A LINK THAT USER CLICKS TO SEE RECIPE DETAILS */}
                             <Link className="link titleLink xs" to={`/recipe/${r.id}`}>
